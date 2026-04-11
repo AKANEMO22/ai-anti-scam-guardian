@@ -37,11 +37,9 @@ class GuardianInCallService : InCallService() {
             Call.STATE_RINGING -> {
                 val caller = resolveCallerLabel(call)
                 FallbackRingingStore.onRinging(caller)
-                if (FallbackRingingStore.consumeLaunchRequest()) {
-                    CallNotificationController.showIncomingCall(this, FallbackRingingStore.currentLabel())
-                    runCatching {
-                        startActivity(IncomingCallActivity.buildIntent(this))
-                    }
+                CallNotificationController.showIncomingCall(this, FallbackRingingStore.currentLabel())
+                runCatching {
+                    startActivity(IncomingCallActivity.buildIntent(this))
                 }
             }
 

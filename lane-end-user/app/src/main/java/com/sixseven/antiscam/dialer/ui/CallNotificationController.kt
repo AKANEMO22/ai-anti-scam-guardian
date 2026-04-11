@@ -139,6 +139,13 @@ object CallNotificationController {
             return false
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            val manager = context.getSystemService(NotificationManager::class.java)
+            if (!manager.canUseFullScreenIntent()) {
+                return false
+            }
+        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             return true
         }

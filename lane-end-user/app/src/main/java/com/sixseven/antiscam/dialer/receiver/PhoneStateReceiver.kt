@@ -25,7 +25,8 @@ class PhoneStateReceiver : BroadcastReceiver() {
                 TelephonyManager.EXTRA_STATE_RINGING -> {
                     val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
                     FallbackRingingStore.onRinging(incomingNumber)
-                    if (FallbackRingingStore.consumeLaunchRequest()) {
+                    val hasTelecomCall = ActiveCallStore.current() != null
+                    if (!hasTelecomCall && FallbackRingingStore.consumeLaunchRequest()) {
                         CallNotificationController.showIncomingCall(context, FallbackRingingStore.currentLabel())
                     }
                 }

@@ -2,7 +2,9 @@ package com.sixseven.antiscam
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.app.NotificationManager
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -65,6 +67,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun ensureDefaultDialerRole() {
         if (DefaultDialerRoleHelper.isDefaultDialer(this)) {
+            if (!canShowIncomingPopupOverApps()) {
+                showDialerSetupGuide()
+            }
             return
         }
 
@@ -78,6 +83,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             showDialerSetupGuide()
         }
+    }
+
+    private fun canShowIncomingPopupOverApps(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            return true
+        }
+
+        val manager = getSystemService(NotificationManager::class.java)
+        return manager.canUseFullScreenIntent()
     }
 
     private fun ensureCallPermissionsAndDialer() {

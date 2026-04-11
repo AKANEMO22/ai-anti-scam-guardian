@@ -163,6 +163,35 @@ object DefaultDialerRoleHelper {
         return launchFirstResolvable(activity, candidates)
     }
 
+    fun openPopupPermissionSettings(activity: Activity): Boolean {
+        val candidates = mutableListOf<Intent>()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            candidates += Intent(Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT).apply {
+                data = Uri.fromParts("package", activity.packageName, null)
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            candidates += Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION).apply {
+                data = Uri.fromParts("package", activity.packageName, null)
+            }
+        }
+
+        if (isXiaomiFamilyDevice()) {
+            candidates += Intent("miui.intent.action.APP_PERM_EDITOR").apply {
+                setClassName(
+                    "com.miui.securitycenter",
+                    "com.miui.permcenter.permissions.PermissionsEditorActivity"
+                )
+                putExtra("extra_pkgname", activity.packageName)
+            }
+        }
+
+        candidates += buildAppDetailsIntent(activity)
+        return launchFirstResolvable(activity, candidates)
+    }
+
     fun openAppDetailsSettings(activity: Activity): Boolean {
         return tryStartActivity(activity, buildAppDetailsIntent(activity))
     }
