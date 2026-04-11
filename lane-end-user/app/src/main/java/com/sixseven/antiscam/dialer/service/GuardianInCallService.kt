@@ -5,6 +5,7 @@ import android.telecom.InCallService
 import com.sixseven.antiscam.dialer.call.ActiveCallStore
 import com.sixseven.antiscam.dialer.call.FallbackRingingStore
 import com.sixseven.antiscam.dialer.ui.CallNotificationController
+import com.sixseven.antiscam.dialer.ui.IncomingCallActivity
 
 class GuardianInCallService : InCallService() {
 
@@ -36,6 +37,12 @@ class GuardianInCallService : InCallService() {
             Call.STATE_RINGING -> {
                 val caller = resolveCallerLabel(call)
                 FallbackRingingStore.onRinging(caller)
+                if (FallbackRingingStore.consumeLaunchRequest()) {
+                    CallNotificationController.showIncomingCall(this, FallbackRingingStore.currentLabel())
+                    runCatching {
+                        startActivity(IncomingCallActivity.buildIntent(this))
+                    }
+                }
             }
 
             Call.STATE_ACTIVE,

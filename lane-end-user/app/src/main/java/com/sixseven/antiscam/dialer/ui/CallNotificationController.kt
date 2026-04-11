@@ -11,6 +11,7 @@ import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.Person
 import com.sixseven.antiscam.dialer.call.CallUiAction
 
@@ -133,6 +134,11 @@ object CallNotificationController {
     }
 
     private fun canNotify(context: Context): Boolean {
+        val managerCompat = NotificationManagerCompat.from(context)
+        if (!managerCompat.areNotificationsEnabled()) {
+            return false
+        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             return true
         }
