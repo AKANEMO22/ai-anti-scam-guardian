@@ -62,9 +62,101 @@ Gradle module names van giu nguyen, nhung da duoc map sang path lane moi trong `
 2. Incoming call test (scam/real) + call authenticity score
 3. History + Guardian alert + feedback sync
 
-## 7) Team outputs (4 nguoi)
+## 7) GUI tabs - can lam gi (implementation checklist)
 
-### 7.1 Minh Hoang - Data Analyst
+Bottom tab hien tai co 5 tab: `Home`, `Scan`, `History`, `Guardian`, `Settings`.
+
+### 7.1 Home tab
+Muc tieu:
+- Hien dashboard tong quan (risk card, snapshot KPI, quick actions, latest warning).
+- Lam diem vao chinh cho user truoc khi qua cac tab chuc nang.
+
+Can lam:
+- Card risk hien score + level + explanation ngan.
+- KPI card cap nhat theo du lieu scan trong ngay.
+- Quick action button:
+   - `Scan URL/SMS` -> chuyen sang tab `Scan`.
+   - `Test Scam Call` -> kich hoat flow xin quyen/goi role default dialer.
+   - `Alert History` -> chuyen sang tab `History`.
+   - `Notify Guardian` -> chuyen sang tab `Guardian`.
+- `Latest warning` hien canh bao moi nhat trong 15 phut gan nhat.
+
+Definition of done:
+- Chuyen tab dung khi bam quick action.
+- Khong crash neu thieu permission call.
+- Co du lieu fallback neu backend chua san sang.
+
+### 7.2 Scan tab
+Muc tieu:
+- Quet URL/SMS/transcript va tra ket qua risk score de canh bao nhanh.
+
+Can lam:
+- Input cho URL/SMS/text transcript.
+- Nut `Run Demo Scan` (sau nay doi thanh `Run Scan`) goi pipeline scan.
+- Hien ket qua: score, severity, explanation, signal nao bi danh co.
+- Neu high risk -> tao warning event de day sang `History` va `Home`.
+
+Definition of done:
+- Scan xong trong 1 flow ro rang (loading -> result).
+- Ket qua co explanation de user hieu vi sao bi canh bao.
+
+### 7.3 History tab
+Muc tieu:
+- Luu va hien lich su canh bao de user tra cuu lai.
+
+Can lam:
+- Danh sach item theo thu tu moi nhat truoc.
+- Moi item co: thoi gian, loai su kien (call/sms/url), muc do, tom tat.
+- Cho phep mo chi tiet warning (warning detail).
+- Dong bo feedback scam/safe/not sure ve backend khi co mang.
+
+Definition of done:
+- Sau moi lan scan/call warning, co item moi trong history.
+- App restart van doc lai duoc history local.
+
+### 7.4 Guardian tab
+Muc tieu:
+- Ho tro nguoi than nhan canh bao khan khi user gap nguy co cao.
+
+Can lam:
+- Form quan ly so lien he guardian chinh.
+- Nut `Send Guardian Alert` gui critical alert (FCM/API).
+- Log trang thai gui alert (success/fail + timestamp).
+
+Definition of done:
+- Co gui test alert thanh cong (mock hoac that).
+- Log hien dung ket qua gui.
+
+### 7.5 Settings tab
+Muc tieu:
+- Cho phep cau hinh che do bao ve va quyen he thong.
+
+Can lam:
+- Hien trang thai cac tuy chon:
+   - Auto scan incoming call.
+   - Cloud assist khi uncertain case.
+   - Feedback sync interval.
+- Hien va huong dan setup:
+   - Runtime permissions (READ_PHONE_STATE, READ_CALL_LOG, POST_NOTIFICATIONS...).
+   - Default dialer role.
+- Nut mo nhanh setting he thong khi chua du quyen.
+
+Definition of done:
+- User tu tab `Settings` co the tu setup du quyen cho incoming-call flow.
+- Trang thai setting cap nhat dung sau khi quay lai app.
+
+### 7.6 Ngoai bottom tabs - incoming call flow
+Phan nay khong nam trong tab, nhung bat buoc de app phone-like:
+- Incoming banner/fullscreen UI co nut Answer/Decline.
+- Ongoing in-call screen khi da nhan may.
+- Notification fallback neu OEM chan popup.
+
+Definition of done:
+- Ringing -> popup/notification -> answer/decline -> ongoing screen khong crash.
+
+## 8) Team outputs (4 nguoi)
+
+### 8.1 Minh Hoang - Data Analyst
 Output can ban giao:
 - Scam scenario catalog (SMS/URL/Call script), severity rubric, label guideline.
 - Risk signal dictionary cho `voice/text/entity` va threshold review.
@@ -74,7 +166,7 @@ Folder phu trach:
 - `docs/` (bo sung business metric va evaluation note)
 - `shared/contracts/event-schema/` (xac nhan schema field phuc vu phan tich)
 
-### 7.2 Huy Hoang - AI/ML Engineer
+### 8.2 Huy Hoang - AI/ML Engineer
 Output can ban giao:
 - On-device pre-filter rule + masking strategy.
 - Risk score design theo trong so Voice 30% / Text 40% / Entity 30%.
@@ -85,7 +177,7 @@ Folder phu trach:
 - `lane-agentic-core/domain/`
 - `lane-agentic-core/data/repository/`
 
-### 7.3 Thanh Binh - Backend Engineer
+### 8.3 Thanh Binh - Backend Engineer
 Output can ban giao:
 - Cloud API contract (`analyze signal`, `submit feedback`).
 - Network adapter tu mobile sang Cloud Run/Firebase auth.
@@ -96,7 +188,7 @@ Folder phu trach:
 - `shared/contracts/openapi/`
 - `shared/contracts/event-schema/`
 
-### 7.4 Khanh Ngoc - Frontend/Mobile Engineer
+### 8.4 Khanh Ngoc - Frontend/Mobile Engineer
 Output can ban giao:
 - Dashboard app flow: Home, Scan, CallShield, Warning, History, Guardian, Settings.
 - Incoming call UX (answer/decline/end) va hien thi explanation.
@@ -108,81 +200,11 @@ Folder phu trach:
 - `lane-end-user/service/`
 - `lane-end-user/assets/audio/`
 
-### 7.5 Definition of Done cho moi nguoi
+### 8.5 Definition of Done cho moi nguoi
 - Co file/code trong dung lane phu trach.
 - Co contract/data field khop pipeline.
 - Co demo flow end-to-end tu signal -> warning -> feedback.
 - Co note nguan trong `docs/` ve assumption va pending issue.
-
-## 8) Huong dan GUI tab (can lam gi o moi tab)
-
-Muc nay dung cho demo, handover va test nhanh. Moi tab ben duoi co muc tieu ro rang va thao tac de xac nhan.
-
-### 8.1 Setup bat buoc truoc khi test call incoming
-1. Mo app lan dau va cap quyen Phone + Notification neu duoc hoi.
-2. Dat app lam Phone app mac dinh (default dialer).
-3. Neu he dieu hanh chan, vao App info -> Allow restricted settings roi quay lai dat default app.
-4. Xac nhan xong moi test incoming call (popup incoming + answer/decline + ongoing).
-
-### 8.2 Tab Home
-Muc tieu:
-- Xem tong quan risk score trong ngay va cac KPI chinh.
-
-Can lam:
-1. Vao Home de kiem tra card `Today Risk Overview` va `Dashboard Snapshot`.
-2. Bam `Scan URL/SMS` de chuyen nhanh sang tab Scan.
-3. Bam `Call Shield` de kich hoat lai flow cap quyen/default dialer neu thieu.
-4. Bam `Alert History` va `Notify Guardian` de chuyen nhanh sang dung tab tuong ung.
-
-### 8.3 Tab Scan
-Muc tieu:
-- Thuc hien luong phan tich URL/SMS/cuoc goi nghi ngo.
-
-Can lam:
-1. Vao tab Scan.
-2. Bam `Run Demo Scan` de chay demo scanner.
-3. Kiem tra ket qua theo logic local truoc (NPU/TFLite), cloud fallback khi can.
-4. Neu la case rui ro cao, xac nhan warning duoc dua vao lich su.
-
-### 8.4 Tab History
-Muc tieu:
-- Theo doi timeline canh bao de review nhanh.
-
-Can lam:
-1. Vao tab History.
-2. Xac nhan co danh sach su kien theo moc thoi gian.
-3. Doi chieu muc do canh bao (An toan/Trung binh/Nguy hiem cao).
-4. Dung tab nay de demo truoc/sau khi chay scan hoac test call.
-
-### 8.5 Tab Guardian
-Muc tieu:
-- Gui canh bao cho nguoi than/nguoi giam sat khi gap case nguy hiem.
-
-Can lam:
-1. Vao tab Guardian.
-2. Kiem tra thong tin lien he chinh (primary contact).
-3. Bam `Send Guardian Alert` khi muon day canh bao khan.
-4. Xac nhan event guardian duoc ghi nhan vao luong theo doi.
-
-### 8.6 Tab Settings
-Muc tieu:
-- Xac nhan cau hinh runtime cho he thong bao ve.
-
-Can lam:
-1. Vao tab Settings.
-2. Kiem tra cac trang thai:
-   - `Auto scan incoming call: ON`
-   - `Cloud assist on uncertain case: ON`
-   - `Feedback sync interval: 30 min`
-3. Neu test incoming call bi loi, quay lai check quyen + default dialer tu day va tu Home/Call Shield.
-
-### 8.7 Checklist demo GUI end-to-end
-1. Home: chup tong quan risk/KPI.
-2. Scan: chay demo scan.
-3. History: xac nhan event moi xuat hien.
-4. Guardian: gui canh bao mau.
-5. Settings: xac nhan cac thong so bao ve dang ON.
-6. Test incoming call thuc te: popup hien, bam answer/decline khong crash.
 
 ## 9) Note
 - Day la architecture scaffold chi tiet cho implementation.

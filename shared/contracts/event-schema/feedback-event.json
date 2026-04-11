@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FeedbackEvent",
+  "type": "object",
+  "required": ["eventId", "label", "sourceType", "timestamp"],
+  "properties": {
+    "eventId": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "enum": ["Scam", "Safe", "Not sure"]
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["SMS", "URL", "CALL"]
+    },
+    "riskScore": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

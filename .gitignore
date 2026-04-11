@@ -1,0 +1,26 @@
+# Gradle
+.gradle/
+build/
+**/build/
+apk-output/
+*.apk
+
+# Android Studio
+.idea/
+*.iml
+local.properties
+captures/
+
+# Kotlin
+*.kotlin_module
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.jks
+*.keystore
+*.pem
+*.p12
+.env
