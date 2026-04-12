@@ -1,0 +1,76 @@
+{
+  "lane": "Lane Agentic Core",
+  "generatedAt": "20260412_204109",
+  "summary": {
+    "done": 4,
+    "notDone": 4,
+    "missing": 0,
+    "total": 8
+  },
+  "results": [
+    {
+      "type": "file",
+      "name": "Agentic contracts",
+      "path": "lane-agentic-core/python-agentic-core/app/models/contracts.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "Agentic score routes",
+      "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Agentic orchestrator",
+      "path": "lane-agentic-core/python-agentic-core/app/services/orchestrator.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Agentic internal link orchestrator",
+      "path": "lane-agentic-core/python-agentic-core/app/services/internal_link_orchestrator.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Agentic storage client",
+      "path": "lane-agentic-core/python-agentic-core/app/clients/storage_client.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "cross-lane",
+      "name": "Agentic <- API Gateway score linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "Agentic <-> Storage retrieval linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "Agentic STT two-step edge linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    }
+  ]
+}

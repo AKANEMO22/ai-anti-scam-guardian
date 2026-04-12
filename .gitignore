@@ -24,3 +24,10 @@ Thumbs.db
 *.pem
 *.p12
 .env
+
+# Python
+venv/
+.venv/
+**/__pycache__/
+*.pyc
+.pytest_cache/

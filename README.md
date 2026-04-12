@@ -24,12 +24,45 @@ Muc tieu la de team mobile, backend, va AI nhin folder la thay ngay trach nhiem 
    - Domain model/use-case (risk score, signal payload, classify call)
    - Data repository (remote/local) noi voi cloud va local history
 
+- `lane-storage/`
+   - Storage lane cho vector index + RAG search + feedback ingestion (Python)
+   - Dung lam backend data plane cho API Gateway va Agentic Core
+
 - `shared/`
    - Core common
    - OpenAPI va event-schema dung chung app-backend
 
 - `ops/`
    - Script bootstrap, seed data, smoke check (template)
+
+### 2.1) Python backend stack (giu nguyen lane-end-user)
+
+End-user Android van giu nguyen. 3 lane backend da duoc bo sung ban Python tach module theo tung chuc nang:
+
+- `lane-api-gateway/python-api-gateway/`
+   - `app/routes/analyze.py`: REST `/v1/signals/analyze`
+   - `app/routes/feedback.py`: REST `/v1/feedback`
+   - `app/services/cache_service.py`: cache layer
+   - `app/clients/agentic_core_client.py`: noi sang Agentic Core lane
+   - `app/clients/storage_client.py`: noi sang Storage lane
+
+- `lane-agentic-core/python-agentic-core/`
+   - `app/services/orchestrator.py`: orchestration route
+   - `app/services/agents/deepfake_agent.py`
+   - `app/services/agents/stt_agent.py`
+   - `app/services/agents/threat_agent.py`
+   - `app/services/agents/entity_agent.py`
+   - `app/services/agents/reasoning_agent.py`
+   - `app/services/decision_engine.py`
+
+- `lane-storage/python-storage/`
+   - `app/services/rag_engine.py`: pattern retrieval
+   - `app/repositories/vector_repository.py`: vector db mock
+   - `app/repositories/scam_pattern_repository.py`: scam pattern store
+   - `app/repositories/feedback_repository.py`: feedback loop store
+
+Xem chi tiet lien ket 3 lane theo hinh tai:
+- `docs/PYTHON_LANE_ARCHITECTURE.md`
 
 ## 3) Runtime flow (map voi pipeline)
 1. Background service thu SMS/Call/URL

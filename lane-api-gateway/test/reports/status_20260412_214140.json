@@ -1,0 +1,55 @@
+{
+  "lane": "Lane API Gateway",
+  "generatedAt": "20260412_214140",
+  "summary": {
+    "done": 3,
+    "notDone": 2,
+    "missing": 0,
+    "total": 5
+  },
+  "results": [
+    {
+      "type": "logic",
+      "name": "Gateway analyze cache miss returns response",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Gateway analyze cache hit short-circuit",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Gateway feedback route returns ack",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Gateway cloud-run cache round trip",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] cloud_run_cache_round_trip_not_none: Cloud run cache round-trip returned None",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 194, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 135, in check_cloud_run_cache_round_trip_not_none"
+      ]
+    },
+    {
+      "type": "logic",
+      "name": "Gateway feedback cache round trip",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] feedback_cache_round_trip_not_none: Feedback cache round-trip returned None",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 194, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 175, in check_feedback_cache_round_trip_not_none"
+      ]
+    }
+  ]
+}

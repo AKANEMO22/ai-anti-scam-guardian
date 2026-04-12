@@ -22,6 +22,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(project(":core:ml"))
     implementation(project(":domain"))
     implementation(project(":core:ui"))
 }

@@ -23,6 +23,7 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(project(":core:ml"))
     implementation(project(":domain"))
     implementation(project(":data"))
 }

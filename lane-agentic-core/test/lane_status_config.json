@@ -1,0 +1,110 @@
+{
+  "lane_name": "Lane Agentic Core",
+  "file_checks": [
+    {
+      "name": "Agentic contracts",
+      "path": "lane-agentic-core/python-agentic-core/app/models/contracts.py",
+      "required_contains": [
+        "class SignalPayload",
+        "class GoogleSttApiToTranscribedTextRequest",
+        "class TranscribedTextToThreatAgentRequest",
+        "class SearchQueryToThreatAgentRequest"
+      ]
+    },
+    {
+      "name": "Agentic score routes",
+      "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+      "required_contains": [
+        "@router.post(\"/v1/agentic/score\")",
+        "@router.post(\"/v1/agentic/internal/google-stt-api-to-transcribed-text\")",
+        "@router.post(\"/v1/agentic/internal/transcribed-text-to-threat-agent\")"
+      ]
+    },
+    {
+      "name": "Agentic orchestrator",
+      "path": "lane-agentic-core/python-agentic-core/app/services/orchestrator.py",
+      "required_contains": [
+        "def route_voice_stream_to_google_stt",
+        "def route_google_stt_api_to_transcribed_text",
+        "def route_transcribed_text_to_threat_agent"
+      ]
+    },
+    {
+      "name": "Agentic internal link orchestrator",
+      "path": "lane-agentic-core/python-agentic-core/app/services/internal_link_orchestrator.py",
+      "required_contains": [
+        "def link_google_stt_api_to_transcribed_text",
+        "def link_transcribed_text_to_threat_agent",
+        "def link_search_query_to_threat_agent"
+      ]
+    },
+    {
+      "name": "Agentic storage client",
+      "path": "lane-agentic-core/python-agentic-core/app/clients/storage_client.py",
+      "required_contains": [
+        "def fetch_pattern_matches_for_threat_agent",
+        "def forward_search_query_to_storage_for_threat_agent"
+      ]
+    }
+  ],
+  "cross_lane_checks": [
+    {
+      "name": "Agentic <- API Gateway score linkage",
+      "assertions": [
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+          "required_contains": [
+            "/v1/agentic/score"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+          "required_contains": [
+            "@router.post(\"/v1/agentic/score\")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agentic <-> Storage retrieval linkage",
+      "assertions": [
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "@router.post(\"/v1/storage/search\")"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/clients/storage_client.py",
+          "required_contains": [
+            "fetch_pattern_matches_for_threat_agent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agentic STT two-step edge linkage",
+      "assertions": [
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+          "required_contains": [
+            "/v1/agentic/internal/google-stt-api-to-transcribed-text",
+            "/v1/agentic/internal/transcribed-text-to-threat-agent"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/services/links/google_stt_transcribed_text_link.py",
+          "required_contains": [
+            "class GoogleSttTranscribedTextLink"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/services/links/transcribed_text_threat_agent_link.py",
+          "required_contains": [
+            "class TranscribedTextThreatAgentLink"
+          ]
+        }
+      ]
+    }
+  ]
+}

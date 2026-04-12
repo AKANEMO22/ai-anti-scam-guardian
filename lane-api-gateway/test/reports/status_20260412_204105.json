@@ -1,0 +1,88 @@
+{
+  "lane": "Lane API Gateway",
+  "generatedAt": "20260412_204105",
+  "summary": {
+    "done": 7,
+    "notDone": 3,
+    "missing": 0,
+    "total": 10
+  },
+  "results": [
+    {
+      "type": "file",
+      "name": "Gateway contracts",
+      "path": "lane-api-gateway/python-api-gateway/app/models/contracts.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "Gateway analyze route",
+      "path": "lane-api-gateway/python-api-gateway/app/routes/analyze.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Gateway feedback route",
+      "path": "lane-api-gateway/python-api-gateway/app/routes/feedback.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "Gateway auth service",
+      "path": "lane-api-gateway/python-api-gateway/app/services/auth_service.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Gateway cache service",
+      "path": "lane-api-gateway/python-api-gateway/app/services/cache_service.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: ^\\s*pass\\s*$"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Gateway agentic client",
+      "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "Gateway storage client",
+      "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "Gateway -> Agentic score linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "Gateway -> Storage index/feedback linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "Gateway update-database two-lane linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    }
+  ]
+}
