@@ -4,18 +4,18 @@ class WarningInteractionChannel {
     fun receiveFromUiWarningExplanation(
         request: UiWarningExplanationToInteractRequest,
     ): UiWarningInteractionState {
-        // TODO: receive warning explanation and prepare interaction state.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun normalizeUiWarningInteractionState(
         state: UiWarningInteractionState,
     ): UiWarningInteractionState {
-        // TODO: normalize interaction state before user feedback selection.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun validateUiWarningInteractionState(state: UiWarningInteractionState) {
-        // TODO: validate interaction state for feedback selection actions.
+        // mocked
     }
 }

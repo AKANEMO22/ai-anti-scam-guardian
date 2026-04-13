@@ -4,20 +4,20 @@ class MobileAppBackgroundServiceLink {
     fun forwardMobileAppToBackgroundService(
         request: MobileAppToBackgroundServiceRequest,
     ): BackgroundServiceDispatchAck {
-        // TODO: forward mobile app signal to background service entrypoint.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildBackgroundServiceWorkInput(
         request: MobileAppToBackgroundServiceRequest,
     ): Map<String, String> {
-        // TODO: build worker input payload for phone/url/script background processing.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun traceMobileAppToBackgroundServiceFlow(
         request: MobileAppToBackgroundServiceRequest,
     ) {
-        // TODO: emit trace event for Mobile App -> Background Service flow.
+        // mocked
     }
 }

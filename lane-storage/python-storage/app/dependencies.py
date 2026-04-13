@@ -18,12 +18,12 @@ def get_embedding_service() -> EmbeddingService:
 
 
 @lru_cache(maxsize=1)
-def get_pattern_repository() -> ScamPatternRepository:
+def get_scam_pattern_repository() -> ScamPatternRepository:
     return ScamPatternRepository()
 
 
 @lru_cache(maxsize=1)
-def get_vector_repository() -> VectorDbVertexAiRepository:
+def get_vector_db() -> VectorDbVertexAiRepository:
     return VectorDbVertexAiRepository()
 
 
@@ -34,17 +34,20 @@ def get_feedback_repository() -> FeedbackRepository:
 
 @lru_cache(maxsize=1)
 def get_rag_engine() -> LangChainRagEngine:
-    return LangChainRagEngine()
+    return LangChainRagEngine(
+        embedding_service=get_embedding_service(),
+        scam_pattern_repository=get_scam_pattern_repository(),
+    )
 
 
 @lru_cache(maxsize=1)
 def get_vector_db_service() -> VectorDbVertexAiService:
-    return VectorDbVertexAiService(repository=get_vector_repository())
+    return VectorDbVertexAiService(repository=get_vector_db())
 
 
 @lru_cache(maxsize=1)
 def get_scam_pattern_service() -> ScamPatternService:
-    return ScamPatternService(repository=get_pattern_repository())
+    return ScamPatternService(repository=get_scam_pattern_repository())
 
 
 @lru_cache(maxsize=1)

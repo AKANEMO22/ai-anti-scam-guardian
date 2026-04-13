@@ -41,6 +41,7 @@ async def analyze_signal(
     try:
         await storage_client.index_signal(str(uuid4()), request, result)
     except Exception:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     return result

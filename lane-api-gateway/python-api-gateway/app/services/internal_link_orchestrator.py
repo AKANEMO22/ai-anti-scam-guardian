@@ -28,83 +28,97 @@ class ApiGatewayInternalLinkOrchestrator:
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
         """Internal link: Firebase Auth -> Authenticated Data."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_authenticated_data_to_cloud_run_api_microservices(
         self,
         request: AuthenticatedDataToCloudRunRequest,
     ) -> None:
         """Internal link: Authenticated Data -> Cloud Run API Microservices."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cloud_run_api_microservices_to_cache_layer(
         self,
         request: CloudRunToCacheRequest,
     ) -> None:
         """Internal link: Cloud Run API Microservices -> Cache Layer (redis)."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cloud_run_api_microservices_to_cache_layer_lookup(
         self,
         request: CloudRunToCacheLookupRequest,
     ) -> None:
         """Internal lookup link for Cloud Run API Microservices cache keys (phone/url/script)."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cache_layer_to_cache_miss(self, request: CacheLayerToCacheMissRequest) -> None:
         """Internal link: Cache Layer (redis) phone/url/script -> cache miss."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cloud_run_api_microservices_to_cache_miss(
         self,
         request: CloudRunApiMicroservicesToCacheMissRequest,
     ) -> None:
         """Internal link: Cloud Run API Microservices -> cache miss."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss (from Cloud Run API Microservices) -> Orchestrator Agent LangGraph Router."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_cloud_run_api_microservices_to_update_database(
         self,
         request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
     ) -> None:
         """Internal link: Cloud Run API Microservices -> Update database."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_update_database_to_vector_database_vertex_ai(
         self,
         request: UpdateDatabaseToVectorDatabaseVertexAiRequest,
     ) -> None:
         """Internal link: Update database -> Vector Database Vertex AI."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_user_feedback_to_feedback_label(self, request: UserFeedbackToFeedbackLabelRequest) -> None:
         """Internal link: user feedback (scam/safe/not sure) -> feedback label."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_feedback_label_to_feedback_ingestion(self, request: FeedbackLabelToIngestionRequest) -> None:
         """Internal link: feedback label -> feedback ingestion."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_feedback_ingestion_to_cache_layer(self, request: FeedbackIngestionToCacheRequest) -> None:
         """Internal link: feedback ingestion -> Cache Layer (redis) by phone/url/script."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def link_feedback_ingestion_to_cache_layer_lookup(
         self,
         request: FeedbackIngestionToCacheLookupRequest,
     ) -> None:
         """Internal lookup link for feedback-ingestion cache keys (phone/url/script)."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

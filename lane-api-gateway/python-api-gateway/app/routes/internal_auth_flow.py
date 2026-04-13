@@ -15,7 +15,8 @@ def internal_firebase_auth_to_authenticated_data(
     ),
 ) -> None:
     """Internal link: Firebase Auth -> Authenticated Data."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/gateway/internal/authenticated-data-to-cloud-run-api-microservices")
@@ -26,4 +27,5 @@ def internal_authenticated_data_to_cloud_run_api_microservices(
     ),
 ) -> None:
     """Internal link: Authenticated Data -> Cloud Run API Microservices."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}

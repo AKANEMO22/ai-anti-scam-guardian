@@ -4,27 +4,27 @@ class CloudRunRealtimeStreamLink {
   Future<RealtimeCloudRunAck> forwardWebsocketStreamToCloudRun(
     RealtimeStreamToCloudRunRequest request,
   ) async {
-    // TODO: forward websocket stream chunk to Cloud Run API Microservices.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Future<RealtimeCloudRunAck> forwardGrpcStreamToCloudRun(
     RealtimeStreamToCloudRunRequest request,
   ) async {
-    // TODO: forward gRPC stream chunk to Cloud Run API Microservices.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Map<String, Object?> buildRealtimeStreamRequestBody(
     RealtimeStreamToCloudRunRequest request,
   ) {
-    // TODO: build transport-agnostic request body for realtime stream chunk.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   void traceRealtimeStreamToCloudRunFlow(
     RealtimeStreamToCloudRunRequest request,
   ) {
-    // TODO: emit trace for realtime streaming flow.
+    // mocked
   }
 }

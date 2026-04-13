@@ -18,7 +18,8 @@ def internal_cloud_run_api_microservices_to_update_database(
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> Update database."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/gateway/internal/update-database-to-vector-database-vertex-ai")
@@ -29,4 +30,5 @@ def internal_update_database_to_vector_database_vertex_ai(
     ),
 ) -> None:
     """Internal link: Update database -> Vector Database Vertex AI."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}

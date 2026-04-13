@@ -7,15 +7,18 @@ class CloudRunResultChannel:
         payload: CloudRunMicroserviceResultPayload,
     ) -> CloudRunMicroserviceResultPayload:
         """Receive Cloud Run API Microservices output for cache-layer stage."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def normalize_cloud_run_result_payload(
         self,
         payload: CloudRunMicroserviceResultPayload,
     ) -> CloudRunMicroserviceResultPayload:
         """Normalize Cloud Run result payload before Redis cache write stage."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_cloud_run_result_payload(self, payload: CloudRunMicroserviceResultPayload) -> None:
         """Validate Cloud Run result payload for phone/url/script cache channels."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

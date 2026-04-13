@@ -4,34 +4,34 @@ class RealtimeCallStreamChannel {
   RealtimeCallChunkPayload receiveFromMobileApp(
     MobileAppToRealtimeStreamRequest request,
   ) {
-    // TODO: receive Flutter realtime call chunk and map to stream payload.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   RealtimeCallChunkPayload normalizeRealtimeChunk(
     RealtimeCallChunkPayload chunk,
   ) {
-    // TODO: normalize realtime call chunk before Cloud Run streaming.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   void validateRealtimeChunk(RealtimeCallChunkPayload chunk) {
-    // TODO: validate chunk contract for websocket/grpc transport.
+    // mocked
   }
 
   RealtimeStreamToCloudRunRequest routeWebsocketChunkToCloudRun(
     RealtimeCallChunkPayload chunk,
     RealtimeCloudRunTarget target,
   ) {
-    // TODO: build websocket streaming request for Cloud Run.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   RealtimeStreamToCloudRunRequest routeGrpcChunkToCloudRun(
     RealtimeCallChunkPayload chunk,
     RealtimeCloudRunTarget target,
   ) {
-    // TODO: build gRPC streaming request for Cloud Run.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 }

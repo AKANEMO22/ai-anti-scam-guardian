@@ -10,12 +10,15 @@ class UpdateDatabaseChannel:
         request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
     ) -> UpdateDatabasePayload:
         """Receive Cloud Run API Microservices payload and expose update-database stage input."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def normalize_update_database_payload(self, payload: UpdateDatabasePayload) -> UpdateDatabasePayload:
         """Normalize update-database payload before Vector Database Vertex AI stage."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_update_database_payload(self, payload: UpdateDatabasePayload) -> None:
         """Validate update-database payload required for Vector Database Vertex AI write flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

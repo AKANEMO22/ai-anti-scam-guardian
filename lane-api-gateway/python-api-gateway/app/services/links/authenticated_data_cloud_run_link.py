@@ -7,18 +7,21 @@ class AuthenticatedDataCloudRunLink:
         request: AuthenticatedDataToCloudRunRequest,
     ) -> None:
         """Flow: Authenticated Data -> Cloud Run API Microservices."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_cloud_run_microservice_request(
         self,
         request: AuthenticatedDataToCloudRunRequest,
     ) -> dict[str, object]:
         """Build Cloud Run API Microservices request object from authenticated data payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_authenticated_data_to_cloud_run_flow(
         self,
         request: AuthenticatedDataToCloudRunRequest,
     ) -> None:
         """Emit trace point for Authenticated Data -> Cloud Run API Microservices flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

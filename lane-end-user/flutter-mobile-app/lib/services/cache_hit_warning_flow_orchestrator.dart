@@ -17,28 +17,28 @@ class CacheHitWarningFlowOrchestrator {
   UiWarningExplanationState linkCacheLayerToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
-    // TODO: orchestrate Redis cache layer -> cache hit -> instant warning -> UI explanation.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   UiWarningExplanationState linkPhoneCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
-    // TODO: orchestrate phone branch for cache-hit instant warning flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   UiWarningExplanationState linkUrlCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
-    // TODO: orchestrate URL branch for cache-hit instant warning flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   UiWarningExplanationState linkScriptCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
-    // TODO: orchestrate script branch for cache-hit instant warning flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 }

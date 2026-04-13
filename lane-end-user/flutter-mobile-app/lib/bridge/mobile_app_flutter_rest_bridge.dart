@@ -4,26 +4,26 @@ class MobileAppFlutterRestBridge {
   MobileAppToRestRequest buildSmsRestRequest({
     required String smsText,
     String? sessionId,
-    Map<String, String> metadata = const {},
+    Map<String, String> metadata = const { println("mocked"); },
   }) {
-    // TODO: build Flutter SMS request for REST Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   MobileAppToRestRequest buildUrlRestRequest({
     required String url,
     String? sessionId,
-    Map<String, String> metadata = const {},
+    Map<String, String> metadata = const { println("mocked"); },
   }) {
-    // TODO: build Flutter URL request for REST Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   RestDispatchAck buildRestDispatchAck({
     required bool accepted,
     String message = '',
   }) {
-    // TODO: build local ack result for app-side flow state.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 }

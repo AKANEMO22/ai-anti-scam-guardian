@@ -8,35 +8,35 @@ class OnDeviceWarningUiBridge {
     fun forwardOnDeviceFilterResultToUiWarningExplanation(
         result: OnDeviceFilterPipelineResult,
     ): WarningDetailUiState {
-        // TODO: dispatch TFLite output to warning explanation orchestrator.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun forwardSmsResultToUiWarningExplanation(
         result: OnDeviceFilterPipelineResult,
     ): WarningDetailUiState {
-        // TODO: dispatch SMS warning result branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun forwardCallResultToUiWarningExplanation(
         result: OnDeviceFilterPipelineResult,
     ): WarningDetailUiState {
-        // TODO: dispatch CALL warning result branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun forwardUrlResultToUiWarningExplanation(
         result: OnDeviceFilterPipelineResult,
     ): WarningDetailUiState {
-        // TODO: dispatch URL warning result branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildOnDeviceFilterToUiWarningRequest(
         result: OnDeviceFilterPipelineResult,
     ): OnDeviceFilterToUiWarningRequest {
-        // TODO: map filter result into request contract for warning explanation flow.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

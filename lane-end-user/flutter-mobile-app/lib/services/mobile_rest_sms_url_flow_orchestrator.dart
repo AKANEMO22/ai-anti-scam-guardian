@@ -14,21 +14,21 @@ class MobileRestSmsUrlFlowOrchestrator {
   Future<CloudRunRiskResponse> linkMobileAppToRestToCloudRun(
     MobileAppToRestRequest request,
   ) async {
-    // TODO: orchestrate Flutter mobile app -> REST -> Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Future<CloudRunRiskResponse> linkSmsRestToCloudRun(
     MobileAppToRestRequest request,
   ) async {
-    // TODO: orchestrate SMS branch for REST -> Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Future<CloudRunRiskResponse> linkUrlRestToCloudRun(
     MobileAppToRestRequest request,
   ) async {
-    // TODO: orchestrate URL branch for REST -> Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 }

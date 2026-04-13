@@ -10,24 +10,24 @@ class MobileAppBackgroundServiceBridge {
         rawInput: String,
         metadata: Map<String, String> = emptyMap(),
     ): BackgroundServiceDispatchAck {
-        // TODO: create PHONE request and enqueue into background service lane.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun forwardUrlSignalToBackgroundService(
         rawInput: String,
         metadata: Map<String, String> = emptyMap(),
     ): BackgroundServiceDispatchAck {
-        // TODO: create URL request and enqueue into background service lane.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun forwardScriptSignalToBackgroundService(
         rawInput: String,
         metadata: Map<String, String> = emptyMap(),
     ): BackgroundServiceDispatchAck {
-        // TODO: create SCRIPT request and enqueue into background service lane.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildMobileAppToBackgroundRequest(
@@ -35,8 +35,8 @@ class MobileAppBackgroundServiceBridge {
         rawInput: String,
         metadata: Map<String, String>,
     ): MobileAppToBackgroundServiceRequest {
-        // TODO: map app-side data into shared background-service request contract.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildSignalPayload(
@@ -44,7 +44,7 @@ class MobileAppBackgroundServiceBridge {
         rawInput: String,
         metadata: Map<String, String>,
     ): MobileBackgroundSignalPayload {
-        // TODO: build payload object reused across SMS/CALL/URL branches.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

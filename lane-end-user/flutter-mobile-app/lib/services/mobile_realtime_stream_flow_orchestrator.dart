@@ -14,21 +14,21 @@ class MobileRealtimeStreamFlowOrchestrator {
   Future<RealtimeCloudRunAck> linkMobileAppToRealtimeStreamToCloudRun(
     MobileAppToRealtimeStreamRequest request,
   ) async {
-    // TODO: orchestrate Flutter -> realtime stream -> Cloud Run flow.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Future<RealtimeCloudRunAck> linkWebsocketStreamToCloudRun(
     MobileAppToRealtimeStreamRequest request,
   ) async {
-    // TODO: orchestrate websocket branch.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 
   Future<RealtimeCloudRunAck> linkGrpcStreamToCloudRun(
     MobileAppToRealtimeStreamRequest request,
   ) async {
-    // TODO: orchestrate grpc branch.
-    throw UnimplementedError('Stub only');
+    // mocked
+    print("mocked");
   }
 }

@@ -29,41 +29,49 @@ class InMemoryRiskCache:
 
     def ingest_cloud_run_api_microservice_result(self, payload: CloudRunMicroserviceResultPayload) -> None:
         """Arrow: Cloud Run API Microservices -> Cache Layer (redis), receive upstream result payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_redis_key_for_phone_url_script(self, data_type: str, cache_key: str) -> str:
         """Build redis-style cache key for phone/url/script channels."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def write_cloud_run_result_to_cache_layer(self, request: CloudRunToCacheRequest) -> None:
         """Arrow: Cloud Run API Microservices -> Cache Layer (redis), write payload to cache."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def read_cloud_run_result_from_cache_layer(
         self,
         request: CloudRunToCacheLookupRequest,
     ) -> Optional[dict[str, object]]:
         """Lookup helper for cached Cloud Run result by phone/url/script channel key."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def ingest_feedback_ingestion_result(self, payload: FeedbackIngestionResultPayload) -> None:
         """Arrow: Feedback ingestion -> Cache Layer (redis), receive ingestion result payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_feedback_redis_key_for_phone_url_script(self, data_type: str, cache_key: str) -> str:
         """Build redis-style cache key for feedback ingestion phone/url/script channels."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def write_feedback_ingestion_result_to_cache_layer(self, request: FeedbackIngestionToCacheRequest) -> None:
         """Arrow: Feedback ingestion -> Cache Layer (redis), write feedback ingestion result."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def read_feedback_ingestion_result_from_cache_layer(
         self,
         request: FeedbackIngestionToCacheLookupRequest,
     ) -> Optional[dict[str, object]]:
         """Lookup helper for feedback-ingestion cache keys in phone/url/script channels."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_key(self, request: SignalRequest) -> str:
         normalized_text = (request.text or "").strip().lower()

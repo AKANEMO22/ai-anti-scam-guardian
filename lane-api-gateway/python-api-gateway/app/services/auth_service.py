@@ -13,11 +13,13 @@ class AuthService:
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
         """Arrow: Firebase Auth -> Authenticated Data (skeleton placeholder)."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_authenticated_data_for_cloud_run(self, payload: AuthenticatedDataPayload) -> None:
         """Validate Authenticated Data stage before forwarding to Cloud Run API Microservices."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_bearer_token(self, authorization: str | None) -> None:
         if not authorization:

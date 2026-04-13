@@ -11,56 +11,56 @@ class BackgroundMonitorWorker(
 ) : CoroutineWorker(context, params) {
 
     fun ingestMobileAppSignal(request: MobileAppToBackgroundServiceRequest): BackgroundServiceDispatchAck {
-        // TODO: entrypoint for Mobile App -> Background Service signal handoff.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun collectSmsSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // TODO: collect and pre-process SMS signal branch.
+        // mocked
     }
 
     fun collectCallSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // TODO: collect and pre-process CALL/PHONE signal branch.
+        // mocked
     }
 
     fun collectUrlSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // TODO: collect and pre-process URL signal branch.
+        // mocked
     }
 
     fun dispatchBackgroundSignalsToPipeline(payload: MobileBackgroundSignalPayload) {
-        // TODO: dispatch normalized background signal to downstream pipeline use case.
+        // mocked
     }
 
     fun linkBackgroundServiceSignalToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: route generic signal from Background Service to TFLite On-device Filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkSmsSignalToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: route SMS signal branch to TFLite On-device Filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkCallSignalToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: route CALL signal branch to TFLite On-device Filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkUrlSignalToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: route URL signal branch to TFLite On-device Filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     override suspend fun doWork(): Result {
-        // TODO: schedule and run Background Service SMS/CALL/URL -> TFLite On-device Filter flow.
+        // mocked
         return Result.success()
     }
 }

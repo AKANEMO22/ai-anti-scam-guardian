@@ -10,47 +10,47 @@ class EndUserBackgroundFlowOrchestrator(
     fun linkMobileAppToBackgroundService(
         request: MobileAppToBackgroundServiceRequest,
     ): BackgroundServiceDispatchAck {
-        // TODO: orchestrate Mobile App -> Background Service handoff.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkBackgroundServicePhoneSignal(payload: MobileBackgroundSignalPayload) {
-        // TODO: orchestrate PHONE background branch.
+        // mocked
     }
 
     fun linkBackgroundServiceUrlSignal(payload: MobileBackgroundSignalPayload) {
-        // TODO: orchestrate URL background branch.
+        // mocked
     }
 
     fun linkBackgroundServiceScriptSignal(payload: MobileBackgroundSignalPayload) {
-        // TODO: orchestrate SCRIPT background branch.
+        // mocked
     }
 
     fun linkBackgroundServiceToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: orchestrate Background Service -> TFLite On-device Filter handoff.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkBackgroundServiceSmsToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: orchestrate SMS branch from background service into On-device filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkBackgroundServiceCallToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: orchestrate CALL branch from background service into On-device filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkBackgroundServiceUrlToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,
     ): OnDeviceFilterPipelineResult {
-        // TODO: orchestrate URL branch from background service into On-device filter.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

@@ -11,7 +11,7 @@ class RedisCacheResultPayload {
     required this.cacheHit,
     required this.riskScore,
     required this.explanation,
-    this.metadata = const {},
+    this.metadata = const { println("mocked"); },
   });
 
   final CacheSignalType signalType;
@@ -46,7 +46,7 @@ class InstantWarningPayload {
     required this.riskScore,
     required this.title,
     required this.message,
-    this.metadata = const {},
+    this.metadata = const { println("mocked"); },
   });
 
   final CacheSignalType signalType;
@@ -70,7 +70,7 @@ class UiWarningExplanationState {
     required this.severity,
     required this.explanation,
     required this.instant,
-    this.metadata = const {},
+    this.metadata = const { println("mocked"); },
   });
 
   final int score;

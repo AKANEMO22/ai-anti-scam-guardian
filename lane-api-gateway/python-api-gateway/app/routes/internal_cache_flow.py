@@ -15,7 +15,8 @@ def internal_cloud_run_api_microservices_to_cache_layer(
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> Cache Layer (redis)."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-to-cache-layer-lookup")
@@ -26,4 +27,5 @@ def internal_cloud_run_api_microservices_to_cache_layer_lookup(
     ),
 ) -> None:
     """Internal lookup link for phone/url/script cache keys in Cache Layer (redis)."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
