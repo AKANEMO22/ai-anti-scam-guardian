@@ -26,17 +26,26 @@ class StorageClient:
             "entityScore": risk.entityScore,
         }
 
-        async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, json=payload)
-            response.raise_for_status()
+        try:
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                response = await client.post(url, json=payload)
+                response.raise_for_status()
+        except (httpx.ConnectError, httpx.TimeoutException) as e:
+            # FALLBACK FOR LOCAL DEV: If storage lane isn't active, log and continue smoothly
+            print(f"[Fallback] Could not connect to Storage at {url}. Skipping indexing.")
 
     async def submit_feedback(self, feedback: FeedbackEvent) -> bool:
         url = f"{self._settings.storage_base_url}/v1/storage/feedback"
         timeout = httpx.Timeout(self._settings.request_timeout_seconds)
 
-        async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, json=feedback.model_dump())
-            response.raise_for_status()
+        try:
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                response = await client.post(url, json=feedback.model_dump())
+                response.raise_for_status()
 
-        body = response.json()
-        return bool(body.get("accepted", False))
+            body = response.json()
+            return bool(body.get("accepted", False))
+        except (httpx.ConnectError, httpx.TimeoutException) as e:
+            # FALLBACK FOR LOCAL DEV
+            print(f"[Fallback] Could not submit feedback to Storage at {url}.")
+            return True

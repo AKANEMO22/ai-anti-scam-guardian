@@ -16,7 +16,7 @@ from app.services.cache_service import InMemoryRiskCache
 
 router = APIRouter(tags=["signals"])
 
-
+# The arrival - when app receives a suspicious text messages
 @router.post("/v1/signals/analyze", response_model=RiskResponse)
 async def analyze_signal(
     request: SignalRequest,
@@ -27,20 +27,26 @@ async def analyze_signal(
     storage_client: StorageClient = Depends(get_storage_client),
 ) -> RiskResponse:
     auth_service.validate_bearer_token(authorization)
-
+    # check if it in cache -> return immediately 
     cache_key = cache_service.build_key(request)
     cached = cache_service.get(cache_key)
     if cached is not None:
         return cached.model_copy(update={"cacheHit": True})
 
+    # IF data is not found in cache -> then calling the agentic core
     fresh = await core_client.analyze_signal(request)
     result = fresh.model_copy(update={"cacheHit": False})
     cache_service.set(cache_key, result)
 
     # Storage indexing is best-effort to avoid blocking user warning flow.
+    # --> calling storage service
     try:
         await storage_client.index_signal(str(uuid4()), request, result)
     except Exception:
         pass
 
     return result
+
+# using post request here avoid revealing user data into the search bar 
+# sending a post request -> compile the payload into a JSON (envelop)
+# -> the mobile sent a post request to call analysis from Server

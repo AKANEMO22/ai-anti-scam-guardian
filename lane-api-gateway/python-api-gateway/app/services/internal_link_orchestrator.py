@@ -19,6 +19,14 @@ from app.services.cache_service import InMemoryRiskCache
 
 
 class ApiGatewayInternalLinkOrchestrator:
+    """
+    PURPOSE:
+    The "Factory Manager" for the Gateway pipeline.
+    EVENTUAL GOAL:
+    It orchestrates the flow of data between different states. It tells the system:
+    'Take unauthenticated data -> send to Auth Link -> if passed, send to Cache Link 
+    -> if it misses cache, send to AI Link.' It wires the Channels and Links together.
+    """
     def __init__(self, auth_service: AuthService, cache_service: InMemoryRiskCache) -> None:
         self._auth_service = auth_service
         self._cache_service = cache_service

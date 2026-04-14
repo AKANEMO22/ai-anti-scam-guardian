@@ -7,6 +7,11 @@ from app.services.auth_service import AuthService
 
 router = APIRouter(tags=["feedback"])
 
+# PURPOSE: 
+# This file handles the user feedback loop. When a user tells the app: 
+# "You said this was a scam, but it's safe" (or vice versa), this endpoint receives it.
+# EVENTUAL GOAL:
+# Sends this correction to the Storage lane so our AI models can be retrained over time.
 
 @router.post("/v1/feedback", response_model=FeedbackAck)
 async def submit_feedback(

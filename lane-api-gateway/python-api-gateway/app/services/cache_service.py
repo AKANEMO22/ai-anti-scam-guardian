@@ -18,6 +18,13 @@ from app.models.contracts import (
 
 @dataclass
 class CacheEntry:
+    # PURPOSE OF cache_service.py:
+    # Acts as the quick-reference memory for the API Gateway.
+    # EVENTUAL GOAL:
+    # Spammers send the exact same text to millions of people. If we analyze it once,
+    # we store the result here. The next 999,999 times, we instantly return the cached 
+    # result without waking up the expensive AI Agentic Core.
+    expiration: float
     value: RiskResponse
     expires_at: float
 

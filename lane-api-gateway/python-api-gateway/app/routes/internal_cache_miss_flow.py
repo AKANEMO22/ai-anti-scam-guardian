@@ -9,6 +9,12 @@ from app.services.internal_link_orchestrator import ApiGatewayInternalLinkOrches
 
 router = APIRouter(tags=["api-gateway-internal"])
 
+# PURPOSE:
+# This is an "Internal Flow" route. Our scam pipeline uses an event-driven architecture.
+# Instead of doing everything in one giant function, steps pass data to each other via HTTP.
+# EVENTUAL GOAL:
+# When the cache says "I don't know this scam" (Cache Miss), it will hit this endpoint 
+# to trigger the next step in the pipeline (usually routing it to the Agentic Core).
 
 @router.post("/v1/gateway/internal/cache-layer-to-cache-miss")
 def internal_cache_layer_to_cache_miss(

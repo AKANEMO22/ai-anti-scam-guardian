@@ -5,6 +5,13 @@ from app.models.contracts import AuthenticatedDataPayload, FirebaseAuthToAuthent
 
 
 class AuthService:
+    """
+    PURPOSE:
+    Handles API security and identity verification.
+    EVENTUAL GOAL:
+    Ensures that only traffic originating from our legitimate mobile app (via Firebase App Check)
+    and valid internal microservices can access the expensive Agentic Core AI functions.
+    """
     def __init__(self, settings: Settings) -> None:
         self._settings = settings
 
@@ -30,5 +37,7 @@ class AuthService:
         if not token:
             raise HTTPException(status_code=401, detail="Empty bearer token")
 
+        # The purpose of strict_auth is False -> easier dev -> no need to generate token everytime
+        # If strict -> token as to match the token of the setting
         if self._settings.strict_auth and token != self._settings.dev_bearer_token:
             raise HTTPException(status_code=401, detail="Token rejected")
