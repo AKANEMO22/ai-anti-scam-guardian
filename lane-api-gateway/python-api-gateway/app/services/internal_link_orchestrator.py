@@ -27,6 +27,8 @@ from app.services.links.feedback_label_ingestion_link import FeedbackLabelIngest
 from app.services.links.feedback_ingestion_cache_link import FeedbackIngestionCacheLink
 
 
+from app.services.links.cache_miss_orchestrator_langgraph_link import CacheMissOrchestratorLangGraphLink
+
 class ApiGatewayInternalLinkOrchestrator:
     """
     PURPOSE:
@@ -102,12 +104,13 @@ class ApiGatewayInternalLinkOrchestrator:
         worker = CloudRunCacheMissLink(agentic_core_client=self._core_client)
         return await worker.forward_cloud_run_api_microservices_to_cache_miss(request)
 
-    def link_cache_miss_to_orchestrator_agent_langgraph_router(
+    async def link_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-        pass
+        link = CacheMissOrchestratorLangGraphLink()
+        await link.forward_cache_miss_to_orchestrator_agent_langgraph_router(request)
 
     def link_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router(
         self,

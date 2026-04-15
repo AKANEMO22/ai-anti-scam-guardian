@@ -28,11 +28,11 @@ def internal_cache_layer_to_cache_miss(
 
 
 @router.post("/v1/gateway/internal/cache-miss-to-orchestrator-agent-langgraph-router")
-def internal_cache_miss_to_orchestrator_agent_langgraph_router(
+async def internal_cache_miss_to_orchestrator_agent_langgraph_router(
     request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
 ) -> None:
     """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-    pass
+    await internal_orchestrator.link_cache_miss_to_orchestrator_agent_langgraph_router(request)
