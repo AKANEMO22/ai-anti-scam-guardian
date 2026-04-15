@@ -33,6 +33,9 @@ async def analyze_signal(
     if cached is not None:
         return cached.model_copy(update={"cacheHit": True})
 
+    # TODO: Migrate to Cloud Pub/Sub queue
+    # Need refactor
+
     # IF data is not found in cache -> then calling the agentic core
     fresh = await core_client.analyze_signal(request)
     result = fresh.model_copy(update={"cacheHit": False})
