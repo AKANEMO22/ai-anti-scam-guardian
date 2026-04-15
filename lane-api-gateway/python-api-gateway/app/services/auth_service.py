@@ -1,7 +1,11 @@
 from fastapi import HTTPException
 
 from app.config import Settings
-from app.models.contracts import AuthenticatedDataPayload, FirebaseAuthToAuthenticatedDataRequest
+from app.models.contracts import (
+    AuthenticatedDataPayload,
+    FirebaseAuthClaims,
+    FirebaseAuthToAuthenticatedDataRequest,
+)
 
 
 class AuthService:
@@ -19,12 +23,34 @@ class AuthService:
         self,
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
+        # TODO : replace these mockups with real firebase validation
         """Arrow: Firebase Auth -> Authenticated Data (skeleton placeholder)."""
-        pass
+        # STEP 3: Instead of real Firebase decoding, we reuse the bearer token validation
+        # for our local development workflow.
+        self.validate_bearer_token(request.authorization)
+
+        # Assuming it's valid, we mock the extracted JWT claims.
+        # In production, these claims come from parsing the Firebase JWT payload.
+        mock_claims = FirebaseAuthClaims(
+            uid="user_local_dev",
+            email="dev@akanemo22.internal",
+            provider="local",
+        )
+
+        return AuthenticatedDataPayload(
+            claims=mock_claims,
+            sourceType=request.sourceType,
+            metadata=request.metadata,
+        )
 
     def validate_authenticated_data_for_cloud_run(self, payload: AuthenticatedDataPayload) -> None:
         """Validate Authenticated Data stage before forwarding to Cloud Run API Microservices."""
-        pass
+        # Ensure that the payload actually possesses claims before allowing internal API action
+        if not payload.claims or not payload.claims.uid:
+            raise HTTPException(
+                status_code=401,
+                detail="Invalid AuthenticatedDataPayload: Missing user claims."
+            )
 
     def validate_bearer_token(self, authorization: str | None) -> None:
         if not authorization:
