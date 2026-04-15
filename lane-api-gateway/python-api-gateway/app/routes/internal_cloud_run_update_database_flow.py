@@ -11,14 +11,14 @@ router = APIRouter(tags=["api-gateway-internal"])
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-to-update-database")
-def internal_cloud_run_api_microservices_to_update_database(
+async def internal_cloud_run_api_microservices_to_update_database(
     request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
-) -> None:
+) -> UpdateDatabaseToVectorDatabaseVertexAiRequest:
     """Internal link: Cloud Run API Microservices -> Update database."""
-    pass
+    return await internal_orchestrator.link_cloud_run_api_microservices_to_update_database(request)
 
 
 @router.post("/v1/gateway/internal/update-database-to-vector-database-vertex-ai")

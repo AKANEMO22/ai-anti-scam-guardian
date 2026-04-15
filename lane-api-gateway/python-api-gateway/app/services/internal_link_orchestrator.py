@@ -13,10 +13,15 @@ from app.models.contracts import (
     FirebaseAuthToAuthenticatedDataRequest,
     UpdateDatabaseToVectorDatabaseVertexAiRequest,
     UserFeedbackToFeedbackLabelRequest,
+    CacheLookupResultPayload,
 )
 from app.services.auth_service import AuthService
 from app.services.cache_service import InMemoryRiskCache
-
+from app.clients.agentic_core_client import AgenticCoreClient
+from app.clients.storage_client import StorageClient
+from app.services.links.firebase_auth_authenticated_data_link import FirebaseAuthAuthenticatedDataLink
+from app.services.links.cloud_run_cache_miss_link import CloudRunCacheMissLink
+from app.services.links.cloud_run_update_database_link import CloudRunUpdateDatabaseLink
 
 class ApiGatewayInternalLinkOrchestrator:
     """
@@ -27,16 +32,26 @@ class ApiGatewayInternalLinkOrchestrator:
     'Take unauthenticated data -> send to Auth Link -> if passed, send to Cache Link 
     -> if it misses cache, send to AI Link.' It wires the Channels and Links together.
     """
-    def __init__(self, auth_service: AuthService, cache_service: InMemoryRiskCache) -> None:
+    def __init__(
+        self, 
+        auth_service: AuthService, 
+        cache_service: InMemoryRiskCache,
+        core_client: AgenticCoreClient,
+        storage_client: StorageClient
+    ) -> None:
         self._auth_service = auth_service
         self._cache_service = cache_service
+        self._core_client = core_client
+        self._storage_client = storage_client
 
     def link_firebase_auth_to_authenticated_data(
         self,
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
         """Internal link: Firebase Auth -> Authenticated Data."""
-        pass
+        # Step 5: Start the worker and trigger it
+        worker = FirebaseAuthAuthenticatedDataLink(auth_service=self._auth_service)
+        return worker.forward_firebase_auth_to_authenticated_data(request)
 
     def link_authenticated_data_to_cloud_run_api_microservices(
         self,
@@ -63,12 +78,14 @@ class ApiGatewayInternalLinkOrchestrator:
         """Internal link: Cache Layer (redis) phone/url/script -> cache miss."""
         pass
 
-    def link_cloud_run_api_microservices_to_cache_miss(
+    async def link_cloud_run_api_microservices_to_cache_miss(
         self,
         request: CloudRunApiMicroservicesToCacheMissRequest,
-    ) -> None:
+    ) -> CacheLookupResultPayload:
         """Internal link: Cloud Run API Microservices -> cache miss."""
-        pass
+        # Step 5: Start the worker and trigger the AI Agent call!
+        worker = CloudRunCacheMissLink(agentic_core_client=self._core_client)
+        return await worker.forward_cloud_run_api_microservices_to_cache_miss(request)
 
     def link_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
@@ -84,12 +101,14 @@ class ApiGatewayInternalLinkOrchestrator:
         """Internal link: cache miss (from Cloud Run API Microservices) -> Orchestrator Agent LangGraph Router."""
         pass
 
-    def link_cloud_run_api_microservices_to_update_database(
+    async def link_cloud_run_api_microservices_to_update_database(
         self,
         request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
-    ) -> None:
+    ) -> UpdateDatabaseToVectorDatabaseVertexAiRequest:
         """Internal link: Cloud Run API Microservices -> Update database."""
-        pass
+        # Step 5: Start the worker and trigger the background Database write!
+        worker = CloudRunUpdateDatabaseLink(storage_client=self._storage_client)
+        return await worker.forward_cloud_run_api_microservices_to_update_database(request)
 
     def link_update_database_to_vector_database_vertex_ai(
         self,

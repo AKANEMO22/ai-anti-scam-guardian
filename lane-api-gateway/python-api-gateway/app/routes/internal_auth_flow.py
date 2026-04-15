@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
 from app.dependencies import get_api_gateway_internal_link_orchestrator
-from app.models.contracts import AuthenticatedDataToCloudRunRequest, FirebaseAuthToAuthenticatedDataRequest
+from app.models.contracts import AuthenticatedDataToCloudRunRequest, FirebaseAuthToAuthenticatedDataRequest, AuthenticatedDataPayload
 from app.services.internal_link_orchestrator import ApiGatewayInternalLinkOrchestrator
 
 router = APIRouter(tags=["api-gateway-internal"])
@@ -13,9 +13,9 @@ def internal_firebase_auth_to_authenticated_data(
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
-) -> None:
+) -> AuthenticatedDataPayload:
     """Internal link: Firebase Auth -> Authenticated Data."""
-    pass
+    return internal_orchestrator.link_firebase_auth_to_authenticated_data(request)
 
 
 @router.post("/v1/gateway/internal/authenticated-data-to-cloud-run-api-microservices")

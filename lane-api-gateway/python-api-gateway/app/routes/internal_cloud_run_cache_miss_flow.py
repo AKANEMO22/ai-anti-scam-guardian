@@ -4,6 +4,7 @@ from app.dependencies import get_api_gateway_internal_link_orchestrator
 from app.models.contracts import (
     CacheMissToOrchestratorAgentLangGraphRouterRequest,
     CloudRunApiMicroservicesToCacheMissRequest,
+    CacheLookupResultPayload,
 )
 from app.services.internal_link_orchestrator import ApiGatewayInternalLinkOrchestrator
 
@@ -11,14 +12,14 @@ router = APIRouter(tags=["api-gateway-internal"])
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-to-cache-miss")
-def internal_cloud_run_api_microservices_to_cache_miss(
+async def internal_cloud_run_api_microservices_to_cache_miss(
     request: CloudRunApiMicroservicesToCacheMissRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
-) -> None:
+) -> CacheLookupResultPayload:
     """Internal link: Cloud Run API Microservices -> cache miss."""
-    pass
+    return await internal_orchestrator.link_cloud_run_api_microservices_to_cache_miss(request)
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-cache-miss-to-orchestrator-agent-langgraph-router")

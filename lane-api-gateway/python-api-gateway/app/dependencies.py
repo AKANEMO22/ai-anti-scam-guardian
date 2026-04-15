@@ -38,4 +38,6 @@ def get_api_gateway_internal_link_orchestrator() -> ApiGatewayInternalLinkOrches
     return ApiGatewayInternalLinkOrchestrator(
         auth_service=get_auth_service(),
         cache_service=get_cache_service(),
+        core_client=get_agentic_core_client(),
+        storage_client=get_storage_client(),
     )
