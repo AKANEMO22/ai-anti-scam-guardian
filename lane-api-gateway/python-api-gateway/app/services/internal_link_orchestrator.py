@@ -19,9 +19,13 @@ from app.services.auth_service import AuthService
 from app.services.cache_service import InMemoryRiskCache
 from app.clients.agentic_core_client import AgenticCoreClient
 from app.clients.storage_client import StorageClient
+from app.services.links.cloud_run_update_database_link import CloudRunUpdateDatabaseLink
 from app.services.links.firebase_auth_authenticated_data_link import FirebaseAuthAuthenticatedDataLink
 from app.services.links.cloud_run_cache_miss_link import CloudRunCacheMissLink
-from app.services.links.cloud_run_update_database_link import CloudRunUpdateDatabaseLink
+from app.services.links.cloud_run_cache_link import CloudRunCacheLink
+from app.services.links.feedback_label_ingestion_link import FeedbackLabelIngestionLink
+from app.services.links.feedback_ingestion_cache_link import FeedbackIngestionCacheLink
+
 
 class ApiGatewayInternalLinkOrchestrator:
     """
@@ -44,14 +48,25 @@ class ApiGatewayInternalLinkOrchestrator:
         self._core_client = core_client
         self._storage_client = storage_client
 
-    def link_firebase_auth_to_authenticated_data(
+    async def link_firebase_auth_to_authenticated_data(
         self,
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
-        """Internal link: Firebase Auth -> Authenticated Data."""
-        # Step 5: Start the worker and trigger it
-        worker = FirebaseAuthAuthenticatedDataLink(auth_service=self._auth_service)
-        return worker.forward_firebase_auth_to_authenticated_data(request)
+        """Execute the Firebase Auth validation flow."""
+        link = FirebaseAuthAuthenticatedDataLink(self._auth_service)
+        return await link.forward_firebase_auth_to_authenticated_data(request)
+
+    async def link_cloud_run_api_microservices_to_cache(self, request: CloudRunToCacheRequest):
+        link = CloudRunCacheLink(self._cache_service)
+        return link.forward_cloud_run_api_microservices_to_cache_layer(request)
+
+    async def link_feedback_label_to_ingestion(self, request: FeedbackLabelToIngestionRequest):
+        link = FeedbackLabelIngestionLink(self._storage_client)
+        return await link.forward_feedback_label_to_feedback_ingestion(request)
+
+    async def link_feedback_ingestion_to_cache(self, request: FeedbackIngestionToCacheRequest):
+        link = FeedbackIngestionCacheLink(self._cache_service)
+        return link.forward_feedback_ingestion_to_cache_layer(request)
 
     def link_authenticated_data_to_cloud_run_api_microservices(
         self,
@@ -119,19 +134,4 @@ class ApiGatewayInternalLinkOrchestrator:
 
     def link_user_feedback_to_feedback_label(self, request: UserFeedbackToFeedbackLabelRequest) -> None:
         """Internal link: user feedback (scam/safe/not sure) -> feedback label."""
-        pass
-
-    def link_feedback_label_to_feedback_ingestion(self, request: FeedbackLabelToIngestionRequest) -> None:
-        """Internal link: feedback label -> feedback ingestion."""
-        pass
-
-    def link_feedback_ingestion_to_cache_layer(self, request: FeedbackIngestionToCacheRequest) -> None:
-        """Internal link: feedback ingestion -> Cache Layer (redis) by phone/url/script."""
-        pass
-
-    def link_feedback_ingestion_to_cache_layer_lookup(
-        self,
-        request: FeedbackIngestionToCacheLookupRequest,
-    ) -> None:
-        """Internal lookup link for feedback-ingestion cache keys (phone/url/script)."""
         pass

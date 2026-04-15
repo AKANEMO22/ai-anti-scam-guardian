@@ -1,13 +1,38 @@
-from app.models.contracts import FeedbackIngestionResultPayload, FeedbackLabelToIngestionRequest
-
+from datetime import datetime
+from app.models.contracts import FeedbackEvent, FeedbackIngestionResultPayload, FeedbackLabelToIngestionRequest, SourceType, TrafficDataType
 
 class FeedbackLabelIngestionLink:
-    def forward_feedback_label_to_feedback_ingestion(
+    def __init__(self, storage_client):
+        self._storage_client = storage_client
+
+    async def forward_feedback_label_to_feedback_ingestion(
         self,
         request: FeedbackLabelToIngestionRequest,
     ) -> FeedbackIngestionResultPayload:
         """Flow: feedback label -> feedback ingestion."""
-        pass
+        # Map TrafficDataType back to the Storage service's SourceType
+        data_type = request.payload.dataType
+        source_type_map = {
+            TrafficDataType.PHONE: SourceType.CALL,
+            TrafficDataType.URL: SourceType.URL,
+            TrafficDataType.SCRIPT: SourceType.SMS,
+        }
+        
+        feedback = FeedbackEvent(
+            eventId=request.payload.eventId,
+            label=request.payload.label.value,
+            sourceType=source_type_map.get(data_type, SourceType.SMS),
+            riskScore=request.payload.riskScore,
+            timestamp=datetime.utcnow().isoformat()
+        )
+        
+        accepted = await self._storage_client.submit_feedback(feedback)
+        
+        return FeedbackIngestionResultPayload(
+            payload=request.payload,
+            accepted=accepted,
+            ingestionRef=None
+        )
 
     def build_feedback_ingestion_payload(
         self,

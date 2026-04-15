@@ -24,25 +24,25 @@ def internal_user_feedback_to_feedback_label(
 
 
 @router.post("/v1/gateway/internal/feedback-label-to-feedback-ingestion")
-def internal_feedback_label_to_feedback_ingestion(
+async def internal_feedback_label_to_feedback_ingestion(
     request: FeedbackLabelToIngestionRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
 ) -> None:
     """Internal link: feedback label -> feedback ingestion."""
-    pass
+    await internal_orchestrator.link_feedback_label_to_ingestion(request)
 
 
 @router.post("/v1/gateway/internal/feedback-ingestion-to-cache-layer")
-def internal_feedback_ingestion_to_cache_layer(
+async def internal_feedback_ingestion_to_cache_layer(
     request: FeedbackIngestionToCacheRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
 ) -> None:
     """Internal link: feedback ingestion -> Cache Layer (redis) by phone/url/script."""
-    pass
+    await internal_orchestrator.link_feedback_ingestion_to_cache(request)
 
 
 @router.post("/v1/gateway/internal/feedback-ingestion-to-cache-layer-lookup")

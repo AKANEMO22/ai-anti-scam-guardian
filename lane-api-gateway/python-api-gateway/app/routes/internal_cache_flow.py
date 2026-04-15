@@ -8,14 +8,14 @@ router = APIRouter(tags=["api-gateway-internal"])
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-to-cache-layer")
-def internal_cloud_run_api_microservices_to_cache_layer(
+async def internal_cloud_run_api_microservices_to_cache_layer(
     request: CloudRunToCacheRequest,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> Cache Layer (redis)."""
-    pass
+    await internal_orchestrator.link_cloud_run_api_microservices_to_cache(request)
 
 
 @router.post("/v1/gateway/internal/cloud-run-api-microservices-to-cache-layer-lookup")
