@@ -10,18 +10,27 @@ class UpdateDatabaseChannel:
         request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
     ) -> UpdateDatabaseToVectorDatabaseVertexAiRequest:
         """Receive Cloud Run API Microservices payload and expose update-database stage input."""
-        pass
+        return UpdateDatabaseToVectorDatabaseVertexAiRequest(
+            updateKey=request.updateKey or request.signal.callSessionId or "unknown_update_key",
+            dataType=request.result.dataType,
+            payload=request.result.response,
+            metadata=request.result.metadata
+        )
 
     def normalize_update_database_payload(
         self,
         payload: UpdateDatabaseToVectorDatabaseVertexAiRequest,
     ) -> UpdateDatabaseToVectorDatabaseVertexAiRequest:
         """Normalize update-database payload before Vector Database Vertex AI stage."""
-        pass
+        payload.updateKey = payload.updateKey.strip()
+        if payload.metadata:
+            payload.metadata = {k.lower(): str(v).strip() for k, v in payload.metadata.items()}
+        return payload
 
     def validate_update_database_payload(
         self,
         payload: UpdateDatabaseToVectorDatabaseVertexAiRequest,
     ) -> None:
         """Validate update-database payload structure for Vector Database Vertex AI write flow."""
-        pass
+        if not payload.updateKey:
+            raise ValueError("Update database payload must contain an updateKey.")
