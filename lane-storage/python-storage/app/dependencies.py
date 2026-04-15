@@ -7,8 +7,12 @@ from app.services.embedding_service import EmbeddingService
 from app.services.internal_link_orchestrator import StorageInternalLinkOrchestrator
 from app.services.rag_engine import LangChainRagEngine
 from app.services.scam_pattern_service import ScamPatternService
+from app.services.links.cloud_run_update_database_link import CloudRunUpdateDatabaseLink
 from app.services.links.rag_vector_embedding_link import RagVectorEmbeddingLink
 from app.services.links.scam_pattern_vector_link import ScamPatternVectorLink
+from app.services.links.update_database_vector_database_vertex_ai_link import UpdateDatabaseVectorDatabaseVertexAiLink
+from app.services.links.rag_engine_langchain_search_query_link import RagEngineLangChainSearchQueryLink
+from app.services.links.search_query_threat_agent_link import SearchQueryThreatAgentLink
 from app.services.vector_db_vertex_ai_service import VectorDbVertexAiService
 
 
@@ -33,8 +37,11 @@ def get_feedback_repository() -> FeedbackRepository:
 
 
 @lru_cache(maxsize=1)
-def get_rag_engine() -> LangChainRagEngine:
-    return LangChainRagEngine()
+def get_rag_vector_embedding_link() -> RagVectorEmbeddingLink:
+    return RagVectorEmbeddingLink(
+        rag_engine=get_rag_engine(),
+        vector_db_service=get_vector_db_service(),
+    )
 
 
 @lru_cache(maxsize=1)
@@ -48,19 +55,33 @@ def get_scam_pattern_service() -> ScamPatternService:
 
 
 @lru_cache(maxsize=1)
-def get_rag_vector_embedding_link() -> RagVectorEmbeddingLink:
-    return RagVectorEmbeddingLink(
-        rag_engine=get_rag_engine(),
-        vector_db_service=get_vector_db_service(),
-    )
+def get_rag_engine() -> LangChainRagEngine:
+    return LangChainRagEngine(embedding_service=get_embedding_service())
 
 
 @lru_cache(maxsize=1)
 def get_scam_pattern_vector_link() -> ScamPatternVectorLink:
-    return ScamPatternVectorLink(
-        scam_pattern_service=get_scam_pattern_service(),
-        vector_db_service=get_vector_db_service(),
-    )
+    return ScamPatternVectorLink(scam_pattern_service=get_scam_pattern_service())
+
+
+@lru_cache(maxsize=1)
+def get_cloud_run_update_database_link() -> CloudRunUpdateDatabaseLink:
+    return CloudRunUpdateDatabaseLink()
+
+
+@lru_cache(maxsize=1)
+def get_update_database_vector_database_vertex_ai_link() -> UpdateDatabaseVectorDatabaseVertexAiLink:
+    return UpdateDatabaseVectorDatabaseVertexAiLink(vector_db_service=get_vector_db_service())
+
+
+@lru_cache(maxsize=1)
+def get_rag_engine_langchain_search_query_link() -> RagEngineLangChainSearchQueryLink:
+    return RagEngineLangChainSearchQueryLink()
+
+
+@lru_cache(maxsize=1)
+def get_search_query_threat_agent_link() -> SearchQueryThreatAgentLink:
+    return SearchQueryThreatAgentLink()
 
 
 @lru_cache(maxsize=1)
@@ -69,4 +90,10 @@ def get_internal_link_orchestrator() -> StorageInternalLinkOrchestrator:
         rag_engine=get_rag_engine(),
         vector_db_service=get_vector_db_service(),
         scam_pattern_service=get_scam_pattern_service(),
+        rag_vector_embedding_link=get_rag_vector_embedding_link(),
+        scam_pattern_vector_link=get_scam_pattern_vector_link(),
+        cloud_run_update_database_link=get_cloud_run_update_database_link(),
+        update_database_vector_database_vertex_ai_link=get_update_database_vector_database_vertex_ai_link(),
+        rag_engine_langchain_search_query_link=get_rag_engine_langchain_search_query_link(),
+        search_query_threat_agent_link=get_search_query_threat_agent_link(),
     )
