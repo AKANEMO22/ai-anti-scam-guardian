@@ -13,21 +13,41 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.Person
+import com.sixseven.antiscam.R
 import com.sixseven.antiscam.dialer.call.CallUiAction
+import com.sixseven.antiscam.dialer.debug.IncomingDebugReporter
 
 object CallNotificationController {
 
-    private const val CHANNEL_ID = "incoming_calls"
+    // Use a versioned channel ID so devices recreate the channel with desired heads-up behavior.
+    private const val CHANNEL_ID = "incoming_calls_v4"
     private const val CHANNEL_NAME = "Incoming Calls"
     private const val NOTIFICATION_ID = 2701
 
     fun showIncomingCall(context: Context, callerLabel: String) {
         createChannel(context)
 
-        if (!canNotify(context)) {
-            runCatching {
-                context.startActivity(IncomingCallActivity.buildIntent(context))
-            }
+        val canPostNotifications = canNotify(context)
+        val hasFullscreenCapability = canUseFullScreenIntent(context)
+
+        IncomingDebugReporter.report(
+            event = "incoming_notification_prepare",
+            details = mapOf(
+                "callerLabel" to callerLabel,
+                "canPostNotifications" to canPostNotifications,
+                "hasFullscreenCapability" to hasFullscreenCapability,
+                "notificationMode" to "call_style"
+            )
+        )
+
+        if (!canPostNotifications) {
+            IncomingDebugReporter.report(
+                event = "incoming_notification_skipped",
+                details = mapOf(
+                    "reason" to "notifications_blocked",
+                    "fallbackLaunched" to false
+                )
+            )
             return
         }
 
@@ -64,10 +84,10 @@ object CallNotificationController {
             .setImportant(true)
             .build()
 
-        val baseBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.sym_call_incoming)
-            .setContentTitle("Incoming call")
-            .setContentText(callerLabel)
+            .setContentTitle(callerLabel)
+            .setContentText("Đang gọi đến")
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_CALL)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
@@ -75,33 +95,43 @@ object CallNotificationController {
             .setOngoing(true)
             .setAutoCancel(false)
             .setContentIntent(contentPendingIntent)
-            .setFullScreenIntent(contentPendingIntent, true)
-
-        val notification = runCatching {
-            baseBuilder
-                .setStyle(
-                    NotificationCompat.CallStyle.forIncomingCall(
-                        callerPerson,
-                        declinePendingIntent,
-                        answerPendingIntent
-                    )
+            .setStyle(
+                NotificationCompat.CallStyle.forIncomingCall(
+                    callerPerson,
+                    declinePendingIntent,
+                    answerPendingIntent
                 )
-                .build()
-        }.getOrElse {
-            baseBuilder
-                .addAction(android.R.drawable.ic_menu_call, "Answer", answerPendingIntent)
-                .addAction(android.R.drawable.ic_menu_close_clear_cancel, "Decline", declinePendingIntent)
-                .build()
-        }
+            )
+            .apply {
+                if (hasFullscreenCapability) {
+                    setFullScreenIntent(contentPendingIntent, true)
+                }
+            }
+            .build()
 
         val manager = context.getSystemService(NotificationManager::class.java)
         runCatching {
             manager.notify(NOTIFICATION_ID, notification)
+            IncomingDebugReporter.report(
+                event = "incoming_notification_posted",
+                details = mapOf(
+                    "callerLabel" to callerLabel,
+                    "hasFullscreenCapability" to hasFullscreenCapability,
+                    "notificationMode" to "call_style",
+                    "channelId" to CHANNEL_ID
+                )
+            )
         }.onFailure {
             manager.cancel(NOTIFICATION_ID)
-            runCatching {
-                context.startActivity(IncomingCallActivity.buildIntent(context))
-            }
+            IncomingDebugReporter.report(
+                event = "incoming_notification_failed",
+                details = mapOf(
+                    "callerLabel" to callerLabel,
+                    "error" to (it.message ?: it.javaClass.simpleName),
+                    "fallbackLaunched" to false,
+                    "channelId" to CHANNEL_ID
+                )
+            )
         }
     }
 
@@ -121,6 +151,7 @@ object CallNotificationController {
             CHANNEL_NAME,
             NotificationManager.IMPORTANCE_HIGH
         )
+        channel.description = "Incoming call floating alerts with accept and decline actions"
         channel.lockscreenVisibility = NotificationCompat.VISIBILITY_PUBLIC
         channel.enableVibration(true)
         channel.setSound(
@@ -139,18 +170,21 @@ object CallNotificationController {
             return false
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            val manager = context.getSystemService(NotificationManager::class.java)
-            if (!manager.canUseFullScreenIntent()) {
-                return false
-            }
-        }
-
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             return true
         }
 
         return context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) ==
             PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun canUseFullScreenIntent(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            return true
+        }
+
+        val manager = context.getSystemService(NotificationManager::class.java)
+        return runCatching { manager.canUseFullScreenIntent() }
+            .getOrDefault(false)
     }
 }

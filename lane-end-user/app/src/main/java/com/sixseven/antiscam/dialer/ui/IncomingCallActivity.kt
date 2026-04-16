@@ -9,7 +9,6 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,13 +19,14 @@ import com.sixseven.antiscam.R
 import com.sixseven.antiscam.dialer.call.ActiveCallStore
 import com.sixseven.antiscam.dialer.call.CallControlFacade
 import com.sixseven.antiscam.dialer.call.FallbackRingingStore
+import com.sixseven.antiscam.dialer.debug.IncomingDebugReporter
 
 class IncomingCallActivity : AppCompatActivity() {
 
     private lateinit var callerTitle: TextView
     private lateinit var callStateText: TextView
-    private lateinit var answerButton: ImageButton
-    private lateinit var declineButton: ImageButton
+    private lateinit var answerButton: TextView
+    private lateinit var declineButton: TextView
 
     private var observedCall: Call? = null
     private var openedOngoingScreen = false
@@ -58,10 +58,24 @@ class IncomingCallActivity : AppCompatActivity() {
         bindViews()
         bindActions()
         FallbackRingingStore.markUiDisplayed()
+        IncomingDebugReporter.report(
+            event = "incoming_activity_created",
+            details = mapOf(
+                "fallbackLabel" to FallbackRingingStore.currentLabel(),
+                "hasActiveCall" to (ActiveCallStore.current() != null)
+            )
+        )
     }
 
     override fun onStart() {
         super.onStart()
+        IncomingDebugReporter.report(
+            event = "incoming_activity_started",
+            details = mapOf(
+                "hasActiveCall" to (ActiveCallStore.current() != null),
+                "isFallbackRinging" to FallbackRingingStore.isRinging()
+            )
+        )
         attachCurrentCall()
     }
 
@@ -94,10 +108,16 @@ class IncomingCallActivity : AppCompatActivity() {
         declineButton.setOnClickListener {
             val current = ActiveCallStore.current()
             val currentState = runCatching { current?.state }.getOrNull()
-            if (currentState == Call.STATE_RINGING) {
+            val declined = if (currentState == Call.STATE_RINGING) {
                 CallControlFacade.decline(this)
             } else {
                 CallControlFacade.end(this)
+            }
+
+            if (!declined) {
+                Toast.makeText(this, "Cannot decline call. Please try again.", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
             }
 
             finish()
@@ -136,19 +156,19 @@ class IncomingCallActivity : AppCompatActivity() {
     private fun renderState(state: Int) {
         when (state) {
             Call.STATE_RINGING -> {
-                callStateText.text = "Viet Nam"
+                callStateText.text = "Đang gọi đến"
                 answerButton.visibility = View.VISIBLE
             }
 
             Call.STATE_ACTIVE -> {
-                callStateText.text = "Call in progress"
+                callStateText.text = "Đang trong cuộc gọi"
                 answerButton.visibility = View.GONE
                 openOngoingCallScreen()
             }
 
             Call.STATE_CONNECTING,
             Call.STATE_DIALING -> {
-                callStateText.text = "Connecting..."
+                callStateText.text = "Đang kết nối..."
                 answerButton.visibility = View.GONE
             }
 
@@ -157,7 +177,7 @@ class IncomingCallActivity : AppCompatActivity() {
             }
 
             else -> {
-                callStateText.text = "Processing call state"
+                callStateText.text = "Đang xử lý..."
             }
         }
     }

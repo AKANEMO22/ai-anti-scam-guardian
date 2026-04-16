@@ -4,8 +4,8 @@ import android.telecom.Call
 import android.telecom.InCallService
 import com.sixseven.antiscam.dialer.call.ActiveCallStore
 import com.sixseven.antiscam.dialer.call.FallbackRingingStore
+import com.sixseven.antiscam.dialer.debug.IncomingDebugReporter
 import com.sixseven.antiscam.dialer.ui.CallNotificationController
-import com.sixseven.antiscam.dialer.ui.IncomingCallActivity
 
 class GuardianInCallService : InCallService() {
 
@@ -19,6 +19,12 @@ class GuardianInCallService : InCallService() {
         super.onCallAdded(call)
         ActiveCallStore.attach(call)
         CallNotificationController.cancel(this)
+        IncomingDebugReporter.report(
+            event = "incall_service_call_added",
+            details = mapOf(
+                "state" to runCatching { call.state }.getOrDefault(-1)
+            )
+        )
         runCatching {
             call.registerCallback(callCallback)
             handleStateUpdate(call, call.state)
@@ -29,6 +35,12 @@ class GuardianInCallService : InCallService() {
         runCatching { call.unregisterCallback(callCallback) }
         ActiveCallStore.clear(call)
         CallNotificationController.cancel(this)
+        IncomingDebugReporter.report(
+            event = "incall_service_call_removed",
+            details = mapOf(
+                "state" to runCatching { call.state }.getOrDefault(-1)
+            )
+        )
         super.onCallRemoved(call)
     }
 
@@ -37,10 +49,17 @@ class GuardianInCallService : InCallService() {
             Call.STATE_RINGING -> {
                 val caller = resolveCallerLabel(call)
                 FallbackRingingStore.onRinging(caller)
-                CallNotificationController.showIncomingCall(this, FallbackRingingStore.currentLabel())
-                runCatching {
-                    startActivity(IncomingCallActivity.buildIntent(this))
-                }
+                IncomingDebugReporter.report(
+                    event = "incall_state_ringing",
+                    details = mapOf(
+                        "callerLabel" to caller,
+                        "notificationMode" to "call_style"
+                    )
+                )
+                CallNotificationController.showIncomingCall(
+                    context = this,
+                    callerLabel = FallbackRingingStore.currentLabel()
+                )
             }
 
             Call.STATE_ACTIVE,
@@ -48,12 +67,20 @@ class GuardianInCallService : InCallService() {
             Call.STATE_DIALING -> {
                 FallbackRingingStore.onCallEndedOrPicked()
                 CallNotificationController.cancel(this)
+                IncomingDebugReporter.report(
+                    event = "incall_state_connected",
+                    details = mapOf("state" to state)
+                )
             }
 
             Call.STATE_DISCONNECTED -> {
                 ActiveCallStore.clear(call)
                 FallbackRingingStore.onCallEndedOrPicked()
                 CallNotificationController.cancel(this)
+                IncomingDebugReporter.report(
+                    event = "incall_state_disconnected",
+                    details = mapOf("state" to state)
+                )
             }
         }
     }

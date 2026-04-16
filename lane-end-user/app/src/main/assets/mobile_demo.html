@@ -487,128 +487,8 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .call-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 9;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      background: rgba(2, 6, 23, 0.64);
-      backdrop-filter: blur(3px);
-    }
-
-    .call-overlay.show {
-      display: flex;
-      animation: fadeIn 0.2s ease;
-    }
-
-    .call-card {
-      width: 100%;
-      border-radius: 24px;
-      background: linear-gradient(155deg, #0f172a, #1e293b 68%, #334155);
-      color: #f8fafc;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 16px;
-      box-shadow: 0 18px 42px rgba(2, 6, 23, 0.45);
-      text-align: center;
-    }
-
-    .caller-avatar {
-      width: 86px;
-      height: 86px;
-      border-radius: 999px;
-      margin: 4px auto 10px;
-      display: grid;
-      place-items: center;
-      font-family: "Sora", sans-serif;
-      font-size: 27px;
-      font-weight: 700;
-      background: radial-gradient(circle at 25% 25%, #22d3ee, #0f766e);
-      border: 3px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .call-number {
-      color: #cbd5e1;
-      font-size: 13px;
-      margin-top: 4px;
-    }
-
-    .ringing {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #fde68a;
-      animation: pulse 1.1s ease-in-out infinite;
-    }
-
-    .call-tags {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .call-tag {
-      border-radius: 999px;
-      padding: 5px 9px;
-      font-size: 11px;
-      font-weight: 700;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.45);
-      color: #e2e8f0;
-    }
-
-    .call-actions {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .btn-call-accept {
-      background: linear-gradient(95deg, #16a34a, #15803d);
-      color: #fff;
-      box-shadow: 0 8px 16px rgba(21, 128, 61, 0.35);
-    }
-
-    .btn-call-decline {
-      background: linear-gradient(95deg, #ef4444, #b91c1c);
-      color: #fff;
-      box-shadow: 0 8px 16px rgba(185, 28, 28, 0.35);
-    }
-
-    .btn-call-end {
-      grid-column: 1 / -1;
-      background: linear-gradient(95deg, #f97316, #ea580c);
-      color: #fff;
-      box-shadow: 0 8px 16px rgba(234, 88, 12, 0.35);
-    }
-
     .hidden {
       display: none !important;
-    }
-
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.55;
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
     }
 
     @keyframes riseIn {
@@ -683,32 +563,6 @@
 
       <div class="toast" id="toast"></div>
 
-      <section class="call-overlay" id="callOverlay" aria-live="polite">
-        <article class="call-card">
-          <div class="caller-avatar" id="callerAvatar">AI</div>
-          <h3 class="title" style="color: #f8fafc; margin-bottom: 2px;">Incoming Call</h3>
-          <div id="callTitle" style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700;">Unknown Caller</div>
-          <div id="callNumber" class="call-number">+84 9xx xxx xxx</div>
-          <div class="call-tags">
-            <span id="callTagScenario" class="call-tag">Scenario: Scam script</span>
-            <span class="call-tag">Realtime AI detection</span>
-          </div>
-          <div id="callState" class="ringing">Ringing...</div>
-
-          <audio id="audioScam" preload="auto" src="assets/audio/scam_call.wav"></audio>
-          <audio id="audioReal" preload="auto" src="assets/audio/real_call.wav"></audio>
-
-          <div id="incomingActions" class="call-actions">
-            <button id="btnDeclineCall" class="btn-call-decline">Decline</button>
-            <button id="btnAnswerCall" class="btn-call-accept">Answer</button>
-          </div>
-
-          <div id="liveActions" class="call-actions hidden">
-            <button id="btnEndCall" class="btn-call-end">End Call</button>
-          </div>
-        </article>
-      </section>
-
       <section class="content">
         <section id="home" class="screen active">
           <article class="card">
@@ -747,9 +601,9 @@
             <h3 class="title">Quick Actions</h3>
             <div class="actions">
               <button class="btn-main" id="goScan">Scan URL or SMS</button>
-              <button class="btn-soft" id="goCallShield">Test Scam Call</button>
+              <button class="btn-soft" id="goCallShield">Run Scam Voice Scan</button>
               <button class="btn-soft" id="goHistory">Open Alert History</button>
-              <button class="btn-soft" id="goRealCall">Test Real Call</button>
+              <button class="btn-soft" id="goRealCall">Run Legit Voice Scan</button>
             </div>
           </article>
 
@@ -762,13 +616,13 @@
         <section id="scan" class="screen">
           <article class="card">
             <h3 class="title">Quick Scan</h3>
-            <div class="muted" style="margin-bottom: 8px;">Paste suspicious URL or SMS text, or run dedicated call tests below.</div>
+            <div class="muted" style="margin-bottom: 8px;">Paste suspicious URL or SMS text, or run voice-transcript scenarios below.</div>
             <div class="muted" style="margin-bottom: 8px;">Voice samples: assets/audio/scam_call.wav and assets/audio/real_call.wav</div>
             <input id="scanInput" class="input" value="https://secure-vcb-lock-wallet.info/verify" aria-label="scan input">
             <div class="actions actions-3">
               <button id="btnScan" class="btn-main">Run URL/SMS Scan</button>
-              <button id="btnCallScam" class="btn-warn">Test Scam Call</button>
-              <button id="btnCallReal" class="btn-soft">Test Real Call</button>
+              <button id="btnCallScam" class="btn-warn">Run Scam Voice Scan</button>
+              <button id="btnCallReal" class="btn-soft">Run Legit Voice Scan</button>
             </div>
           </article>
 
@@ -862,23 +716,6 @@
     const homeAlert = document.getElementById("homeAlert");
     const gaugeValue = document.getElementById("gaugeValue");
     const riskGauge = document.getElementById("riskGauge");
-    const callOverlay = document.getElementById("callOverlay");
-    const callTitle = document.getElementById("callTitle");
-    const callNumber = document.getElementById("callNumber");
-    const callTagScenario = document.getElementById("callTagScenario");
-    const callState = document.getElementById("callState");
-    const callerAvatar = document.getElementById("callerAvatar");
-    const incomingActions = document.getElementById("incomingActions");
-    const liveActions = document.getElementById("liveActions");
-    const btnAnswerCall = document.getElementById("btnAnswerCall");
-    const btnDeclineCall = document.getElementById("btnDeclineCall");
-    const btnEndCall = document.getElementById("btnEndCall");
-    const scamAudio = document.getElementById("audioScam");
-    const realAudio = document.getElementById("audioReal");
-
-    let currentCallMode = null;
-    let currentCallAudio = null;
-    let callAutoAnalyzeTimer = null;
 
     const historyData = [
       { t: "09:16", title: "Bank phishing URL", sev: "high", note: "Fake bank domain + urgent transfer script" },
@@ -914,97 +751,16 @@
 
     document.getElementById("goScan").addEventListener("click", () => activate("scan"));
     document.getElementById("goCallShield").addEventListener("click", () => {
-      openIncomingCall("call_scam");
+      activate("scan");
+      document.getElementById("scanInput").value = "Voice transcript: Em gap roi, chuyen tien ngay vao tai khoan nay de giai quyet khan cap";
+      runScan("call_scam");
     });
     document.getElementById("goRealCall").addEventListener("click", () => {
-      openIncomingCall("call_real");
+      activate("scan");
+      document.getElementById("scanInput").value = "Voice transcript: Con oi toi da ve den nha, khong can chuyen tien, toi se goi lai sau";
+      runScan("call_real");
     });
     document.getElementById("goHistory").addEventListener("click", () => activate("history"));
-
-    function stopCurrentCallAudio() {
-      [scamAudio, realAudio].forEach((audio) => {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-      currentCallAudio = null;
-    }
-
-    function closeIncomingCall() {
-      window.clearTimeout(callAutoAnalyzeTimer);
-      stopCurrentCallAudio();
-      incomingActions.classList.remove("hidden");
-      liveActions.classList.add("hidden");
-      callOverlay.classList.remove("show");
-      currentCallMode = null;
-      callState.textContent = "Ringing...";
-    }
-
-    function openIncomingCall(mode) {
-      currentCallMode = mode;
-      const scamMode = mode === "call_scam";
-
-      callTitle.textContent = scamMode ? "Unknown Caller" : "Me (Trusted Contact)";
-      callNumber.textContent = scamMode ? "+84 901 234 888" : "+84 912 456 123";
-      callTagScenario.textContent = scamMode ? "Scenario: Fake emergency money request" : "Scenario: Normal family check-in";
-      callerAvatar.textContent = scamMode ? "??" : "M";
-      callState.textContent = "Ringing...";
-
-      incomingActions.classList.remove("hidden");
-      liveActions.classList.add("hidden");
-      callOverlay.classList.add("show");
-
-      showToast(scamMode ? "Incoming scam-call scenario" : "Incoming real-call scenario");
-    }
-
-    function triggerCallDetection() {
-      if (!currentCallMode) {
-        return;
-      }
-      const mode = currentCallMode;
-      activate("scan");
-      if (mode === "call_scam") {
-        document.getElementById("scanInput").value = "Voice transcript: Em gap roi, chuyen tien ngay vao tai khoan nay de giai quyet khan cap";
-      } else {
-        document.getElementById("scanInput").value = "Voice transcript: Con oi toi da ve den nha, khong can chuyen tien, toi se goi lai sau";
-      }
-      runScan(mode);
-      closeIncomingCall();
-    }
-
-    btnAnswerCall.addEventListener("click", () => {
-      if (!currentCallMode) {
-        return;
-      }
-
-      const scamMode = currentCallMode === "call_scam";
-      callState.textContent = "Connected. AI is monitoring voice stream...";
-      incomingActions.classList.add("hidden");
-      liveActions.classList.remove("hidden");
-
-      currentCallAudio = scamMode ? scamAudio : realAudio;
-      stopCurrentCallAudio();
-      currentCallAudio = scamMode ? scamAudio : realAudio;
-
-      currentCallAudio.play().catch(() => {
-        showToast("Cannot autoplay audio, please tap Answer again");
-      });
-
-      window.clearTimeout(callAutoAnalyzeTimer);
-      callAutoAnalyzeTimer = window.setTimeout(() => {
-        callState.textContent = "AI classifying call authenticity...";
-        triggerCallDetection();
-      }, 2200);
-    });
-
-    btnDeclineCall.addEventListener("click", () => {
-      closeIncomingCall();
-      showToast("Call declined");
-    });
-
-    btnEndCall.addEventListener("click", () => {
-      closeIncomingCall();
-      showToast("Call ended");
-    });
 
     function renderHistory() {
       historyList.innerHTML = "";
@@ -1129,10 +885,12 @@
 
     document.getElementById("btnScan").addEventListener("click", () => runScan("text"));
     document.getElementById("btnCallScam").addEventListener("click", () => {
-      openIncomingCall("call_scam");
+      document.getElementById("scanInput").value = "Voice transcript: Em gap roi, chuyen tien ngay vao tai khoan nay de giai quyet khan cap";
+      runScan("call_scam");
     });
     document.getElementById("btnCallReal").addEventListener("click", () => {
-      openIncomingCall("call_real");
+      document.getElementById("scanInput").value = "Voice transcript: Con oi toi da ve den nha, khong can chuyen tien, toi se goi lai sau";
+      runScan("call_real");
     });
 
     document.querySelectorAll(".feedback").forEach((btn) => {

@@ -28,6 +28,7 @@ object CallControlFacade {
         val current = ActiveCallStore.current()
         if (current != null) {
             ActiveCallStore.decline()
+            FallbackRingingStore.onCallEndedOrPicked()
             return true
         }
 
@@ -36,8 +37,8 @@ object CallControlFacade {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 telecomManager.silenceRinger()
             }
-            FallbackRingingStore.onCallEndedOrPicked()
-            true
+            // silenceRinger() only mutes ringtone and does not guarantee call rejection.
+            false
         } catch (_: Throwable) {
             false
         }

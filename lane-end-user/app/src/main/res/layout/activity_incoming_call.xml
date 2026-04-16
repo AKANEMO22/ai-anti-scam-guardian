@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootIncomingCall"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:paddingStart="12dp"
     android:paddingTop="10dp"
@@ -16,70 +16,99 @@
         android:background="@drawable/bg_incoming_banner"
         android:elevation="16dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingStart="14dp"
         android:paddingTop="14dp"
         android:paddingEnd="14dp"
         android:paddingBottom="14dp">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingEnd="10dp">
-
-            <TextView
-                android:id="@+id/tvCaller"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Unknown caller"
-                android:textColor="#FFFFFF"
-                android:textSize="21sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCallState"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Viet Nam"
-                android:textColor="#A8AFBA"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btnDeclineCall"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:background="@drawable/bg_call_action_decline"
-                android:contentDescription="Decline call"
-                android:padding="15dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_call_decline"
-                android:tint="#FFFFFF" />
+            <ImageView
+                android:id="@+id/ivAppIcon"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="App icon"
+                android:src="@android:drawable/sym_def_app_icon" />
 
-            <ImageButton
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCaller"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Unknown caller"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCallState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Đang gọi đến"
+                    android:textColor="#E0E7FF"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_incoming_avatar"
+                android:contentDescription="Caller avatar"
+                android:src="@android:drawable/sym_def_app_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnDeclineCall"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_incoming_action_decline"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Từ chối"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/btnAnswerCall"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/bg_call_action_answer"
-                android:contentDescription="Answer call"
-                android:padding="15dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_call_answer"
-                android:tint="#FFFFFF" />
+                android:layout_weight="1"
+                android:background="@drawable/bg_incoming_action_answer"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Trả lời"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

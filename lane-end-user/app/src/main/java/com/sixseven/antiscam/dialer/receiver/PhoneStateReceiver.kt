@@ -6,7 +6,7 @@ import android.content.Intent
 import android.telephony.TelephonyManager
 import com.sixseven.antiscam.dialer.call.ActiveCallStore
 import com.sixseven.antiscam.dialer.call.FallbackRingingStore
-import com.sixseven.antiscam.dialer.role.DefaultDialerRoleHelper
+import com.sixseven.antiscam.dialer.debug.IncomingDebugReporter
 import com.sixseven.antiscam.dialer.ui.CallNotificationController
 
 class PhoneStateReceiver : BroadcastReceiver() {
@@ -16,17 +16,20 @@ class PhoneStateReceiver : BroadcastReceiver() {
             return
         }
 
-        if (!DefaultDialerRoleHelper.isDefaultDialer(context)) {
-            return
-        }
-
         runCatching {
             when (intent.getStringExtra(TelephonyManager.EXTRA_STATE)) {
                 TelephonyManager.EXTRA_STATE_RINGING -> {
                     val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
                     FallbackRingingStore.onRinging(incomingNumber)
                     val hasTelecomCall = ActiveCallStore.current() != null
-                    if (!hasTelecomCall && FallbackRingingStore.consumeLaunchRequest()) {
+                    IncomingDebugReporter.report(
+                        event = "phone_state_ringing",
+                        details = mapOf(
+                            "incomingNumber" to incomingNumber,
+                            "hasTelecomCall" to hasTelecomCall
+                        )
+                    )
+                    if (!hasTelecomCall) {
                         CallNotificationController.showIncomingCall(context, FallbackRingingStore.currentLabel())
                     }
                 }
@@ -34,12 +37,14 @@ class PhoneStateReceiver : BroadcastReceiver() {
                 TelephonyManager.EXTRA_STATE_OFFHOOK -> {
                     FallbackRingingStore.onCallEndedOrPicked()
                     CallNotificationController.cancel(context)
+                    IncomingDebugReporter.report(event = "phone_state_offhook")
                 }
 
                 TelephonyManager.EXTRA_STATE_IDLE -> {
                     FallbackRingingStore.onCallEndedOrPicked()
                     ActiveCallStore.clear()
                     CallNotificationController.cancel(context)
+                    IncomingDebugReporter.report(event = "phone_state_idle")
                 }
             }
         }

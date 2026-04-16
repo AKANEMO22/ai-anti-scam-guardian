@@ -1,53 +1,110 @@
 package com.sixseven.antiscam
 
+import android.Manifest
+import android.app.role.RoleManager
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import android.app.NotificationManager
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.CallLog
+import android.provider.ContactsContract
+import android.provider.Telephony
+import android.provider.Settings
+import android.telecom.TelecomManager
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
-import com.sixseven.antiscam.dialer.permissions.CallPermissionManager
-import com.sixseven.antiscam.dialer.role.DefaultDialerRoleHelper
-import com.sixseven.antiscam.dialer.setup.DialerSetupGuideDialog
+import com.sixseven.antiscam.incoming.IncomingCallNotifier
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tabs: List<TextView>
     private lateinit var contentScroll: ScrollView
     private lateinit var tabSections: Map<Int, List<View>>
-    private var setupGuideShownInSession = false
+    private lateinit var callSetupStatusView: TextView
+    private lateinit var callSetupHintView: TextView
+    private lateinit var shieldPillView: TextView
+    private lateinit var callHistoryStatusView: TextView
+    private lateinit var callHistoryContainer: LinearLayout
+    private lateinit var smsStatusView: TextView
+    private lateinit var smsContainer: LinearLayout
+    private var activeTabId: Int = R.id.tabHome
 
-    private val defaultDialerRoleLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (!DefaultDialerRoleHelper.isDefaultDialer(this)) {
-                showDialerSetupGuide()
-            }
-        }
+    private val contactNameCache = mutableMapOf<String, String>()
+
+    private data class CallHistoryEntry(
+        val displayName: String,
+        val number: String,
+        val type: Int,
+        val timestampMs: Long,
+        val durationSec: Long
+    )
+
+    private data class SmsEntry(
+        val address: String,
+        val bodyPreview: String,
+        val timestampMs: Long,
+        val type: Int
+    )
 
     private val callPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-            if (CallPermissionManager.hasAllPermissions(this)) {
-                ensureDefaultDialerRole()
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { grantMap ->
+            val denied = grantMap.filterValues { granted -> !granted }.keys
+            if (denied.isEmpty()) {
+                completeIncomingCallSetup()
             } else {
-                showDialerSetupGuide()
+                val permanentlyDenied = denied.filter { permission ->
+                    !shouldShowRequestPermissionRationale(permission)
+                }
+
+                if (permanentlyDenied.isNotEmpty()) {
+                    Toast.makeText(this, "Quyền đã bị từ chối vĩnh viễn. Mở App Settings để bật lại.", Toast.LENGTH_LONG).show()
+                    openAppSettings()
+                    renderCallSetupStatus()
+                    return@registerForActivityResult
+                }
+
+                Toast.makeText(this, "Thiếu quyền cho cuộc gọi và messaging", Toast.LENGTH_LONG).show()
             }
+
+            renderCallSetupStatus()
+        }
+
+    private val defaultDialerRoleLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _ ->
+            if (isDefaultDialerApp()) {
+                Toast.makeText(this, "Đã đặt app làm Phone mặc định", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Cần đặt app làm Phone mặc định để xử lý cuộc gọi", Toast.LENGTH_LONG).show()
+            }
+
+            renderCallSetupStatus()
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        bindCallSetupPanel()
         applySystemInsets()
         setupSections()
         runEntryAnimation()
@@ -55,65 +112,17 @@ class MainActivity : AppCompatActivity() {
         runCardStaggerAnimation()
         setupTabs()
         attachPressScaleAnimation()
-        ensureCallPermissionsAndDialer()
+        renderCallSetupStatus()
+        renderCallHistory()
     }
 
     override fun onResume() {
         super.onResume()
-        if (DefaultDialerRoleHelper.isDefaultDialer(this)) {
-            setupGuideShownInSession = false
+        renderCallSetupStatus()
+        renderCallHistory()
+        if (activeTabId == R.id.tabScan) {
+            renderMessagingInbox()
         }
-    }
-
-    private fun ensureDefaultDialerRole() {
-        if (DefaultDialerRoleHelper.isDefaultDialer(this)) {
-            if (!canShowIncomingPopupOverApps()) {
-                showDialerSetupGuide()
-            }
-            return
-        }
-
-        val roleIntent = DefaultDialerRoleHelper.buildRoleRequestIntent(this)
-        if (roleIntent != null) {
-            runCatching {
-                defaultDialerRoleLauncher.launch(roleIntent)
-            }.onFailure {
-                showDialerSetupGuide()
-            }
-        } else {
-            showDialerSetupGuide()
-        }
-    }
-
-    private fun canShowIncomingPopupOverApps(): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            return true
-        }
-
-        val manager = getSystemService(NotificationManager::class.java)
-        return manager.canUseFullScreenIntent()
-    }
-
-    private fun ensureCallPermissionsAndDialer() {
-        if (!CallPermissionManager.hasAllPermissions(this)) {
-            callPermissionLauncher.launch(CallPermissionManager.requiredPermissions())
-            return
-        }
-
-        ensureDefaultDialerRole()
-    }
-
-    private fun showDialerSetupGuide() {
-        if (setupGuideShownInSession) {
-            val opened = DefaultDialerRoleHelper.openDefaultAppSettings(this)
-            if (!opened) {
-                DefaultDialerRoleHelper.openAppDetailsSettings(this)
-            }
-            return
-        }
-
-        setupGuideShownInSession = true
-        DialerSetupGuideDialog.show(this)
     }
 
     private fun applySystemInsets() {
@@ -171,9 +180,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun runCardStaggerAnimation() {
         val cardIds = listOf(
+            R.id.cardCallSetup,
             R.id.cardRisk,
             R.id.cardSnapshot,
-            R.id.cardActions,
             R.id.cardAlert,
             R.id.tabBar
         )
@@ -194,10 +203,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun attachPressScaleAnimation() {
         attachPressScale(
-            findViewById(R.id.btnScan),
-            findViewById(R.id.btnCall),
-            findViewById(R.id.btnHistory),
-            findViewById(R.id.btnGuardian),
+            findViewById(R.id.btnCallSetupPrimary),
             findViewById(R.id.tabHome),
             findViewById(R.id.tabScan),
             findViewById(R.id.tabHistory),
@@ -219,10 +225,7 @@ class MainActivity : AppCompatActivity() {
             tab.setOnClickListener { setActiveTab(tab) }
         }
 
-        findViewById<View>(R.id.btnScan).setOnClickListener { setActiveTab(findViewById(R.id.tabScan)) }
-        findViewById<View>(R.id.btnCall).setOnClickListener { ensureCallPermissionsAndDialer() }
-        findViewById<View>(R.id.btnHistory).setOnClickListener { setActiveTab(findViewById(R.id.tabHistory)) }
-        findViewById<View>(R.id.btnGuardian).setOnClickListener { setActiveTab(findViewById(R.id.tabGuardian)) }
+        findViewById<View>(R.id.btnCallSetupPrimary).setOnClickListener { requestIncomingCallSetup() }
 
         setActiveTab(findViewById(R.id.tabHome))
     }
@@ -231,9 +234,9 @@ class MainActivity : AppCompatActivity() {
         contentScroll = findViewById(R.id.scrollContent)
 
         val homeViews = listOf(
+            findViewById<View>(R.id.cardCallSetup),
             findViewById<View>(R.id.cardRisk),
             findViewById<View>(R.id.cardSnapshot),
-            findViewById<View>(R.id.cardActions),
             findViewById<View>(R.id.cardAlert)
         )
 
@@ -247,6 +250,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setActiveTab(active: TextView) {
+        activeTabId = active.id
+
         tabs.forEach { tab ->
             val isActive = tab.id == active.id
             tab.setBackgroundResource(if (isActive) R.drawable.bg_tab_active else R.drawable.bg_tab_inactive)
@@ -268,6 +273,159 @@ class MainActivity : AppCompatActivity() {
         }
 
         contentScroll.post { contentScroll.smoothScrollTo(0, 0) }
+
+        if (active.id == R.id.tabHome) {
+            renderCallHistory()
+        } else if (active.id == R.id.tabScan) {
+            renderMessagingInbox()
+        }
+    }
+
+    private fun requestIncomingCallSetup() {
+        val missing = missingCallPermissions()
+
+        if (missing.isEmpty()) {
+            completeIncomingCallSetup()
+            return
+        }
+
+        callPermissionLauncher.launch(missing.toTypedArray())
+    }
+
+    private fun completeIncomingCallSetup() {
+        IncomingCallNotifier.ensureChannel(this)
+        requestDefaultDialerRoleIfNeeded()
+        if (isDefaultDialerApp()) {
+            Toast.makeText(this, "Chế độ nhận cuộc gọi đến đã được bật", Toast.LENGTH_SHORT).show()
+        }
+
+        renderCallSetupStatus()
+    }
+
+    private fun requestDefaultDialerRoleIfNeeded() {
+        if (isDefaultDialerApp()) {
+            return
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val roleManager = getSystemService(RoleManager::class.java)
+            if (roleManager != null && roleManager.isRoleAvailable(RoleManager.ROLE_DIALER) && !roleManager.isRoleHeld(RoleManager.ROLE_DIALER)) {
+                defaultDialerRoleLauncher.launch(roleManager.createRequestRoleIntent(RoleManager.ROLE_DIALER))
+            } else {
+                openDefaultAppSettings()
+            }
+            return
+        }
+
+        val requestIntent = Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER).apply {
+            putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, packageName)
+        }
+        defaultDialerRoleLauncher.launch(requestIntent)
+    }
+
+    private fun isDefaultDialerApp(): Boolean {
+        val telecomManager = getSystemService(TelecomManager::class.java) ?: return false
+        return telecomManager.defaultDialerPackage == packageName
+    }
+
+    private fun openAppSettings() {
+        val settingsIntent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+            data = Uri.fromParts("package", packageName, null)
+        }
+        startActivity(settingsIntent)
+    }
+
+    private fun openDefaultAppSettings() {
+        val settingsIntent = Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS)
+        if (settingsIntent.resolveActivity(packageManager) != null) {
+            startActivity(settingsIntent)
+        } else {
+            openAppSettings()
+        }
+    }
+
+    private fun bindCallSetupPanel() {
+        shieldPillView = findViewById(R.id.shieldPill)
+        callSetupStatusView = findViewById(R.id.tvCallSetupStatus)
+        callSetupHintView = findViewById(R.id.tvCallSetupHint)
+        callHistoryStatusView = findViewById(R.id.tvCallHistoryStatus)
+        callHistoryContainer = findViewById(R.id.layoutCallHistoryContainer)
+        smsStatusView = findViewById(R.id.tvSmsStatus)
+        smsContainer = findViewById(R.id.layoutSmsContainer)
+    }
+
+    private fun renderCallSetupStatus() {
+        val missingPermissions = missingCallPermissions()
+        val isDefaultDialer = isDefaultDialerApp()
+        val isReady = missingPermissions.isEmpty() && isDefaultDialer
+        updateShieldIndicator(isReady)
+
+        if (isReady) {
+            callSetupStatusView.text = "Sẵn sàng cuộc gọi và messaging"
+            callSetupStatusView.setTextColor(Color.parseColor("#166534"))
+            callSetupHintView.text = "Đã cấp đủ quyền cuộc gọi/tin nhắn và đã đặt app làm Phone mặc định."
+            findViewById<TextView>(R.id.btnCallSetupPrimary).text = "Kiểm tra lại cấu hình"
+            return
+        }
+
+        callSetupStatusView.text = "Còn thiếu quyền cấu hình"
+        callSetupStatusView.setTextColor(Color.parseColor("#b91c1c"))
+
+        val hintBuilder = StringBuilder()
+        if (missingPermissions.isNotEmpty()) {
+            hintBuilder.append("Cần cấp quyền: ")
+            hintBuilder.append(
+                missingPermissions.joinToString(", ") { permission ->
+                    permission.substringAfterLast('.')
+                }
+            )
+            hintBuilder.append(". ")
+        }
+
+        if (!isDefaultDialer) {
+            hintBuilder.append("Cần đặt app làm Phone mặc định để hiện UI cuộc gọi đến.")
+        }
+
+        callSetupHintView.text = hintBuilder.toString().trim()
+        findViewById<TextView>(R.id.btnCallSetupPrimary).text = "Cấp quyền cuộc gọi và tin nhắn"
+    }
+
+    private fun updateShieldIndicator(isReady: Boolean) {
+        shieldPillView.text = if (isReady) "SHIELD ACTIVE" else "SHIELD INACTIVE"
+        shieldPillView.setTextColor(
+            Color.parseColor(
+                if (isReady) {
+                    "#166534"
+                } else {
+                    "#b91c1c"
+                }
+            )
+        )
+        shieldPillView.setBackgroundResource(
+            if (isReady) {
+                R.drawable.bg_pill_shield
+            } else {
+                R.drawable.bg_pill_shield_inactive
+            }
+        )
+    }
+
+    private fun missingCallPermissions(): List<String> {
+        val required = mutableListOf(
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.ANSWER_PHONE_CALLS,
+            Manifest.permission.READ_CALL_LOG,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.READ_SMS
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            required += Manifest.permission.POST_NOTIFICATIONS
+        }
+
+        return required.filter { permission ->
+            ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED
+        }
     }
 
     private fun attachPressScale(vararg views: View) {
@@ -286,5 +444,297 @@ class MainActivity : AppCompatActivity() {
                 false
             }
         }
+    }
+
+    private fun renderMessagingInbox() {
+        if (!::smsStatusView.isInitialized || !::smsContainer.isInitialized) {
+            return
+        }
+
+        smsContainer.removeAllViews()
+
+        if (!hasPermission(Manifest.permission.READ_SMS)) {
+            smsStatusView.text = "Chưa có quyền READ_SMS. Hãy cấp ở tab Home bằng nút Cấp quyền cuộc gọi và tin nhắn."
+            return
+        }
+
+        val entries = loadSmsEntries(limit = 30)
+        if (entries.isEmpty()) {
+            smsStatusView.text = "Không có tin nhắn SMS nào trong máy."
+            return
+        }
+
+        smsStatusView.text = "Tổng ${entries.size} tin nhắn gần đây."
+        entries.forEach { entry ->
+            smsContainer.addView(buildSmsRow(entry))
+        }
+    }
+
+    private fun loadSmsEntries(limit: Int): List<SmsEntry> {
+        val entries = mutableListOf<SmsEntry>()
+        val projection = arrayOf(
+            Telephony.Sms.ADDRESS,
+            Telephony.Sms.BODY,
+            Telephony.Sms.DATE,
+            Telephony.Sms.TYPE
+        )
+
+        val cursor = runCatching {
+            contentResolver.query(
+                Telephony.Sms.CONTENT_URI,
+                projection,
+                null,
+                null,
+                "${Telephony.Sms.DATE} DESC"
+            )
+        }.getOrNull() ?: return entries
+
+        cursor.use {
+            while (it.moveToNext() && entries.size < limit) {
+                val rawAddress = it.getString(0).orEmpty().trim()
+                val address = rawAddress.ifBlank { "Không rõ số" }
+                val body = it.getString(1).orEmpty().trim().ifBlank { "(Không có nội dung)" }
+                val normalizedBody = body.replace("\n", " ")
+                val preview = if (normalizedBody.length > 96) {
+                    "${normalizedBody.take(96)}..."
+                } else {
+                    normalizedBody
+                }
+
+                entries += SmsEntry(
+                    address = address,
+                    bodyPreview = preview,
+                    timestampMs = it.getLong(2),
+                    type = it.getInt(3)
+                )
+            }
+        }
+
+        return entries
+    }
+
+    private fun buildSmsRow(entry: SmsEntry): View {
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setBackgroundResource(R.drawable.bg_kpi_card)
+            setPadding(dp(10), dp(10), dp(10), dp(10))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                bottomMargin = dp(8)
+            }
+        }
+
+        val primaryLine = TextView(this).apply {
+            text = entry.address
+            setTextColor(Color.parseColor("#0f172a"))
+            textSize = 13f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+        }
+
+        val secondaryLine = TextView(this).apply {
+            text = "${formatSmsType(entry.type)} • ${formatCallDate(entry.timestampMs)}"
+            setTextColor(Color.parseColor("#64748b"))
+            textSize = 11f
+        }
+
+        val messageLine = TextView(this).apply {
+            text = entry.bodyPreview
+            setTextColor(Color.parseColor("#334155"))
+            textSize = 12f
+            setPadding(0, dp(4), 0, 0)
+        }
+
+        row.addView(primaryLine)
+        row.addView(secondaryLine)
+        row.addView(messageLine)
+        return row
+    }
+
+    private fun formatSmsType(type: Int): String {
+        return when (type) {
+            Telephony.Sms.MESSAGE_TYPE_INBOX -> "Tin nhắn đến"
+            Telephony.Sms.MESSAGE_TYPE_SENT -> "Tin nhắn đã gửi"
+            Telephony.Sms.MESSAGE_TYPE_DRAFT -> "Tin nhắn nháp"
+            Telephony.Sms.MESSAGE_TYPE_OUTBOX -> "Tin nhắn đi"
+            Telephony.Sms.MESSAGE_TYPE_FAILED -> "Tin nhắn lỗi"
+            Telephony.Sms.MESSAGE_TYPE_QUEUED -> "Tin nhắn chờ gửi"
+            else -> "Tin nhắn khác"
+        }
+    }
+
+    private fun renderCallHistory() {
+        if (!::callHistoryStatusView.isInitialized || !::callHistoryContainer.isInitialized) {
+            return
+        }
+
+        callHistoryContainer.removeAllViews()
+        contactNameCache.clear()
+
+        if (!hasPermission(Manifest.permission.READ_CALL_LOG)) {
+            callHistoryStatusView.text = "Cần cấp quyền READ_CALL_LOG để hiển thị lịch sử cuộc gọi."
+            return
+        }
+
+        val entries = loadCallHistoryEntries()
+        if (entries.isEmpty()) {
+            callHistoryStatusView.text = "Không có lịch sử cuộc gọi."
+            return
+        }
+
+        callHistoryStatusView.text = "Tổng ${entries.size} cuộc gọi gần đây."
+        entries.forEach { entry ->
+            callHistoryContainer.addView(buildCallHistoryRow(entry))
+        }
+    }
+
+    private fun loadCallHistoryEntries(): List<CallHistoryEntry> {
+        val entries = mutableListOf<CallHistoryEntry>()
+        val projection = arrayOf(
+            CallLog.Calls.NUMBER,
+            CallLog.Calls.CACHED_NAME,
+            CallLog.Calls.TYPE,
+            CallLog.Calls.DATE,
+            CallLog.Calls.DURATION
+        )
+
+        val cursor = runCatching {
+            contentResolver.query(
+                CallLog.Calls.CONTENT_URI,
+                projection,
+                null,
+                null,
+                "${CallLog.Calls.DATE} DESC"
+            )
+        }.getOrNull() ?: return entries
+
+        cursor.use {
+            val canReadContacts = hasPermission(Manifest.permission.READ_CONTACTS)
+            while (it.moveToNext()) {
+                val rawNumber = it.getString(0).orEmpty().trim()
+                val number = rawNumber.ifBlank { "Số riêng tư" }
+                val cachedName = it.getString(1).orEmpty().trim()
+                val resolvedName = when {
+                    cachedName.isNotBlank() -> cachedName
+                    canReadContacts && rawNumber.isNotBlank() -> resolveContactName(rawNumber)
+                    else -> ""
+                }
+
+                entries += CallHistoryEntry(
+                    displayName = resolvedName.ifBlank { number },
+                    number = number,
+                    type = it.getInt(2),
+                    timestampMs = it.getLong(3),
+                    durationSec = it.getLong(4)
+                )
+            }
+        }
+
+        return entries
+    }
+
+    private fun resolveContactName(number: String): String {
+        contactNameCache[number]?.let { cached ->
+            return cached
+        }
+
+        val lookupUri = Uri.withAppendedPath(
+            ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+            Uri.encode(number)
+        )
+
+        val resolved = runCatching {
+            contentResolver.query(
+                lookupUri,
+                arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME),
+                null,
+                null,
+                null
+            )?.use { cursor ->
+                if (cursor.moveToFirst()) cursor.getString(0).orEmpty().trim() else ""
+            }.orEmpty()
+        }.getOrDefault("")
+
+        contactNameCache[number] = resolved
+        return resolved
+    }
+
+    private fun buildCallHistoryRow(entry: CallHistoryEntry): View {
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setBackgroundResource(R.drawable.bg_kpi_card)
+            setPadding(dp(10), dp(10), dp(10), dp(10))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                bottomMargin = dp(8)
+            }
+        }
+
+        val primaryLine = TextView(this).apply {
+            text = if (entry.displayName == entry.number) {
+                entry.number
+            } else {
+                "${entry.displayName} (${entry.number})"
+            }
+            setTextColor(Color.parseColor("#0f172a"))
+            textSize = 13f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+        }
+
+        val secondaryLine = TextView(this).apply {
+            val typeLabel = formatCallType(entry.type)
+            val dateLabel = formatCallDate(entry.timestampMs)
+            val durationLabel = formatCallDuration(entry.type, entry.durationSec)
+            text = "$typeLabel • $dateLabel • $durationLabel"
+            setTextColor(Color.parseColor("#64748b"))
+            textSize = 11f
+        }
+
+        row.addView(primaryLine)
+        row.addView(secondaryLine)
+        return row
+    }
+
+    private fun formatCallType(type: Int): String {
+        return when (type) {
+            CallLog.Calls.INCOMING_TYPE -> "Cuộc gọi đến"
+            CallLog.Calls.OUTGOING_TYPE -> "Cuộc gọi đi"
+            CallLog.Calls.MISSED_TYPE -> "Cuộc gọi nhỡ"
+            CallLog.Calls.REJECTED_TYPE -> "Cuộc gọi bị từ chối"
+            CallLog.Calls.BLOCKED_TYPE -> "Cuộc gọi bị chặn"
+            CallLog.Calls.VOICEMAIL_TYPE -> "Thư thoại"
+            else -> "Loại khác"
+        }
+    }
+
+    private fun formatCallDate(timestampMs: Long): String {
+        val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("vi", "VN"))
+        return formatter.format(Date(timestampMs))
+    }
+
+    private fun formatCallDuration(type: Int, durationSec: Long): String {
+        if (type == CallLog.Calls.MISSED_TYPE || type == CallLog.Calls.REJECTED_TYPE) {
+            return "0 giây"
+        }
+
+        val safeDuration = durationSec.coerceAtLeast(0)
+        val minutes = safeDuration / 60
+        val seconds = safeDuration % 60
+        return if (minutes > 0) {
+            "$minutes phút $seconds giây"
+        } else {
+            "$seconds giây"
+        }
+    }
+
+    private fun hasPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun dp(value: Int): Int {
+        return (value * resources.displayMetrics.density).toInt()
     }
 }

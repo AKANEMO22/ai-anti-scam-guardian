@@ -10,22 +10,26 @@ class CallActionReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         runCatching {
+            var shouldCancelNotification = false
+
             when (intent.action) {
                 CallUiAction.ACTION_ANSWER -> {
                     val answered = CallControlFacade.answer(context)
                     if (answered) {
                         context.startActivity(InCallOngoingActivity.buildIntent(context))
-                    } else {
-                        context.startActivity(IncomingCallActivity.buildIntent(context))
+                        shouldCancelNotification = true
                     }
                 }
 
                 CallUiAction.ACTION_DECLINE -> {
-                    CallControlFacade.decline(context)
+                    val declined = CallControlFacade.decline(context)
+                    shouldCancelNotification = declined
                 }
             }
 
-            CallNotificationController.cancel(context)
+            if (shouldCancelNotification) {
+                CallNotificationController.cancel(context)
+            }
         }
     }
 }
