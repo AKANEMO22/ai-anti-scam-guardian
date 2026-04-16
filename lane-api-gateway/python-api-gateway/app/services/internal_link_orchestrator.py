@@ -14,6 +14,7 @@ from app.models.contracts import (
     UpdateDatabaseToVectorDatabaseVertexAiRequest,
     UserFeedbackToFeedbackLabelRequest,
     CacheLookupResultPayload,
+    TrafficDataType,
 )
 from app.services.auth_service import AuthService
 from app.services.cache_service import InMemoryRiskCache
@@ -28,6 +29,14 @@ from app.services.links.feedback_ingestion_cache_link import FeedbackIngestionCa
 
 
 from app.services.links.cache_miss_orchestrator_langgraph_link import CacheMissOrchestratorLangGraphLink
+
+from app.services.channels.authenticated_data_channel import AuthenticatedDataChannel
+from app.services.channels.cloud_run_result_channel import CloudRunResultChannel
+from app.services.channels.feedback_label_channel import FeedbackLabelChannel
+from app.services.channels.feedback_ingestion_channel import FeedbackIngestionChannel
+from app.services.channels.cloud_run_cache_miss_channel import CloudRunCacheMissChannel
+from app.services.channels.update_database_channel import UpdateDatabaseChannel
+from app.services.channels.cache_miss_channel import CacheMissChannel
 
 class ApiGatewayInternalLinkOrchestrator:
     """
@@ -56,17 +65,40 @@ class ApiGatewayInternalLinkOrchestrator:
     ) -> AuthenticatedDataPayload:
         """Execute the Firebase Auth validation flow."""
         link = FirebaseAuthAuthenticatedDataLink(self._auth_service)
-        return await link.forward_firebase_auth_to_authenticated_data(request)
+        payload = link.forward_firebase_auth_to_authenticated_data(request)
+
+        channel = AuthenticatedDataChannel()
+        payload = channel.normalize_authenticated_data_payload(payload)
+        channel.validate_authenticated_data_payload(payload)
+
+        return payload
 
     async def link_cloud_run_api_microservices_to_cache(self, request: CloudRunToCacheRequest):
         link = CloudRunCacheLink(self._cache_service)
+        
+        channel = CloudRunResultChannel()
+        payload = channel.receive_from_cloud_run_api_microservices(request.payload)
+        payload = channel.normalize_cloud_run_result_payload(payload)
+        channel.validate_cloud_run_result_payload(payload)
+        request.payload = payload
+        
         return link.forward_cloud_run_api_microservices_to_cache_layer(request)
 
     async def link_feedback_label_to_ingestion(self, request: FeedbackLabelToIngestionRequest):
+        channel = FeedbackLabelChannel()
+        # Request contains UserFeedbackLabelPayload as payload
+        request.payload = channel.normalize_feedback_label_payload(request.payload)
+        channel.validate_feedback_label_payload(request.payload)
+
         link = FeedbackLabelIngestionLink(self._storage_client)
         return await link.forward_feedback_label_to_feedback_ingestion(request)
 
     async def link_feedback_ingestion_to_cache(self, request: FeedbackIngestionToCacheRequest):
+        channel = FeedbackIngestionChannel()
+        # Request contains FeedbackIngestionResultPayload as result
+        request.result = channel.normalize_feedback_ingestion_result(request.result)
+        channel.validate_feedback_ingestion_result(request.result)
+
         link = FeedbackIngestionCacheLink(self._cache_service)
         return link.forward_feedback_ingestion_to_cache_layer(request)
 
@@ -102,13 +134,31 @@ class ApiGatewayInternalLinkOrchestrator:
         """Internal link: Cloud Run API Microservices -> cache miss."""
         # Step 5: Start the worker and trigger the AI Agent call!
         worker = CloudRunCacheMissLink(agentic_core_client=self._core_client)
-        return await worker.forward_cloud_run_api_microservices_to_cache_miss(request)
+        payload = await worker.forward_cloud_run_api_microservices_to_cache_miss(request)
+
+        channel = CloudRunCacheMissChannel()
+        payload = channel.normalize_cloud_run_cache_miss_payload(payload)
+        channel.validate_cloud_run_cache_miss_payload(payload)
+
+        return payload
 
     async def link_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
+        channel = CacheMissChannel()
+        request.lookup = channel.normalize_cache_miss_lookup_payload(request.lookup)
+        channel.validate_cache_miss_lookup_payload(request.lookup)
+
+        # Route dynamically if needed (could set request.lookup to phone/url/script specifically, but let's just do validation)
+        if request.lookup.dataType == TrafficDataType.PHONE:
+            request.lookup = channel.route_phone_cache_miss(request.lookup)
+        elif request.lookup.dataType == TrafficDataType.URL:
+            request.lookup = channel.route_url_cache_miss(request.lookup)
+        elif request.lookup.dataType == TrafficDataType.SCRIPT:
+            request.lookup = channel.route_script_cache_miss(request.lookup)
+
         link = CacheMissOrchestratorLangGraphLink(self._core_client, self._cache_service)
         await link.forward_cache_miss_to_orchestrator_agent_langgraph_router(request)
 
@@ -126,7 +176,13 @@ class ApiGatewayInternalLinkOrchestrator:
         """Internal link: Cloud Run API Microservices -> Update database."""
         # Step 5: Start the worker and trigger the background Database write!
         worker = CloudRunUpdateDatabaseLink(storage_client=self._storage_client)
-        return await worker.forward_cloud_run_api_microservices_to_update_database(request)
+        payload = await worker.forward_cloud_run_api_microservices_to_update_database(request)
+
+        channel = UpdateDatabaseChannel()
+        payload = channel.normalize_update_database_payload(payload)
+        channel.validate_update_database_payload(payload)
+
+        return payload
 
     def link_update_database_to_vector_database_vertex_ai(
         self,

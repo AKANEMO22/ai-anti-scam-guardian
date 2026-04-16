@@ -47,7 +47,9 @@ class CloudRunUpdateDatabaseLink:
         """Build update-database payload from Cloud Run API Microservices result context."""
         # Transform the Cloud Run event format down into whatever Vertex AI requires
         return UpdateDatabaseToVectorDatabaseVertexAiRequest(
-            eventPayload=request.result.response,
+            updateKey=request.updateKey or request.signal.callSessionId or "unknown_update_key",
+            dataType=request.result.dataType,
+            payload=request.result.response,
             metadata=request.result.metadata
         )
 

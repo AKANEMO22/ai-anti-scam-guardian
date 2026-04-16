@@ -32,6 +32,8 @@ class CacheMissOrchestratorLangGraphLink:
             print(f"[Async Worker] AI returned Risk Score: {risk_response.riskScore}")
             
             # Immediately cache the background result so future identical requests hit the Fast Path
+            self._cache_service.set(request.lookup.cacheKey, risk_response)
+            
             cache_request = CloudRunToCacheRequest(
                 result=CloudRunMicroserviceResultPayload(
                     microservice=CloudRunMicroserviceTarget.AGENTIC_CORE,
