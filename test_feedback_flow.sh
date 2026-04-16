@@ -15,7 +15,7 @@ echo "==========================================="
 curl -s -X POST "http://localhost:8081/v1/feedback" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer some_dummy_token" \
-     -d '{"eventId": "event_123", "label": "SCAM", "sourceType": "SMS", "timestamp": "2026-04-16T12:00:00Z"}' | jq .
+     -d '{"eventId": "event_123", "userId": "user_456", "label": "SCAM", "sourceType": "SMS", "timestamp": "2026-04-16T12:00:00Z"}' | jq .
 
 echo -e "\n\nWaiting 3 seconds for the Background Task"
 sleep 3

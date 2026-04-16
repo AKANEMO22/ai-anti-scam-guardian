@@ -102,12 +102,24 @@ class ApiGatewayInternalLinkOrchestrator:
         """Internal link: Cloud Run API Microservices -> cache miss."""
         pass
 
-    def link_cache_miss_to_orchestrator_agent_langgraph_router(
+    async def link_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-        pass
+        channel = CacheMissChannel()
+        request.lookup = channel.normalize_cache_miss_lookup_payload(request.lookup)
+        channel.validate_cache_miss_lookup_payload(request.lookup)
+
+        if request.lookup.dataType == TrafficDataType.PHONE:
+            request.lookup = channel.route_phone_cache_miss(request.lookup)
+        elif request.lookup.dataType == TrafficDataType.URL:
+            request.lookup = channel.route_url_cache_miss(request.lookup)
+        elif request.lookup.dataType == TrafficDataType.SCRIPT:
+            request.lookup = channel.route_script_cache_miss(request.lookup)
+
+        link = CacheMissOrchestratorLangGraphLink(self._core_client, self._cache_service)
+        await link.forward_cache_miss_to_orchestrator_agent_langgraph_router(request)
 
     def link_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
@@ -135,6 +147,20 @@ class ApiGatewayInternalLinkOrchestrator:
     def link_user_feedback_to_feedback_label(self, request: UserFeedbackToFeedbackLabelRequest) -> None:
         """Internal link: user feedback (scam/safe/not sure) -> feedback label."""
         pass
+
+    async def link_feedback_label_to_ingestion(self, request: FeedbackLabelToIngestionRequest) -> None:
+        """Internal link: feedback label -> feedback ingestion."""
+        print("[Debug] Executing link_feedback_label_to_ingestion")
+        try:
+            channel = FeedbackLabelChannel()
+            request.payload = channel.normalize_feedback_label_payload(request.payload)
+            channel.validate_feedback_label_payload(request.payload)
+
+            link = FeedbackLabelIngestionLink(self._storage_client)
+            return await link.forward_feedback_label_to_feedback_ingestion(request)
+        except Exception as e:
+            print(f"[Error in Feedback Orchestrator] {e}")
+            raise
 
     def link_feedback_label_to_feedback_ingestion(self, request: FeedbackLabelToIngestionRequest) -> None:
         """Internal link: feedback label -> feedback ingestion."""

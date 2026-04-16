@@ -49,6 +49,7 @@ async def submit_feedback(
     # Map the incoming FeedbackEvent into the internal Link Orchestrator payload
     payload = UserFeedbackLabelPayload(
         eventId=feedback.eventId,
+        userId=feedback.userId,
         label=_map_feedback_label_to_type(feedback.label),
         dataType=_map_source_type_to_traffic_data_type(feedback.sourceType),
         riskScore=feedback.riskScore,

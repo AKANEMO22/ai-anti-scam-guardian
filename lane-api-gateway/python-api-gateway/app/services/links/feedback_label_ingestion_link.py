@@ -20,6 +20,7 @@ class FeedbackLabelIngestionLink:
         
         feedback = FeedbackEvent(
             eventId=request.payload.eventId,
+            userId=request.payload.userId,
             label=request.payload.label.value,
             sourceType=source_type_map.get(data_type, SourceType.SMS),
             riskScore=request.payload.riskScore,
