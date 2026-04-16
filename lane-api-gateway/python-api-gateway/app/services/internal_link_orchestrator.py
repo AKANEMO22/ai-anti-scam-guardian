@@ -109,7 +109,7 @@ class ApiGatewayInternalLinkOrchestrator:
         request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
     ) -> None:
         """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-        link = CacheMissOrchestratorLangGraphLink()
+        link = CacheMissOrchestratorLangGraphLink(self._core_client, self._cache_service)
         await link.forward_cache_miss_to_orchestrator_agent_langgraph_router(request)
 
     def link_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router(

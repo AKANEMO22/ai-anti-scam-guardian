@@ -2,14 +2,20 @@ import json
 import os
 from typing import Optional
 
+from app.clients.agentic_core_client import AgenticCoreClient
+from app.services.cache_service import InMemoryRiskCache
 from app.models.contracts import (
     CacheMissToOrchestratorAgentLangGraphRouterRequest,
     SignalRequest,
+    CloudRunToCacheRequest,
+    CloudRunMicroserviceResultPayload,
+    CloudRunMicroserviceTarget
 )
 
 class CacheMissOrchestratorLangGraphLink:
-    def __init__(self, project_id: Optional[str] = None):
-        self._topic_id = os.getenv("PUBSUB_LANGGRAPH_ROUTER_TOPIC", "agentic-core-input-topic")
+    def __init__(self, core_client: AgenticCoreClient, cache_service: InMemoryRiskCache):
+        self._core_client = core_client
+        self._cache_service = cache_service
 
     async def forward_cache_miss_to_orchestrator_agent_langgraph_router(
         self,
@@ -17,16 +23,30 @@ class CacheMissOrchestratorLangGraphLink:
     ) -> None:
         """Flow: cache miss -> Orchestrator Agent LangGraph Router."""
         signal_request = self.build_orchestrator_agent_langgraph_router_signal_request(request)
-        
         self.trace_cache_miss_to_orchestrator_agent_langgraph_router_flow(request)
 
-        # Convert Pydantic model to dict, then to JSON string
-        payload_json = json.dumps(signal_request.model_dump())
+        # Direct REST AI call inside a FastAPI BackgroundTask!
+        try:
+            print(f"[Async Worker] Calling Agentic Core for {request.lookup.cacheKey}...")
+            risk_response = await self._core_client.analyze_signal(signal_request)
+            print(f"[Async Worker] AI returned Risk Score: {risk_response.riskScore}")
+            
+            # Immediately cache the background result so future identical requests hit the Fast Path
+            cache_request = CloudRunToCacheRequest(
+                result=CloudRunMicroserviceResultPayload(
+                    microservice=CloudRunMicroserviceTarget.AGENTIC_CORE,
+                    dataType=request.lookup.dataType,
+                    metadata=request.lookup.metadata,
+                    response=risk_response.model_dump()
+                ),
+                cacheLayer=request.lookup.cacheLayer,
+                cacheKey=request.lookup.cacheKey
+            )
+            self._cache_service.write_cloud_run_result_to_cache_layer(cache_request)
+            print(f"[Async Worker] Successfully cached result for {request.lookup.cacheKey}")
         
-        # Step back: Instead of triggering a real GCP Pub/Sub publisher,
-        # we log the event as a simulated message drop.
-        print(f"[Mock Publisher] Simulating dropping message into topic: {self._topic_id}")
-        print(f"[Mock Publisher] Payload: {payload_json}")
+        except Exception as e:
+            print(f"[Async Worker] Pipeline failed: {str(e)}")
 
     def build_orchestrator_agent_langgraph_router_signal_request(
         self,

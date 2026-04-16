@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, BackgroundTasks
 
 from app.dependencies import get_api_gateway_internal_link_orchestrator
 from app.models.contracts import (
@@ -30,9 +30,13 @@ def internal_cache_layer_to_cache_miss(
 @router.post("/v1/gateway/internal/cache-miss-to-orchestrator-agent-langgraph-router")
 async def internal_cache_miss_to_orchestrator_agent_langgraph_router(
     request: CacheMissToOrchestratorAgentLangGraphRouterRequest,
+    background_tasks: BackgroundTasks,
     internal_orchestrator: ApiGatewayInternalLinkOrchestrator = Depends(
         get_api_gateway_internal_link_orchestrator,
     ),
 ) -> None:
     """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-    await internal_orchestrator.link_cache_miss_to_orchestrator_agent_langgraph_router(request)
+    background_tasks.add_task(
+        internal_orchestrator.link_cache_miss_to_orchestrator_agent_langgraph_router,
+        request
+    )
