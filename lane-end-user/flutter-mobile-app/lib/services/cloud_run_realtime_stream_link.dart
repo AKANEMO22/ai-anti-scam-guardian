@@ -5,26 +5,24 @@ class CloudRunRealtimeStreamLink {
     RealtimeStreamToCloudRunRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Future<RealtimeCloudRunAck> forwardGrpcStreamToCloudRun(
     RealtimeStreamToCloudRunRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Map<String, Object?> buildRealtimeStreamRequestBody(
     RealtimeStreamToCloudRunRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   void traceRealtimeStreamToCloudRunFlow(
     RealtimeStreamToCloudRunRequest request,
-  ) {
-    // mocked
-  }
+  ) { throw UnimplementedError(); }
 }

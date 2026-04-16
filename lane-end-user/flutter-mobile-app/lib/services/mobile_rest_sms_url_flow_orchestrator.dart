@@ -15,20 +15,20 @@ class MobileRestSmsUrlFlowOrchestrator {
     MobileAppToRestRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Future<CloudRunRiskResponse> linkSmsRestToCloudRun(
     MobileAppToRestRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Future<CloudRunRiskResponse> linkUrlRestToCloudRun(
     MobileAppToRestRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

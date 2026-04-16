@@ -15,7 +15,5 @@ class WarningInteractionChannel {
         println("mocked");
     }
 
-    fun validateUiWarningInteractionState(state: UiWarningInteractionState) {
-        // mocked
-    }
+    fun validateUiWarningInteractionState(state: UiWarningInteractionState) { println("mocked"); }
 }

@@ -31,7 +31,7 @@ class ThreatAgent:
 
     def extract_threat_features_from_transcript_payload(self, payload: TranscribedTextPayload) -> list[float]:
         """Extract raw threat features from transcribed-text payload before scoring."""
-        pass  # Not used in this simplified flow
+        return []
 
     async def analyze_transcribed_text_to_signals(self, transcript: str, pattern_ids: list[str]) -> list[float]:
         """Arrow: Transcribed Text -> Threat Agent, output risk signals for decision stage."""

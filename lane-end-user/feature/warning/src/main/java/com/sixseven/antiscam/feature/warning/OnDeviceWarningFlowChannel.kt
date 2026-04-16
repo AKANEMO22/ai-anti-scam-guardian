@@ -17,7 +17,5 @@ class OnDeviceWarningFlowChannel {
         println("mocked");
     }
 
-    fun validateWarningExplanationPayload(payload: UiWarningExplanationPayload) {
-        // mocked
-    }
+    fun validateWarningExplanationPayload(payload: UiWarningExplanationPayload) { println("mocked"); }
 }

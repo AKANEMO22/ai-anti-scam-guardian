@@ -8,7 +8,7 @@ class EmbeddingService:
         api_key = os.environ.get("GEMINI_API_KEY")
         if api_key:
             genai.configure(api_key=api_key)
-        self.model_name = "models/text-embedding-004"
+        self.model_name = "models/embedding-001"
 
     def build_embeddings_for_rag_documents(self, documents: list[str]) -> list[list[float]]:
         """Create embeddings from RAG documents before writing to FAISS."""

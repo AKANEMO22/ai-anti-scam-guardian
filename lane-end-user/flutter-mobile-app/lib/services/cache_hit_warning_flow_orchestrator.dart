@@ -18,27 +18,27 @@ class CacheHitWarningFlowOrchestrator {
     CacheLayerToCacheHitRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState linkPhoneCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState linkUrlCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState linkScriptCacheHitToUiWarningExplanation(
     CacheLayerToCacheHitRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

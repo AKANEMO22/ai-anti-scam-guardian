@@ -71,4 +71,5 @@ class DecisionEngine:
         self,
         payload: JsonScoreWarningPayload,
     ) -> None:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

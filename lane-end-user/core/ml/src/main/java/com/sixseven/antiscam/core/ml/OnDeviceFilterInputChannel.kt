@@ -15,7 +15,5 @@ class OnDeviceFilterInputChannel {
         println("mocked");
     }
 
-    fun validateOnDeviceFilterPayload(payload: BackgroundServiceSignalPayload) {
-        // mocked
-    }
+    fun validateOnDeviceFilterPayload(payload: BackgroundServiceSignalPayload) { println("mocked"); }
 }

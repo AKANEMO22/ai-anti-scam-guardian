@@ -11,19 +11,11 @@ class MobileBackgroundSignalChannel {
         println("mocked");
     }
 
-    fun validateSignalPayload(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun validateSignalPayload(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun routePhoneSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun routePhoneSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun routeUrlSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun routeUrlSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun routeScriptSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun routeScriptSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 }

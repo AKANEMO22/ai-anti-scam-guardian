@@ -5,15 +5,13 @@ class CloudRunMicroservicesRestLink {
     RestToCloudRunRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Map<String, Object?> buildCloudRunRequestBody(RestToCloudRunRequest request) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
-  void traceRestToCloudRunFlow(RestToCloudRunRequest request) {
-    // mocked
-  }
+  void traceRestToCloudRunFlow(RestToCloudRunRequest request) { throw UnimplementedError(); }
 }

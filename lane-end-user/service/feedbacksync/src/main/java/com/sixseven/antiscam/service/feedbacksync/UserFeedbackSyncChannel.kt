@@ -15,7 +15,5 @@ class UserFeedbackSyncChannel {
         println("mocked");
     }
 
-    fun validateFeedbackSyncPayload(payload: FeedbackSyncSubmissionPayload) {
-        // mocked
-    }
+    fun validateFeedbackSyncPayload(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 }

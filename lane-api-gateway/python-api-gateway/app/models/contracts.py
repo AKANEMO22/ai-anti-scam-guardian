@@ -23,15 +23,21 @@ class RiskResponse(BaseModel):
     voiceScore: int = Field(ge=0, le=100)
     textScore: int = Field(ge=0, le=100)
     entityScore: int = Field(ge=0, le=100)
-    cacheHit: bool
+    piiScore: int = Field(default=0, ge=0, le=100)
+    engagementScore: int = Field(default=0, ge=0, le=100)
+    piiTypes: list[str] = Field(default_factory=list)
+    baiterResponse: Optional[str] = None
+    cacheHit: bool = False
 
 
 class FeedbackEvent(BaseModel):
     eventId: str
+    userId: str
     label: str
     sourceType: SourceType
     riskScore: Optional[int] = Field(default=None, ge=0, le=100)
     timestamp: str
+    metadata: Dict[str, str] = Field(default_factory=dict)
 
 
 class FeedbackAck(BaseModel):
@@ -143,6 +149,7 @@ class FeedbackLabelType(str, Enum):
 
 class UserFeedbackLabelPayload(BaseModel):
     eventId: str
+    userId: str
     label: FeedbackLabelType
     dataType: TrafficDataType = TrafficDataType.SCRIPT
     riskScore: Optional[int] = Field(default=None, ge=0, le=100)

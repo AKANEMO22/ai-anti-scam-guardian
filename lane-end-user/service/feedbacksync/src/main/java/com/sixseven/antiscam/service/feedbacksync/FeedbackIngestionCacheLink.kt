@@ -17,7 +17,5 @@ class FeedbackIngestionCacheLink {
 
     fun traceFeedbackIngestionToCacheFlow(
         request: FeedbackIngestionToCacheRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

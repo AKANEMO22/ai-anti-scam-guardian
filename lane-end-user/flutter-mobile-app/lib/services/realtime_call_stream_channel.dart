@@ -5,26 +5,24 @@ class RealtimeCallStreamChannel {
     MobileAppToRealtimeStreamRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   RealtimeCallChunkPayload normalizeRealtimeChunk(
     RealtimeCallChunkPayload chunk,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
-  void validateRealtimeChunk(RealtimeCallChunkPayload chunk) {
-    // mocked
-  }
+  void validateRealtimeChunk(RealtimeCallChunkPayload chunk) { throw UnimplementedError(); }
 
   RealtimeStreamToCloudRunRequest routeWebsocketChunkToCloudRun(
     RealtimeCallChunkPayload chunk,
     RealtimeCloudRunTarget target,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   RealtimeStreamToCloudRunRequest routeGrpcChunkToCloudRun(
@@ -32,6 +30,6 @@ class RealtimeCallStreamChannel {
     RealtimeCloudRunTarget target,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

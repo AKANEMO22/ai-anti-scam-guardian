@@ -1,43 +1,48 @@
 version: "3.9"
 
 services:
+services:
   storage-lane:
-    image: python:3.11-slim
-    working_dir: /workspace/lane-storage/python-storage
-    volumes:
-      - ../../:/workspace
-    command: >
-      sh -c "pip install -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8102"
+    build:
+      context: ../../
+      dockerfile: lane-storage/python-storage/Dockerfile
+    environment:
+      ENV: dev
+      STORAGE_BASE_URL: http://storage-lane:8102
     ports:
       - "8102:8102"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8102/docs"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   agentic-core-lane:
-    image: python:3.11-slim
-    working_dir: /workspace/lane-agentic-core/python-agentic-core
-    volumes:
-      - ../../:/workspace
+    build:
+      context: ../../
+      dockerfile: lane-agentic-core/python-agentic-core/Dockerfile
     environment:
+      ENV: dev
       STORAGE_BASE_URL: http://storage-lane:8102
-    command: >
-      sh -c "pip install -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8101"
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
     depends_on:
-      - storage-lane
+      storage-lane:
+        condition: service_healthy
     ports:
       - "8101:8101"
 
   api-gateway-lane:
-    image: python:3.11-slim
-    working_dir: /workspace/lane-api-gateway/python-api-gateway
-    volumes:
-      - ../../:/workspace
+    build:
+      context: ../../
+      dockerfile: lane-api-gateway/python-api-gateway/Dockerfile
     environment:
+      ENV: dev
       AGENTIC_CORE_BASE_URL: http://agentic-core-lane:8101
       STORAGE_BASE_URL: http://storage-lane:8102
       STRICT_AUTH: "false"
-    command: >
-      sh -c "pip install -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8100"
+      DEV_BEARER_TOKEN: "dev-token-secret-123"
     depends_on:
-      - storage-lane
-      - agentic-core-lane
+      agentic-core-lane:
+        condition: service_started
     ports:
       - "8100:8100"

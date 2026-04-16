@@ -5,20 +5,20 @@ class MobileAppRealtimeStreamBridge {
     required String sessionId,
     required String chunkRef,
     required int sequence,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   MobileAppToRealtimeStreamRequest buildGrpcCallChunkRequest({
     required String sessionId,
     required String chunkRef,
     required int sequence,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   RealtimeCloudRunAck buildRealtimeStreamAck({
@@ -27,6 +27,6 @@ class MobileAppRealtimeStreamBridge {
     String message = '',
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

@@ -18,7 +18,7 @@ class StorageClient:
                         "sourceType": source_type.value,
                         "topK": top_k
                     },
-                    timeout=5.0
+                    timeout=10.0
                 )
                 if response.status_code == 200:
                     data = response.json()
@@ -42,4 +42,5 @@ class StorageClient:
 
     def sync_agentic_metadata_to_storage(self, call_session_id: Optional[str], metadata: dict[str, str]) -> None:
         """Push agentic metadata snapshots to Storage lane (Fire and forget)."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

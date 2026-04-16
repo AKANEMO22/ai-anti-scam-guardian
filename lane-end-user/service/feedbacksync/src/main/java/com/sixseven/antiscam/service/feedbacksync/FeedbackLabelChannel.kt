@@ -15,7 +15,5 @@ class FeedbackLabelChannel {
         println("mocked");
     }
 
-    fun validateFeedbackLabelPayload(payload: FeedbackLabelPayload) {
-        // mocked
-    }
+    fun validateFeedbackLabelPayload(payload: FeedbackLabelPayload) { println("mocked"); }
 }

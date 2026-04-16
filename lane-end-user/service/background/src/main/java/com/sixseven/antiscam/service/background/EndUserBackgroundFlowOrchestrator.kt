@@ -14,17 +14,11 @@ class EndUserBackgroundFlowOrchestrator(
         println("mocked");
     }
 
-    fun linkBackgroundServicePhoneSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun linkBackgroundServicePhoneSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun linkBackgroundServiceUrlSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun linkBackgroundServiceUrlSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun linkBackgroundServiceScriptSignal(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun linkBackgroundServiceScriptSignal(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
     fun linkBackgroundServiceToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,

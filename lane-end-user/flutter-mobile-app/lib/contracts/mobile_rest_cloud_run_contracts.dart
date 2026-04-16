@@ -13,7 +13,7 @@ class MobileRestSignalPayload {
     required this.signalType,
     required this.rawInput,
     this.sessionId,
-    this.metadata = const { println("mocked"); },
+    this.metadata = const {},
   });
 
   final MobileRestSignalType signalType;

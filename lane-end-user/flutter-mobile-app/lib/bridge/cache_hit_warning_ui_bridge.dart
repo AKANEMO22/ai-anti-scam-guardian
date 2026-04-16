@@ -5,30 +5,30 @@ class CacheHitWarningUiBridge {
     required String cacheKey,
     required int riskScore,
     required String explanation,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   CacheLayerToCacheHitRequest buildUrlCacheHitRequest({
     required String cacheKey,
     required int riskScore,
     required String explanation,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   CacheLayerToCacheHitRequest buildScriptCacheHitRequest({
     required String cacheKey,
     required int riskScore,
     required String explanation,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState buildUiWarningExplanationState({
@@ -36,9 +36,9 @@ class CacheHitWarningUiBridge {
     required String severity,
     required String explanation,
     required bool instant,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

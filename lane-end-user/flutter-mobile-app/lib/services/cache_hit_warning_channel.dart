@@ -5,38 +5,36 @@ class CacheHitWarningChannel {
     CacheLayerToCacheHitRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   RedisCacheResultPayload normalizeCacheResultPayload(
     RedisCacheResultPayload payload,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
-  void validateCacheHitPayload(RedisCacheResultPayload payload) {
-    // mocked
-  }
+  void validateCacheHitPayload(RedisCacheResultPayload payload) { throw UnimplementedError(); }
 
   CacheHitToInstantWarningRequest routePhoneCacheHit(
     RedisCacheResultPayload payload,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   CacheHitToInstantWarningRequest routeUrlCacheHit(
     RedisCacheResultPayload payload,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   CacheHitToInstantWarningRequest routeScriptCacheHit(
     RedisCacheResultPayload payload,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import APIRouter, Depends, Header
 
 from app.clients.storage_client import StorageClient
@@ -11,7 +12,7 @@ router = APIRouter(tags=["feedback"])
 @router.post("/v1/feedback", response_model=FeedbackAck)
 async def submit_feedback(
     feedback: FeedbackEvent,
-    authorization: str | None = Header(default=None),
+    authorization: Optional[str] = Header(default=None),
     auth_service: AuthService = Depends(get_auth_service),
     storage_client: StorageClient = Depends(get_storage_client),
 ) -> FeedbackAck:

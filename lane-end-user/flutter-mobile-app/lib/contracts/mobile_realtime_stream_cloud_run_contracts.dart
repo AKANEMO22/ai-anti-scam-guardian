@@ -17,7 +17,7 @@ class RealtimeCallChunkPayload {
     required this.sessionId,
     required this.chunkRef,
     required this.sequence,
-    this.metadata = const { println("mocked"); },
+    this.metadata = const {},
   });
 
   final String sessionId;

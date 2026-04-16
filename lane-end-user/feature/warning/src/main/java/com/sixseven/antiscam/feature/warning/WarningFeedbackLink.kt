@@ -17,7 +17,5 @@ class WarningFeedbackLink {
 
     fun traceInteractionToUserFeedbackFlow(
         request: InteractToUserFeedbackRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

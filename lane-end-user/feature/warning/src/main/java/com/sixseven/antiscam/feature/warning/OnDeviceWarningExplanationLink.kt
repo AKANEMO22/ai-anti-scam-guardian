@@ -17,7 +17,5 @@ class OnDeviceWarningExplanationLink {
 
     fun traceOnDeviceFilterToWarningExplanationFlow(
         request: OnDeviceFilterToUiWarningRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

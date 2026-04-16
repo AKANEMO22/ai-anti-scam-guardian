@@ -5,19 +5,17 @@ class CacheHitInstantWarningLink {
     CacheHitToInstantWarningRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   InstantWarningPayload buildInstantWarningPayloadFromCacheHit(
     CacheHitToInstantWarningRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   void traceCacheHitToInstantWarningFlow(
     CacheHitToInstantWarningRequest request,
-  ) {
-    // mocked
-  }
+  ) { throw UnimplementedError(); }
 }

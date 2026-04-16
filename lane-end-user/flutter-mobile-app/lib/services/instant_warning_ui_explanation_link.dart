@@ -5,19 +5,17 @@ class InstantWarningUiExplanationLink {
     InstantWarningToUiExplanationRequest request,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState buildUiWarningExplanationState(
     InstantWarningPayload warning,
   ) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   void traceInstantWarningToUiExplanationFlow(
     InstantWarningToUiExplanationRequest request,
-  ) {
-    // mocked
-  }
+  ) { throw UnimplementedError(); }
 }

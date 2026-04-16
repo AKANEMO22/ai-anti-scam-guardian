@@ -15,21 +15,13 @@ class BackgroundMonitorWorker(
         println("mocked");
     }
 
-    fun collectSmsSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun collectSmsSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun collectCallSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun collectCallSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun collectUrlSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun collectUrlSignalsFromMobileApp(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
-    fun dispatchBackgroundSignalsToPipeline(payload: MobileBackgroundSignalPayload) {
-        // mocked
-    }
+    fun dispatchBackgroundSignalsToPipeline(payload: MobileBackgroundSignalPayload) { println("mocked"); }
 
     fun linkBackgroundServiceSignalToOnDeviceFilter(
         payload: MobileBackgroundSignalPayload,

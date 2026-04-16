@@ -14,21 +14,13 @@ class FeedbackSyncWorker(
         println("mocked");
     }
 
-    fun enqueueScamFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // mocked
-    }
+    fun enqueueScamFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun enqueueSafeFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // mocked
-    }
+    fun enqueueSafeFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun enqueueNotSureFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // mocked
-    }
+    fun enqueueNotSureFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun dispatchFeedbackToIngestion(payload: FeedbackSyncSubmissionPayload) {
-        // mocked
-    }
+    fun dispatchFeedbackToIngestion(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
     fun mapUserFeedbackToFeedbackLabel(
         request: UserFeedbackToFeedbackLabelRequest,
@@ -39,9 +31,7 @@ class FeedbackSyncWorker(
 
     fun dispatchFeedbackLabelToIngestion(
         request: FeedbackLabelToIngestionRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 
     fun dispatchFeedbackIngestionToCacheLayer(
         request: FeedbackIngestionToCacheRequest,

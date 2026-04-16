@@ -15,20 +15,20 @@ class MobileRealtimeStreamFlowOrchestrator {
     MobileAppToRealtimeStreamRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Future<RealtimeCloudRunAck> linkWebsocketStreamToCloudRun(
     MobileAppToRealtimeStreamRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   Future<RealtimeCloudRunAck> linkGrpcStreamToCloudRun(
     MobileAppToRealtimeStreamRequest request,
   ) async {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

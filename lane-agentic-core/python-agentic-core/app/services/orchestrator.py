@@ -103,38 +103,56 @@ class OrchestratorService:
 
     # --- Other stubs to satisfy contracts if needed ---
     def route_orchestrator_agent_to_raw_audio(self, payload: SignalPayload) -> RawAudioPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_orchestrator_agent_to_voice_stream(self, payload: SignalPayload) -> VoiceStreamPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_orchestrator_agent_to_text_metadata(self, payload: SignalPayload) -> TextMetadataPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_raw_audio_to_deepfake_agent(self, payload: RawAudioPayload) -> list[AgentSignalScore]:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_voice_stream_to_google_stt(self, payload: VoiceStreamPayload) -> TranscribedTextPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_google_stt_api_to_transcribed_text(self, payload: VoiceStreamPayload) -> TranscribedTextPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_transcribed_text_to_threat_agent(self, payload: TranscribedTextPayload) -> list[AgentSignalScore]:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_search_query_to_threat_agent(self, payload: SearchQueryPayload) -> list[AgentSignalScore]:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_text_metadata_to_entity_agent(self, payload: TextMetadataPayload) -> list[AgentSignalScore]:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_deepfake_signal_score_to_decision_engine(self, payload: DeepfakeSignalPayload) -> int:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_entity_signal_score_to_decision_engine(self, payload: EntitySignalPayload) -> int:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_threat_signal_score_to_decision_engine(self, payload: ThreatSignalPayload) -> int:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def collect_signals_for_decision_engine(self, bundle: DecisionSignalBundle) -> int:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def exchange_reasoning_with_gemini(self, bundle: DecisionSignalBundle) -> GeminiReasoningPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_decision_reasoning_explanation_to_gemini(self, bundle: DecisionSignalBundle) -> GeminiReasoningPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_gemini_reasoning_explanation_to_decision(self, reasoning: GeminiReasoningPayload) -> GeminiReasoningPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_decision_and_reasoning_engine_to_json_score_warning(self, request: DecisionAndReasoningEngineToJsonScoreWarningRequest) -> JsonScoreWarningPayload:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
     def route_json_score_warning_to_cloud_run_api_microservices(self, request: JsonScoreWarningToCloudRunApiMicroservicesRequest) -> None:
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

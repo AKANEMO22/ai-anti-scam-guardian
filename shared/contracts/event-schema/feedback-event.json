@@ -2,9 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FeedbackEvent",
   "type": "object",
-  "required": ["eventId", "label", "sourceType", "timestamp"],
+  "required": ["eventId", "label", "sourceType", "timestamp", "userId"],
   "properties": {
     "eventId": {
+      "type": "string"
+    },
+    "userId": {
       "type": "string"
     },
     "label": {
@@ -23,6 +26,12 @@
     "timestamp": {
       "type": "string",
       "format": "date-time"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
     }
   }
 }

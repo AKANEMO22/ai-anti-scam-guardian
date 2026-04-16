@@ -4,19 +4,19 @@ class MobileAppFlutterRestBridge {
   MobileAppToRestRequest buildSmsRestRequest({
     required String smsText,
     String? sessionId,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   MobileAppToRestRequest buildUrlRestRequest({
     required String url,
     String? sessionId,
-    Map<String, String> metadata = const { println("mocked"); },
+    Map<String, String> metadata = const {},
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 
   RestDispatchAck buildRestDispatchAck({
@@ -24,6 +24,6 @@ class MobileAppFlutterRestBridge {
     String message = '',
   }) {
     // mocked
-    print("mocked");
+    throw UnimplementedError();
   }
 }

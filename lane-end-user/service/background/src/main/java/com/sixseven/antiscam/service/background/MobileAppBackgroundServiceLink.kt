@@ -17,7 +17,5 @@ class MobileAppBackgroundServiceLink {
 
     fun traceMobileAppToBackgroundServiceFlow(
         request: MobileAppToBackgroundServiceRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

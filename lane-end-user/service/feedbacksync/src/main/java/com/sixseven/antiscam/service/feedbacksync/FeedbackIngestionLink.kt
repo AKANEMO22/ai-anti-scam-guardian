@@ -17,9 +17,7 @@ class FeedbackIngestionLink {
 
     fun traceUserFeedbackIngestionFlow(
         request: UserFeedbackToSyncRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 
     fun forwardFeedbackLabelToIngestion(
         request: FeedbackLabelToIngestionRequest,
@@ -37,7 +35,5 @@ class FeedbackIngestionLink {
 
     fun traceFeedbackLabelToIngestionFlow(
         request: FeedbackLabelToIngestionRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

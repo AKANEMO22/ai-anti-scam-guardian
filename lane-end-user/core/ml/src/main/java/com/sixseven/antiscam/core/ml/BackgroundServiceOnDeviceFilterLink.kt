@@ -17,7 +17,5 @@ class BackgroundServiceOnDeviceFilterLink {
 
     fun traceBackgroundServiceToOnDeviceFilterFlow(
         request: BackgroundToOnDeviceFilterRequest,
-    ) {
-        // mocked
-    }
+    ) { println("mocked"); }
 }

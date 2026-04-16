@@ -6,13 +6,13 @@
   warnings.warn(eol_message.format("3.9"), FutureWarning)
 /Users/ngovietthanhbinh/Project/AI-Anti-Scam-Guardian/ai-anti-scam-guardian/lane-agentic-core/python-agentic-core/.venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
   warnings.warn(eol_message.format("3.9"), FutureWarning)
-INFO:     Started server process [45534]
+INFO:     Started server process [46560]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8101 (Press CTRL+C to quit)
-INFO:     127.0.0.1:51377 - "POST /v1/agentic/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:51385 - "POST /v1/agentic/score HTTP/1.1" 200 OK
+mocked
+INFO:     127.0.0.1:52226 - "POST /v1/agentic/score HTTP/1.1" 200 OK
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [45534]
+INFO:     Finished server process [46560]
