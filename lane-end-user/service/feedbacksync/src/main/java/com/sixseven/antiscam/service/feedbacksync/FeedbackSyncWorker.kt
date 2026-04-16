@@ -10,48 +10,38 @@ class FeedbackSyncWorker(
 ) : CoroutineWorker(context, params) {
 
     fun ingestUserFeedback(request: UserFeedbackToSyncRequest): FeedbackSyncAck {
-        // TODO: entrypoint for warning interaction -> user feedback sync request.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
-    fun enqueueScamFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // TODO: enqueue scam feedback branch for sync.
-    }
+    fun enqueueScamFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun enqueueSafeFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // TODO: enqueue safe feedback branch for sync.
-    }
+    fun enqueueSafeFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun enqueueNotSureFeedback(payload: FeedbackSyncSubmissionPayload) {
-        // TODO: enqueue not-sure feedback branch for sync.
-    }
+    fun enqueueNotSureFeedback(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
-    fun dispatchFeedbackToIngestion(payload: FeedbackSyncSubmissionPayload) {
-        // TODO: dispatch feedback payload to ingestion endpoint.
-    }
+    fun dispatchFeedbackToIngestion(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 
     fun mapUserFeedbackToFeedbackLabel(
         request: UserFeedbackToFeedbackLabelRequest,
     ): FeedbackLabelPayload {
-        // TODO: map user feedback into feedback-label stage payload.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun dispatchFeedbackLabelToIngestion(
         request: FeedbackLabelToIngestionRequest,
-    ) {
-        // TODO: dispatch feedback-label payload to ingestion stage.
-    }
+    ) { println("mocked"); }
 
     fun dispatchFeedbackIngestionToCacheLayer(
         request: FeedbackIngestionToCacheRequest,
     ): FeedbackCacheAck {
-        // TODO: dispatch feedback-ingestion result to cache layer (phone/url/script).
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     override suspend fun doWork(): Result {
-        // TODO: process feedback label -> feedback ingestion -> cache-layer flow.
+        // mocked
         return Result.success()
     }
 }

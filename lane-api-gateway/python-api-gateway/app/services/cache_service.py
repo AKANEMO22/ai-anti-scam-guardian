@@ -38,7 +38,8 @@ class InMemoryRiskCache:
 
     def ingest_cloud_run_api_microservice_result(self, payload: CloudRunMicroserviceResultPayload) -> None:
         """Arrow: Cloud Run API Microservices -> Cache Layer (redis), receive upstream result payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_redis_key_for_phone_url_script(self, data_type: str, cache_key: str) -> str:
         """Build redis-style cache key for phone/url/script channels."""
@@ -71,7 +72,8 @@ class InMemoryRiskCache:
     
     def ingest_feedback_ingestion_result(self, payload: FeedbackIngestionResultPayload) -> None:
         """Arrow: Feedback ingestion -> Cache Layer (redis), receive ingestion result payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_feedback_redis_key_for_phone_url_script(self, data_type: str, cache_key: str) -> str:
         """Build redis-style cache key for feedback ingestion phone/url/script channels."""

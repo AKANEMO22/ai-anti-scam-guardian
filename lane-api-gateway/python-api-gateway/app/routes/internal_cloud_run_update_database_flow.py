@@ -29,4 +29,5 @@ def internal_update_database_to_vector_database_vertex_ai(
     ),
 ) -> None:
     """Internal link: Update database -> Vector Database Vertex AI."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}

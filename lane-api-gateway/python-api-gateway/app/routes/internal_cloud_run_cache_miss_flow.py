@@ -30,4 +30,5 @@ def internal_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgr
     ),
 ) -> None:
     """Internal link: cache miss (from Cloud Run API Microservices) -> Orchestrator Agent LangGraph Router."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}

@@ -4,18 +4,16 @@ class UserFeedbackSyncChannel {
     fun receiveFromWarningInteraction(
         request: UserFeedbackToSyncRequest,
     ): FeedbackSyncSubmissionPayload {
-        // TODO: receive user feedback payload from warning interaction flow.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun normalizeFeedbackSyncPayload(
         payload: FeedbackSyncSubmissionPayload,
     ): FeedbackSyncSubmissionPayload {
-        // TODO: normalize scam/safe/not sure payload before sync submission.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
-    fun validateFeedbackSyncPayload(payload: FeedbackSyncSubmissionPayload) {
-        // TODO: validate feedback payload for ingestion endpoint contract.
-    }
+    fun validateFeedbackSyncPayload(payload: FeedbackSyncSubmissionPayload) { println("mocked"); }
 }

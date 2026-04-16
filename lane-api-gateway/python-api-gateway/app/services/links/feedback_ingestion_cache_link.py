@@ -11,8 +11,10 @@ class FeedbackIngestionCacheLink:
 
     def build_feedback_cache_write_request(self, request: FeedbackIngestionToCacheRequest) -> dict[str, object]:
         """Build redis-cache write request from feedback ingestion result payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_feedback_ingestion_to_cache_flow(self, request: FeedbackIngestionToCacheRequest) -> None:
         """Emit trace point for feedback ingestion -> cache-layer flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

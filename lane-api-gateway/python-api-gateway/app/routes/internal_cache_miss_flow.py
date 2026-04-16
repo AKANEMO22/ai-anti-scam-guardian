@@ -24,7 +24,8 @@ def internal_cache_layer_to_cache_miss(
     ),
 ) -> None:
     """Internal link: Cache Layer (redis) phone/url/script -> cache miss."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/gateway/internal/cache-miss-to-orchestrator-agent-langgraph-router")

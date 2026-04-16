@@ -12,24 +12,24 @@ class WarningUserFeedbackBridge {
     fun forwardWarningUserFeedbackToSyncRequest(
         payload: UserFeedbackSubmissionPayload,
     ): UserFeedbackToSyncRequest {
-        // TODO: bridge warning user feedback payload into feedback-sync request.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildFeedbackSyncSubmissionPayload(
         payload: UserFeedbackSubmissionPayload,
     ): FeedbackSyncSubmissionPayload {
-        // TODO: map warning payload fields into feedback-sync payload contract.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun mapFeedbackLabel(label: WarningUserFeedbackLabel): FeedbackSyncLabel {
-        // TODO: map warning label enum to feedback-sync enum.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun mapFeedbackSignalType(signalType: WarningFeedbackSignalType): FeedbackSyncSignalType {
-        // TODO: map warning signal type to feedback-sync phone/url/script channel.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

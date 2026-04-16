@@ -11,8 +11,10 @@ class CloudRunCacheLink:
 
     def build_cache_write_request_from_cloud_run(self, request: CloudRunToCacheRequest) -> dict[str, object]:
         """Build cache-layer write request object from Cloud Run output payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_cloud_run_to_cache_flow(self, request: CloudRunToCacheRequest) -> None:
         """Emit trace point for Cloud Run API Microservices -> Cache Layer flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

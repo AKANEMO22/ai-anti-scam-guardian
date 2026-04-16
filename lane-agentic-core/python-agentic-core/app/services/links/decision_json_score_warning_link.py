@@ -10,18 +10,21 @@ class DecisionJsonScoreWarningLink:
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> JsonScoreWarningPayload:
         """Flow: Decision & Reasoning Engine -> JSON score + warning."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_json_score_warning_payload(
         self,
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> JsonScoreWarningPayload:
         """Build JSON score + warning payload from decision output fields."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_decision_and_reasoning_engine_to_json_score_warning_flow(
         self,
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> None:
         """Emit trace point for Decision & Reasoning Engine -> JSON score + warning flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

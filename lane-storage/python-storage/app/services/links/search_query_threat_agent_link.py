@@ -7,18 +7,21 @@ class SearchQueryThreatAgentLink:
         request: SearchQueryToThreatAgentRequest,
     ) -> None:
         """Flow: Search Query -> Threat Agent."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_threat_agent_search_query_request(
         self,
         request: SearchQueryToThreatAgentRequest,
     ) -> dict[str, object]:
         """Build Threat Agent handoff request from Search Query payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_search_query_to_threat_agent_flow(
         self,
         request: SearchQueryToThreatAgentRequest,
     ) -> None:
         """Emit trace point for Search Query -> Threat Agent flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

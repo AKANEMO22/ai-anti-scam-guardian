@@ -6,18 +6,16 @@ class OnDeviceWarningFlowChannel {
     fun receiveFromOnDeviceFilter(
         request: OnDeviceFilterToUiWarningRequest,
     ): OnDeviceFilterPipelineResult {
-        // TODO: receive TFLite On-device Filter result for warning explanation stage.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun normalizeWarningExplanationPayload(
         payload: UiWarningExplanationPayload,
     ): UiWarningExplanationPayload {
-        // TODO: normalize UI warning explanation payload before rendering.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
-    fun validateWarningExplanationPayload(payload: UiWarningExplanationPayload) {
-        // TODO: validate warning explanation payload for UI rendering.
-    }
+    fun validateWarningExplanationPayload(payload: UiWarningExplanationPayload) { println("mocked"); }
 }

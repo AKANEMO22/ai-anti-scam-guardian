@@ -7,8 +7,8 @@ class MobileAppRealtimeStreamBridge {
     required int sequence,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build websocket call-chunk request from Flutter layer.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 
   MobileAppToRealtimeStreamRequest buildGrpcCallChunkRequest({
@@ -17,8 +17,8 @@ class MobileAppRealtimeStreamBridge {
     required int sequence,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build grpc call-chunk request from Flutter layer.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 
   RealtimeCloudRunAck buildRealtimeStreamAck({
@@ -26,7 +26,7 @@ class MobileAppRealtimeStreamBridge {
     required String sessionId,
     String message = '',
   }) {
-    // TODO: build local ack object for streaming flow state.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 }

@@ -20,7 +20,7 @@ def internal_user_feedback_to_feedback_label(
     ),
 ) -> None:
     """Internal link: user feedback (scam/safe/not sure) -> feedback label."""
-    pass
+    return internal_orchestrator.link_user_feedback_to_feedback_label(request)
 
 
 @router.post("/v1/gateway/internal/feedback-label-to-feedback-ingestion")
@@ -53,4 +53,4 @@ def internal_feedback_ingestion_to_cache_layer_lookup(
     ),
 ) -> None:
     """Internal lookup link for feedback-ingestion cache keys in phone/url/script channels."""
-    pass
+    return internal_orchestrator.link_feedback_ingestion_to_cache_layer_lookup(request)

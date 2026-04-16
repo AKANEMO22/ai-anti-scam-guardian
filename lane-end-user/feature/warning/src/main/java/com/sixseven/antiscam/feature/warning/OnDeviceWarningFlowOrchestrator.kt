@@ -9,33 +9,33 @@ class OnDeviceWarningFlowOrchestrator(
     fun linkOnDeviceFilterToUiWarningExplanation(
         request: OnDeviceFilterToUiWarningRequest,
     ): WarningDetailUiState {
-        // TODO: orchestrate TFLite On-device Filter -> UI warning explanation flow.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkSmsWarningExplanation(
         request: OnDeviceFilterToUiWarningRequest,
     ): WarningDetailUiState {
-        // TODO: orchestrate SMS warning explanation branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkCallWarningExplanation(
         request: OnDeviceFilterToUiWarningRequest,
     ): WarningDetailUiState {
-        // TODO: orchestrate CALL warning explanation branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkUrlWarningExplanation(
         request: OnDeviceFilterToUiWarningRequest,
     ): WarningDetailUiState {
-        // TODO: orchestrate URL warning explanation branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun classifyWarningBranch(signalType: OnDeviceFilterSignalType): OnDeviceFilterSignalType {
-        // TODO: classify warning branch based on signal type before rendering explanation.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

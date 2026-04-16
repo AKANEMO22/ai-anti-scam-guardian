@@ -9,7 +9,7 @@ echo "Waiting for server to boot..."
 sleep 3
 
 echo "Sending first request..."
-curl -s -X POST "http://localhost:8081/v1/signals/analyze" \
+curl -s -X POST "http://localhost:8000/v1/signals/analyze" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer some_dummy_token" \
      -d '{"sourceType": "SMS", "text": "URGENT: Your account has been suspended. Click here to verify: http://scam-link.com"}' | jq .

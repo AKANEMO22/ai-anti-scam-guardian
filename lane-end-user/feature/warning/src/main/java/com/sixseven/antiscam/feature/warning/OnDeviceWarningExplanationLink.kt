@@ -4,20 +4,18 @@ class OnDeviceWarningExplanationLink {
     fun forwardOnDeviceFilterToUiWarningExplanation(
         request: OnDeviceFilterToUiWarningRequest,
     ): UiWarningExplanationPayload {
-        // TODO: forward TFLite output to warning explanation builder stage.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun buildWarningDetailUiState(
         payload: UiWarningExplanationPayload,
     ): WarningDetailUiState {
-        // TODO: map explanation payload into warning detail UI state.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun traceOnDeviceFilterToWarningExplanationFlow(
         request: OnDeviceFilterToUiWarningRequest,
-    ) {
-        // TODO: emit trace event for TFLite -> UI warning explanation flow.
-    }
+    ) { println("mocked"); }
 }

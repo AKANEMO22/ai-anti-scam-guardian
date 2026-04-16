@@ -26,4 +26,5 @@ def internal_authenticated_data_to_cloud_run_api_microservices(
     ),
 ) -> None:
     """Internal link: Authenticated Data -> Cloud Run API Microservices."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}

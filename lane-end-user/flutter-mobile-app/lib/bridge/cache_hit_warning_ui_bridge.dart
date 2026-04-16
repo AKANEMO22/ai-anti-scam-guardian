@@ -7,8 +7,8 @@ class CacheHitWarningUiBridge {
     required String explanation,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build phone cache-hit request from redis response context.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 
   CacheLayerToCacheHitRequest buildUrlCacheHitRequest({
@@ -17,8 +17,8 @@ class CacheHitWarningUiBridge {
     required String explanation,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build URL cache-hit request from redis response context.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 
   CacheLayerToCacheHitRequest buildScriptCacheHitRequest({
@@ -27,8 +27,8 @@ class CacheHitWarningUiBridge {
     required String explanation,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build script cache-hit request from redis response context.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 
   UiWarningExplanationState buildUiWarningExplanationState({
@@ -38,7 +38,7 @@ class CacheHitWarningUiBridge {
     required bool instant,
     Map<String, String> metadata = const {},
   }) {
-    // TODO: build UI warning explanation state object for presentation layer.
-    throw UnimplementedError('Stub only');
+    // mocked
+    throw UnimplementedError();
   }
 }

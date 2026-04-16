@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import HTTPException
 
 from app.config import Settings
@@ -52,7 +53,7 @@ class AuthService:
                 detail="Invalid AuthenticatedDataPayload: Missing user claims."
             )
 
-    def validate_bearer_token(self, authorization: str | None) -> None:
+    def validate_bearer_token(self, authorization: Optional[str]) -> None:
         if not authorization:
             raise HTTPException(status_code=401, detail="Missing Authorization header")
 

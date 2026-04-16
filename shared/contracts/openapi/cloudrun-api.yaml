@@ -6,6 +6,11 @@ paths:
   /v1/signals/analyze:
     post:
       summary: Analyze signal from mobile client
+      operationId: analyzeSignal
+      tags:
+        - signals
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -49,6 +54,11 @@ paths:
   /v1/feedback:
     post:
       summary: Submit Scam/Safe/Not sure label
+      operationId: submitFeedback
+      tags:
+        - feedback
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -58,3 +68,17 @@ paths:
       responses:
         "200":
           description: Accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted:
+                    type: boolean
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

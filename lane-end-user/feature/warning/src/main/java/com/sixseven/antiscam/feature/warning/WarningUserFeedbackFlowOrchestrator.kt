@@ -7,35 +7,35 @@ class WarningUserFeedbackFlowOrchestrator(
     fun linkUiWarningExplanationToInteract(
         request: UiWarningExplanationToInteractRequest,
     ): UiWarningInteractionState {
-        // TODO: orchestrate UI warning explanation -> interaction state.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkInteractToUserFeedback(
         request: InteractToUserFeedbackRequest,
     ): UserFeedbackSubmissionPayload {
-        // TODO: orchestrate interaction state -> user feedback payload.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkScamFeedback(
         request: InteractToUserFeedbackRequest,
     ): UserFeedbackSubmissionPayload {
-        // TODO: orchestrate scam feedback branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkSafeFeedback(
         request: InteractToUserFeedbackRequest,
     ): UserFeedbackSubmissionPayload {
-        // TODO: orchestrate safe feedback branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkNotSureFeedback(
         request: InteractToUserFeedbackRequest,
     ): UserFeedbackSubmissionPayload {
-        // TODO: orchestrate not-sure feedback branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }

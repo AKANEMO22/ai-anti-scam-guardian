@@ -1,0 +1,2848 @@
+{
+  "checkedAt": "20260414_002625",
+  "scope": [
+    "ALL_PROJECT"
+  ],
+  "pass": false,
+  "passCriteria": {
+    "syntaxErrors": 0,
+    "functionsStubbed": 0,
+    "dependencyFailures": 0
+  },
+  "summary": {
+    "projectFilesTotal": 352,
+    "codeFilesScanned": 204,
+    "nonCodeFilesSkipped": 148,
+    "filesScanned": 352,
+    "functionsTotal": 750,
+    "functionsImplemented": 749,
+    "functionsStubbed": 1,
+    "dependencyFailures": 0,
+    "syntaxErrors": 0,
+    "fileDone": 203,
+    "fileNotDone": 1,
+    "fileSkipped": 148
+  },
+  "syntaxIssues": [],
+  "dependencyIssues": [],
+  "files": [
+    {
+      "path": ".DS_Store",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": ".gitignore",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "build_apk.bat",
+      "status": "SKIPPED_NON_CODE",
+      "language": "bat",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "docs/FILE_ROLES.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "docs/FOLDER_TREE.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PRIORITY_REPORT.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "docs/PIPELINE_MAPPING.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "docs/PYTHON_LANE_ARCHITECTURE.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradle.properties",
+      "status": "SKIPPED_NON_CODE",
+      "language": "properties",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "toml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "status": "SKIPPED_NON_CODE",
+      "language": "jar",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "status": "SKIPPED_NON_CODE",
+      "language": "properties",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradlew",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "gradlew.bat",
+      "status": "SKIPPED_NON_CODE",
+      "language": "bat",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/data/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/data/src/main/java/com/sixseven/antiscam/data/local/RiskEventLocalStore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/data/src/main/java/com/sixseven/antiscam/data/remote/CloudRunApiDataSource.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/data/src/main/java/com/sixseven/antiscam/data/repository/PipelineRepositoryImpl.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/domain/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/domain/src/main/java/com/sixseven/antiscam/domain/model/RiskScore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/domain/src/main/java/com/sixseven/antiscam/domain/model/SignalPayload.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/domain/src/main/java/com/sixseven/antiscam/domain/usecase/ClassifyCallAuthenticityUseCase.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/domain/src/main/java/com/sixseven/antiscam/domain/usecase/ProcessSignalPipelineUseCase.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/.env",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/.pytest_cache/.gitignore",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/.pytest_cache/CACHEDIR.TAG",
+      "status": "SKIPPED_NON_CODE",
+      "language": "tag",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/.pytest_cache/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/.pytest_cache/v/cache/nodeids",
+      "status": "SKIPPED_NON_CODE",
+      "language": "",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/__init__.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/clients/gemini_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/clients/storage_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/config.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/dependencies.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/main.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/models/contracts.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 24,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/agents/deepfake_agent.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/agents/entity_agent.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/agents/reasoning_agent.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/agents/stt_agent.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/agents/threat_agent.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 9,
+      "functions_stubbed": 1,
+      "issues": [
+        "stub-function:extract_threat_features_from_transcript_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/deepfake_signal_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/entity_signal_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/json_score_warning_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/raw_audio_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/reasoning_explanation_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/search_query_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/text_metadata_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/threat_signal_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/transcribed_text_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/channels/voice_stream_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/decision_engine.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 8,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/internal_link_orchestrator.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 25,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/decision_gemini_reasoning_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/decision_json_score_warning_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/deepfake_decision_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/entity_decision_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/gemini_decision_reasoning_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/google_stt_threat_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/google_stt_transcribed_text_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/json_score_warning_cloud_run_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/search_query_threat_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/threat_decision_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/links/transcribed_text_threat_agent_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/app/services/orchestrator.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 23,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/requirements.txt",
+      "status": "SKIPPED_NON_CODE",
+      "language": "txt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/uvicorn.log",
+      "status": "SKIPPED_NON_CODE",
+      "language": "log",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/python-agentic-core/uvicorn_agent.log",
+      "status": "SKIPPED_NON_CODE",
+      "language": "log",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/logic_status_20260412_220718.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_204034.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_204109.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_204339.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_204430.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_204443.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_205533.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_205648.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_205657.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_205755.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_214138.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_214453.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/reports/status_20260412_214502.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-agentic-core/test_summary.txt",
+      "status": "SKIPPED_NON_CODE",
+      "language": "txt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/core/network/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/core/network/src/main/java/com/sixseven/antiscam/core/network/CloudApi.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/__init__.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/config.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/dependencies.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/main.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/models/contracts.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/analyze.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/feedback.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_auth_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_miss_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_cache_miss_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_update_database_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_feedback_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/auth_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/cache_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 12,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/authenticated_data_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cache_miss_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_cache_miss_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_result_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_ingestion_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_label_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/update_database_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/internal_link_orchestrator.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/authenticated_data_cloud_run_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cache_miss_orchestrator_langgraph_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_miss_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_update_database_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_ingestion_cache_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_label_ingestion_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/firebase_auth_authenticated_data_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/update_database_vector_database_vertex_ai_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204035.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204105.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204109.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204340.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205535.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205650.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205658.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205756.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214140.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214455.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214503.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/proguard-rules.pro",
+      "status": "SKIPPED_NON_CODE",
+      "language": "pro",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/AndroidManifest.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/real_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/real_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/scam_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/scam_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/mobile_demo.html",
+      "status": "SKIPPED_NON_CODE",
+      "language": "html",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/GuardianApp.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/MainActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/background/MobileAppBackgroundServiceBridge.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/ActiveCallStore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/CallControlFacade.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/CallUiAction.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/FallbackRingingStore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/permissions/CallPermissionManager.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/receiver/PhoneStateReceiver.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/role/DefaultDialerRoleHelper.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 14,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/service/GuardianInCallService.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/setup/DialerSetupGuideDialog.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/CallActionReceiver.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/CallNotificationController.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/DialerEntryActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/InCallOngoingActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/IncomingCallActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/feedback/WarningUserFeedbackBridge.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/navigation/AppNavGraph.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/warning/OnDeviceWarningUiBridge.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_alert_card.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_blob_one.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_blob_two.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_main.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_soft.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_warn.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_call_action_answer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_call_action_decline.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_card_white.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_chip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_gauge_inner.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_gauge_outer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_header_strip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_incoming_banner.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_kpi_card.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_phone_shell.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_pill_shield.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_scene_gradient.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_status_strip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_active.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_bar.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_inactive.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/ic_call_answer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/ic_call_decline.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_in_call_ongoing.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_incoming_call.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_main.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/values/styles.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/xml/network_security_config.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/real_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/real_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/scam_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/scam_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/BackgroundServiceOnDeviceFilterLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilter.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterFlowOrchestrator.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterInputChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ui/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ui/src/main/java/com/sixseven/antiscam/core/ui/DesignTokens.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/callshield/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/callshield/src/main/java/com/sixseven/antiscam/feature/callshield/IncomingCallTestContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/dashboard/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/dashboard/src/main/java/com/sixseven/antiscam/feature/dashboard/DashboardScreenContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/guardian/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/guardian/src/main/java/com/sixseven/antiscam/feature/guardian/GuardianContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/history/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/history/src/main/java/com/sixseven/antiscam/feature/history/HistoryContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/scan/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/scan/src/main/java/com/sixseven/antiscam/feature/scan/QuickScanContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/settings/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/settings/src/main/java/com/sixseven/antiscam/feature/settings/SettingsContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningExplanationLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowOrchestrator.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningDetailContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningFeedbackLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningInteractionChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningUserFeedbackFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningUserFeedbackFlowOrchestrator.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/cache_hit_warning_ui_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 11,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/mobile_app_flutter_rest_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/mobile_app_realtime_stream_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/cache_hit_warning_flow_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 8,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/mobile_realtime_stream_cloud_run_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/mobile_rest_cloud_run_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_instant_warning_link.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_warning_channel.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 11,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_warning_flow_orchestrator.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 8,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cloud_run_microservices_rest_link.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cloud_run_realtime_stream_link.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/instant_warning_ui_explanation_link.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/mobile_realtime_stream_flow_orchestrator.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/mobile_rest_sms_url_flow_orchestrator.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/realtime_call_stream_channel.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 9,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/rest_sms_url_channel.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/BackgroundMonitorWorker.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/BackgroundToOnDeviceFilterDispatcher.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/EndUserBackgroundFlowOrchestrator.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 8,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileAppBackgroundServiceLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileBackgroundSignalChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileBackgroundSignalContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackIngestionCacheLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackIngestionLink.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackLabelChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncFlowOrchestrator.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncWorker.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 9,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/UserFeedbackSyncChannel.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/realtimecall/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/realtimecall/src/main/java/com/sixseven/antiscam/service/realtimecall/RealtimeCallSessionManager.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204025.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204035.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204106.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204110.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204155.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204340.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_205658.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/__init__.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/dependencies.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 10,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/main.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/models/contracts.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/repositories/feedback_repository.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/repositories/scam_pattern_repository.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/repositories/vector_repository.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 9,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/routes/storage.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 13,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/channels/search_query_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/channels/update_database_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/embedding_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/internal_link_orchestrator.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 9,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/cloud_run_update_database_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/rag_engine_langchain_search_query_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/rag_vector_embedding_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/scam_pattern_vector_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/search_query_threat_agent_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/links/update_database_vector_database_vertex_ai_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/rag_engine.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/scam_pattern_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/services/vector_db_vertex_ai_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/app/utils/paths.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/data/faiss_index.bin",
+      "status": "SKIPPED_NON_CODE",
+      "language": "bin",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/data/faiss_metadata.pkl",
+      "status": "SKIPPED_NON_CODE",
+      "language": "pkl",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/data/vn_scam_patterns.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/requirements.txt",
+      "status": "SKIPPED_NON_CODE",
+      "language": "txt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/python-storage/uvicorn_storage.log",
+      "status": "SKIPPED_NON_CODE",
+      "language": "log",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/logic_status_20260412_215700.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/logic_status_20260412_215757.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/logic_status_20260412_215913.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_203943.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_204034.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_204109.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_204339.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_204649.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_205534.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_205647.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_205656.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_205753.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_205805.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_214136.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_214452.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/reports/status_20260412_214501.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-storage/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/docker-compose.python-lanes.yml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "yml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/fix_all_stubs.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/lane_test_runner.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 9,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/project_logic_test_runner.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 21,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260412_215703.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260412_215757.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260412_215823.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260414_000627.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260414_000719.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/logic_status_20260414_002436.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/reports/project_latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "ops/scripts/run_all_lane_status_tests.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "settings.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "shared/contracts/event-schema/feedback-event.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "shared/contracts/openapi/cloudrun-api.yaml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "yaml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "shared/core/common/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "shared/core/common/src/main/java/com/sixseven/antiscam/core/common/DispatchersProvider.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "verify.sh",
+      "status": "SKIPPED_NON_CODE",
+      "language": "sh",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "verify_agentic_core.sh",
+      "status": "SKIPPED_NON_CODE",
+      "language": "sh",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    }
+  ]
+}

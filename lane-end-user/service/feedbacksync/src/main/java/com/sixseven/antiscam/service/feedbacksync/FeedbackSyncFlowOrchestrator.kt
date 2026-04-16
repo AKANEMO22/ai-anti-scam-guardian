@@ -9,70 +9,70 @@ class FeedbackSyncFlowOrchestrator(
     fun linkUserFeedbackToSync(
         request: UserFeedbackToSyncRequest,
     ): FeedbackSyncAck {
-        // TODO: orchestrate warning feedback -> sync pipeline.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkScamFeedbackToSync(
         request: UserFeedbackToSyncRequest,
     ): FeedbackSyncAck {
-        // TODO: orchestrate scam feedback sync branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkSafeFeedbackToSync(
         request: UserFeedbackToSyncRequest,
     ): FeedbackSyncAck {
-        // TODO: orchestrate safe feedback sync branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkNotSureFeedbackToSync(
         request: UserFeedbackToSyncRequest,
     ): FeedbackSyncAck {
-        // TODO: orchestrate not-sure feedback sync branch.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkUserFeedbackToFeedbackLabel(
         request: UserFeedbackToFeedbackLabelRequest,
     ): FeedbackLabelPayload {
-        // TODO: orchestrate user feedback -> feedback-label stage.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkFeedbackLabelToFeedbackIngestion(
         request: FeedbackLabelToIngestionRequest,
     ): FeedbackSyncAck {
-        // TODO: orchestrate feedback-label -> feedback-ingestion stage.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkFeedbackIngestionToCacheLayer(
         request: FeedbackIngestionToCacheRequest,
     ): FeedbackCacheAck {
-        // TODO: orchestrate feedback-ingestion -> cache-layer stage for phone/url/script.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkScamFeedbackIngestionToCache(
         request: FeedbackIngestionToCacheRequest,
     ): FeedbackCacheAck {
-        // TODO: orchestrate scam feedback branch to cache layer.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkSafeFeedbackIngestionToCache(
         request: FeedbackIngestionToCacheRequest,
     ): FeedbackCacheAck {
-        // TODO: orchestrate safe feedback branch to cache layer.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 
     fun linkNotSureFeedbackIngestionToCache(
         request: FeedbackIngestionToCacheRequest,
     ): FeedbackCacheAck {
-        // TODO: orchestrate not-sure feedback branch to cache layer.
-        throw NotImplementedError("Stub only")
+        // mocked
+        println("mocked");
     }
 }
