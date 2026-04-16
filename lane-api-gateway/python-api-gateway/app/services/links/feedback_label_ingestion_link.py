@@ -26,7 +26,9 @@ class FeedbackLabelIngestionLink:
             timestamp=datetime.utcnow().isoformat()
         )
         
+        print(f"[Async Worker] Submitting {feedback.label} feedback for Event: {feedback.eventId}")
         accepted = await self._storage_client.submit_feedback(feedback)
+        print(f"[Async Worker] Feedback submission accepted: {accepted}")
         
         return FeedbackIngestionResultPayload(
             payload=request.payload,

@@ -85,13 +85,17 @@ class ApiGatewayInternalLinkOrchestrator:
         return link.forward_cloud_run_api_microservices_to_cache_layer(request)
 
     async def link_feedback_label_to_ingestion(self, request: FeedbackLabelToIngestionRequest):
-        channel = FeedbackLabelChannel()
-        # Request contains UserFeedbackLabelPayload as payload
-        request.payload = channel.normalize_feedback_label_payload(request.payload)
-        channel.validate_feedback_label_payload(request.payload)
+        try:
+            channel = FeedbackLabelChannel()
+            # Request contains UserFeedbackLabelPayload as payload
+            request.payload = channel.normalize_feedback_label_payload(request.payload)
+            channel.validate_feedback_label_payload(request.payload)
 
-        link = FeedbackLabelIngestionLink(self._storage_client)
-        return await link.forward_feedback_label_to_feedback_ingestion(request)
+            link = FeedbackLabelIngestionLink(self._storage_client)
+            return await link.forward_feedback_label_to_feedback_ingestion(request)
+        except Exception as e:
+            print(f"[Error in Feedback Orchestrator] {e}")
+            raise
 
     async def link_feedback_ingestion_to_cache(self, request: FeedbackIngestionToCacheRequest):
         channel = FeedbackIngestionChannel()
