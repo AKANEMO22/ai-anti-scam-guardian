@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from app.routes.score import router as score_router
 

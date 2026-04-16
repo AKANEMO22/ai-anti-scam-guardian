@@ -1,0 +1,15 @@
+{
+  "dataset": "ssc_dataset_all_data.chat.json",
+  "samples": 50,
+  "duration_seconds": 937.0224120616913,
+  "metrics": {
+    "accuracy": 0.46,
+    "precision": 0.5,
+    "recall": 0.037037037037037035,
+    "f1_score": 0.06896551724137931,
+    "tp": 1,
+    "fp": 1,
+    "tn": 22,
+    "fn": 26
+  }
+}

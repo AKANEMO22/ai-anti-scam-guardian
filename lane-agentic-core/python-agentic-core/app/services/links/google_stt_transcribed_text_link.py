@@ -10,18 +10,21 @@ class GoogleSttTranscribedTextLink:
         request: GoogleSttApiToTranscribedTextRequest,
     ) -> TranscribedTextPayload:
         """Flow: Google STT API -> Transcribed Text."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_transcribed_text_payload_from_google_stt_api(
         self,
         request: GoogleSttApiToTranscribedTextRequest,
     ) -> TranscribedTextPayload:
         """Build Transcribed Text payload from Google STT API stage request."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_google_stt_api_to_transcribed_text_flow(
         self,
         request: GoogleSttApiToTranscribedTextRequest,
     ) -> None:
         """Emit trace point for Google STT API -> Transcribed Text flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

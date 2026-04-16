@@ -32,12 +32,13 @@ router = APIRouter(tags=["agentic-core"])
 
 
 @router.post("/v1/agentic/score")
-def score_signal(
+async def score_signal(
     payload: SignalPayload,
     orchestrator: OrchestratorService = Depends(get_orchestrator_service),
-) -> None:
+) -> dict:
     """External API: execute end-to-end Agentic Core score pipeline."""
-    pass
+    result = await orchestrator.process_pipeline_request(payload)
+    return result.model_dump()
 
 
 @router.post("/v1/agentic/internal/raw-audio-to-deepfake")
@@ -46,7 +47,8 @@ def internal_raw_audio_to_deepfake(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Raw Audio -> Deepfake Agent."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/orchestrator-to-raw-audio")
@@ -55,7 +57,8 @@ def internal_orchestrator_to_raw_audio(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Orchestrator Agent LangGraph Route -> Raw Audio."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/voice-stream-to-google-stt")
@@ -64,7 +67,8 @@ def internal_voice_stream_to_google_stt(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Voice Stream -> Google STT API."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/orchestrator-to-voice-stream")
@@ -73,7 +77,8 @@ def internal_orchestrator_to_voice_stream(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Orchestrator Agent LangGraph Route -> Voice Stream."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/google-stt-to-threat")
@@ -82,7 +87,8 @@ def internal_google_stt_to_threat(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Google STT API -> Threat Agent."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/google-stt-api-to-transcribed-text")
@@ -91,7 +97,8 @@ def internal_google_stt_api_to_transcribed_text(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Google STT API -> Transcribed Text."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/transcribed-text-to-threat-agent")
@@ -100,7 +107,8 @@ def internal_transcribed_text_to_threat_agent(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Transcribed Text -> Threat Agent."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/google-stt-api-to-threat-agent")
@@ -109,7 +117,8 @@ def internal_google_stt_api_to_threat_agent(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Google STT API -> Threat Agent (typed request)."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/search-query-to-threat-agent")
@@ -118,7 +127,8 @@ def internal_search_query_to_threat_agent(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Search Query -> Threat Agent."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/text-metadata-to-entity")
@@ -127,7 +137,8 @@ def internal_text_metadata_to_entity(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Text/Metadata -> Entity Agent."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/orchestrator-to-text-metadata")
@@ -136,7 +147,8 @@ def internal_orchestrator_to_text_metadata(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Orchestrator Agent LangGraph Route -> Text/Metadata."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/deepfake-to-decision")
@@ -145,7 +157,8 @@ def internal_deepfake_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Deepfake Agent signal/score -> Decision Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/deepfake-signal-score-to-decision")
@@ -154,7 +167,8 @@ def internal_deepfake_signal_score_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Deepfake Agent -> signal/score -> Decision & Reasoning Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/threat-to-decision")
@@ -163,7 +177,8 @@ def internal_threat_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Threat Agent signal/score -> Decision Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/threat-signal-score-to-decision")
@@ -172,7 +187,8 @@ def internal_threat_signal_score_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Threat Agent -> signal/score -> Decision & Reasoning Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/entity-to-decision")
@@ -181,7 +197,8 @@ def internal_entity_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Entity Agent signal/score -> Decision Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/entity-signal-score-to-decision")
@@ -190,7 +207,8 @@ def internal_entity_signal_score_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Entity Agent -> signal/score -> Decision & Reasoning Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/decision-to-gemini")
@@ -199,7 +217,8 @@ def internal_decision_to_gemini(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Decision Engine -> Gemini API Reasoning Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/decision-reasoning-explanation-to-gemini")
@@ -208,7 +227,8 @@ def internal_decision_reasoning_explanation_to_gemini(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Decision & Reasoning Engine -> Gemini API Reasoning Engine (reasoning/explanation)."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/gemini-to-decision")
@@ -217,7 +237,8 @@ def internal_gemini_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Gemini API Reasoning Engine -> Decision Engine."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/gemini-reasoning-explanation-to-decision")
@@ -226,7 +247,8 @@ def internal_gemini_reasoning_explanation_to_decision(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Gemini API Reasoning Engine -> Decision & Reasoning Engine (reasoning/explanation)."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/decision-and-reasoning-engine-to-json-score-warning")
@@ -235,7 +257,8 @@ def internal_decision_and_reasoning_engine_to_json_score_warning(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: Decision & Reasoning Engine -> JSON score + warning."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
 
 
 @router.post("/v1/agentic/internal/json-score-warning-to-cloud-run-api-microservices")
@@ -244,4 +267,5 @@ def internal_json_score_warning_to_cloud_run_api_microservices(
     internal_orchestrator: AgenticInternalLinkOrchestrator = Depends(get_internal_link_orchestrator),
 ) -> None:
     """Internal link: JSON score + warning -> Cloud Run API Microservices."""
-    pass
+    print("mocked")
+    return locals().get("mock_data", None) or {}
