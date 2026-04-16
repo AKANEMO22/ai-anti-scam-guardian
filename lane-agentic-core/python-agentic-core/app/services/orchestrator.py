@@ -58,7 +58,7 @@ class OrchestratorService:
             if payload.text:
                  search_payload = SearchQueryPayload(query=payload.text, sourceType=payload.sourceType)
                  scores = await self.threat_agent.analyze_search_query_to_signals(search_payload, patterns)
-                 bundle.threat_signals.append(AgentSignalScore(signal_name="threat_score", score=scores[0]))
+                 bundle.threat_signals.extend(scores) # scores is now a list[AgentSignalScore]
         tasks.append(run_threat())
 
         # Entity Analysis Task
@@ -86,12 +86,10 @@ class OrchestratorService:
         reasoning_payload = await self.reasoning_engine.request_reasoning_from_decision_signals(bundle)
         
         # 5. Build Risk Response
-        explanation = self.decision_engine.merge_reasoning_explanation(reasoning_payload)
-        
         # Format response
         response = self.decision_engine.build_risk_response(
             score_dict=score_dict,
-            explanation=explanation,
+            reasoning=reasoning_payload,
             cacheHit=False,
             matched_patterns=matches
         )

@@ -22,3 +22,22 @@ INFO:     127.0.0.1:65064 - "POST /v1/storage/index HTTP/1.1" 200 OK
 Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
 INFO:     127.0.0.1:65130 - "POST /v1/storage/search HTTP/1.1" 200 OK
 INFO:     127.0.0.1:65147 - "POST /v1/storage/index HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:54911 - "POST /v1/storage/search HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:54932 - "POST /v1/storage/search HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56428 - "POST /v1/storage/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56432 - "POST /v1/storage/index HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56470 - "POST /v1/storage/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56472 - "POST /v1/storage/index HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56498 - "POST /v1/storage/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56501 - "POST /v1/storage/index HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56520 - "POST /v1/storage/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56522 - "POST /v1/storage/index HTTP/1.1" 200 OK
+Error calling Gemini Embedding API: 404 models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56553 - "POST /v1/storage/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56555 - "POST /v1/storage/index HTTP/1.1" 200 OK

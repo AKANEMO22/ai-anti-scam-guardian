@@ -2,26 +2,30 @@ from app.models.contracts import DecisionSignalBundle, GeminiReasoningPayload
 from app.clients.gemini_client import GeminiClient
 
 REASONING_PROMPT = """
-Task: Giải thích lý do cảnh báo lừa đảo (Scam Explanation).
+Task: Giải thích lý do cảnh báo lừa đảo & Gợi ý phản hồi nhử mồi (Scam-Baiting).
 
-Phân tích các tín hiệu rủi ro sau đây và viết một lời giải thích BẰNG TIẾNG VIỆT, ngắn gọn, dễ hiểu để cảnh báo người dùng.
+Phân tích các tín hiệu rủi ro sau đây và thực hiện:
+1. Viết lời giải thích BẰNG TIẾNG VIỆT, ngắn gọn, dễ hiểu để cảnh báo người dùng.
+2. Nếu rủi ro cao (>50%), hãy gợi ý một câu trả lời "nhử mồi" (baiter response) để lừa lại kẻ lừa đảo hoặc kéo dài thời gian nhằm thu thập bằng chứng/lãng phí thời gian của chúng.
 
-Tín hiệu đe dọa (Threat Signals):
-{threat_signals}
+Tín hiệu rủi ro:
+- Threat signals (Scam, PII, Engagement): {threat_signals}
+- Entity signals: {entity_signals}
+- Deepfake signals: {deepfake_signals}
 
-Tín hiệu thực thể (Entity Signals - URL, SDT, Bank):
-{entity_signals}
+Yêu cầu output JSON:
+{{
+  "summary": "Tóm tắt ngắn",
+  "explanation": "Giải thích chi tiết",
+  "baiter_response": "Câu trả lời gợi ý cho người dùng (đóng vai người ngây thơ/hợp tác nhưng không lộ thông tin thật)"
+}}
 
-Tín hiệu Deepfake Voice (nếu có):
-{deepfake_signals}
-
-Yêu cầu:
-1. Trả về đúng định dạng JSON có 2 trường: "summary" (1 câu tóm tắt ngắn) và "explanation" (1-2 câu giải thích chi tiết).
-2. Viết bằng tiếng Việt, giọng điệu cảnh báo nhưng điềm tĩnh.
-3. KHÔNG output gì khác ngoài chuỗi JSON hợp lệ.
-
-Ví dụ Output:
-{{"summary": "Phát hiện liên kết giả mạo ngân hàng", "explanation": "Đường dẫn trong tin nhắn nghi ngờ là giả mạo để chiếm đoạt tài khoản. Tuyệt đối không bấm vào link này."}}
+Ví dụ:
+{{
+  "summary": "Phát hiện giả mạo ngân hàng",
+  "explanation": "Link này dẫn tới trang web lừa đảo để chiếm đoạt mã OTP.",
+  "baiter_response": "Dạ vâng ạ, tôi đang vào link rồi nhưng mạng hơi lag. Bạn đợi một chút nhé?"
+}}
 """
 
 class GeminiApiReasoningEngine:
@@ -48,7 +52,11 @@ class GeminiApiReasoningEngine:
              # Strip out markdown block if the model included it
              clean_text = response_text.replace("```json", "").replace("```", "").strip()
              data = json.loads(clean_text)
-             return GeminiReasoningPayload(summary=data.get("summary", ""), explanation=data.get("explanation", ""))
+             return GeminiReasoningPayload(
+                 summary=data.get("summary", ""),
+                 explanation=data.get("explanation", ""),
+                 baiter_response=data.get("baiter_response")
+             )
         except Exception as e:
              print(f"Error parsing Gemini reasoning JSON: {e}")
              return GeminiReasoningPayload(
