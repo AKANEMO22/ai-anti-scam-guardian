@@ -1,39 +1,47 @@
 import json
-import os
-from typing import Dict, List, Any
-from app.utils.paths import get_base_data_dir
+from pathlib import Path
+from typing import Dict, List
+import logging
+
+DATA_PATH = Path(__file__).parent / "data" / "scam_patterns.json"
 
 class ScamPatternRepository:
     def __init__(self):
-        self.data_file = os.path.join(get_base_data_dir(), "vn_scam_patterns.json")
-        self._patterns: Dict[str, Any] = {}
-        self._load_patterns()
+        self._catalog: Dict[str, Dict] = self._load_catalog()
 
-    def _load_patterns(self) -> None:
-        if os.path.exists(self.data_file):
-            with open(self.data_file, "r", encoding="utf-8") as f:
-                try:
-                    data = json.load(f)
-                    for item in data:
-                        self._patterns[item["id"]] = item
-                except json.JSONDecodeError:
-                    print(f"Error decoding JSON from {self.data_file}")
-                    self._patterns = {}
-        else:
-            print(f"Pattern file not found at {self.data_file}")
-            self._patterns = {}
-
+    def _load_catalog(self) -> Dict[str, str]:
+        """Load scam-pattern catalog from JSON file."""
+        try:
+            if not DATA_PATH.exists():
+                logging.error(f"Data file not found at {DATA_PATH}")
+                return {}
+            
+            with open(DATA_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logging.error(f"Failed to load scam patterns from JSON: {e}")
+            return {}
+        
     def list_active_pattern_ids(self) -> list[str]:
         """List active scam-pattern IDs that should be linked into vector index."""
-        return list(self._patterns.keys())
+        return sorted([
+            pid for pid, data in self._catalog.items()
+            if data.get("active", False)
+        ])
 
-    def list_active_patterns(self) -> list[Dict[str, Any]]:
-        """List active scam-patterns used by RAG context preparation."""
-        return list(self._patterns.values())
+    def list_active_patterns(self) -> list[str]:
+        """List active scam-pattern texts used by RAG context preparation."""
+        return [
+            data["description"] 
+            for pid, data in sorted(self._catalog.items())
+            if data.get("active", False)
+        ]
 
-    def get_patterns_by_ids(self, pattern_ids: list[str]) -> list[Dict[str, Any]]:
+    def get_patterns_by_ids(self, pattern_ids: list[str]) -> list[str]:
         """Resolve scam-pattern texts from pattern IDs returned by internal links."""
-        return [self._patterns[pid] for pid in pattern_ids if pid in self._patterns]
-    
-    def get_all_patterns(self) -> list[Dict[str, Any]]:
-        return list(self._patterns.values())
+        result: List[str] = []
+        for pid in pattern_ids:
+            entry = self._catalog.get(pid)
+            if entry:
+                result.append(entry["description"])
+        return result

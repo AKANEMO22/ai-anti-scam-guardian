@@ -43,7 +43,6 @@ class IndexSignalRequest(BaseModel):
     metadata: Dict[str, str] = Field(default_factory=dict)
     riskScore: int = Field(ge=0, le=100)
     explanation: str
-    voiceScore: int = Field(ge=0, le=100)
     textScore: int = Field(ge=0, le=100)
     entityScore: int = Field(ge=0, le=100)
 
@@ -87,6 +86,7 @@ class RagEmbeddingPayload(BaseModel):
     source_id: str
     source_text: str
     metadata: Dict[str, str] = Field(default_factory=dict)
+    vector: Optional[List[float]] = None
 
 
 class EmbeddingLinkRequest(BaseModel):
@@ -94,7 +94,7 @@ class EmbeddingLinkRequest(BaseModel):
 
 
 class VectorRetrievalRequest(BaseModel):
-    query_text: str
+    query_vector: List[float]
     topK: int = Field(default=5, ge=1, le=50)
 
 

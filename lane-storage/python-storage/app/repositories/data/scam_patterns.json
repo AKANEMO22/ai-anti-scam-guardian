@@ -1,0 +1,32 @@
+{
+  "SCAM-001": {
+    "type": "reward",
+    "personality": "professional",
+    "description": "Fraudsters claim the victim won a major prize and demand upfront payments for taxes or processing fees.",
+    "active": true
+  },
+  "SCAM-002": {
+    "type": "authority",
+    "personality": "aggressive",
+    "description": "Impersonating law enforcement to accuse the victim of crimes, pressuring them to transfer money for investigation.",
+    "active": true
+  },
+  "SCAM-003": {
+    "type": "refund",
+    "personality": "helpful",
+    "description": "Claiming a billing error to offer a fake refund, then tricking victims into revealing bank credentials or OTPs.",
+    "active": true
+  },
+  "SCAM-004": {
+    "type": "support",
+    "personality": "authoritative",
+    "description": "Posing as tech support or network providers to claim account issues and gain remote access or personal data.",
+    "active": true
+  },
+  "SCAM-005": {
+    "type": "wrong_number",
+    "personality": "trusting",
+    "description": "Building rapport through a fake 'wrong number' contact to eventually lure the victim into fraudulent investments.",
+    "active": true
+  }
+}
