@@ -13,8 +13,10 @@ class ScamPatternVectorLink:
 
     def sync_scam_pattern_metadata_to_vector_db(self) -> None:
         """Flow: Scam Pattern catalog -> Vector DB Vertex AI metadata mapping."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def resolve_scam_pattern_from_vector_hits(self, embedding_ids: list[str]) -> list[str]:
         """Flow: Vector DB Vertex AI hit IDs -> Scam Pattern records."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

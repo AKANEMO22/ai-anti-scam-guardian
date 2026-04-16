@@ -16,7 +16,21 @@ data class RiskResponse(
     val cacheHit: Boolean
 )
 
+data class FeedbackRequest(
+    val eventId: String,
+    val userId: String,
+    val label: String,
+    val sourceType: String,
+    val timestamp: String,
+    val riskScore: Int? = null,
+    val metadata: Map<String, String> = emptyMap()
+)
+
+data class FeedbackResponse(
+    val accepted: Boolean
+)
+
 interface CloudApi {
     suspend fun analyzeSignal(request: SignalRequest): RiskResponse
-    suspend fun submitFeedback(eventId: String, label: String): Boolean
+    suspend fun submitFeedback(request: FeedbackRequest): FeedbackResponse
 }

@@ -1,3 +1,4 @@
+from typing import Optional
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, Header
@@ -20,7 +21,7 @@ router = APIRouter(tags=["signals"])
 @router.post("/v1/signals/analyze", response_model=RiskResponse)
 async def analyze_signal(
     request: SignalRequest,
-    authorization: str | None = Header(default=None),
+    authorization: Optional[str] = Header(default=None),
     auth_service: AuthService = Depends(get_auth_service),
     cache_service: InMemoryRiskCache = Depends(get_cache_service),
     core_client: AgenticCoreClient = Depends(get_agentic_core_client),
@@ -40,7 +41,7 @@ async def analyze_signal(
     # Storage indexing is best-effort to avoid blocking user warning flow.
     try:
         await storage_client.index_signal(str(uuid4()), request, result)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Failed to index signal: {e}")
 
     return result

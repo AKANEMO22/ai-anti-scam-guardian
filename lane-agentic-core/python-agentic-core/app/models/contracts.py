@@ -79,6 +79,7 @@ class DecisionSignalBundle(BaseModel):
 class GeminiReasoningPayload(BaseModel):
     summary: str = ""
     explanation: str = ""
+    baiter_response: Optional[str] = None
 
 
 class JsonScoreWarningPayload(BaseModel):
@@ -192,5 +193,9 @@ class RiskResponse(BaseModel):
     voiceScore: int = Field(ge=0, le=100)
     textScore: int = Field(ge=0, le=100)
     entityScore: int = Field(ge=0, le=100)
+    piiScore: int = Field(default=0, ge=0, le=100)
+    engagementScore: int = Field(default=0, ge=0, le=100)
+    piiTypes: List[str] = Field(default_factory=list)
+    baiterResponse: Optional[str] = None
     cacheHit: bool = False
     matchedPatterns: List[PatternMatch] = Field(default_factory=list)

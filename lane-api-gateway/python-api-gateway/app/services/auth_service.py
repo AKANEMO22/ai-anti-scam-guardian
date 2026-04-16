@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import HTTPException
 
 from app.config import Settings
@@ -12,14 +13,25 @@ class AuthService:
         self,
         request: FirebaseAuthToAuthenticatedDataRequest,
     ) -> AuthenticatedDataPayload:
-        """Arrow: Firebase Auth -> Authenticated Data (skeleton placeholder)."""
-        pass
+        """Arrow: Firebase Auth -> Authenticated Data.
+        In production, this would use firebase_admin.auth.verify_id_token(token).
+        """
+        self.validate_bearer_token(request.authorization)
+        
+        # Real-world: decoded_token = auth.verify_id_token(token)
+        # For now, we return a simulated payload derived from the request
+        return AuthenticatedDataPayload(
+            claims={"uid": "dev-user-123", "email": "dev@example.com", "provider": "google.com"},
+            sourceType=request.sourceType,
+            metadata=request.metadata
+        )
 
     def validate_authenticated_data_for_cloud_run(self, payload: AuthenticatedDataPayload) -> None:
         """Validate Authenticated Data stage before forwarding to Cloud Run API Microservices."""
-        pass
+        if not payload.claims.uid:
+            raise HTTPException(status_code=403, detail="Invalid authenticated payload: missing UID")
 
-    def validate_bearer_token(self, authorization: str | None) -> None:
+    def validate_bearer_token(self, authorization: Optional[str]) -> None:
         if not authorization:
             raise HTTPException(status_code=401, detail="Missing Authorization header")
 

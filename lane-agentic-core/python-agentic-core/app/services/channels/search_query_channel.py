@@ -7,12 +7,15 @@ class SearchQueryChannel:
         request: SearchQueryToThreatAgentRequest,
     ) -> SearchQueryPayload:
         """Receive Search Query payload produced from LangChain RAG stage."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def normalize_search_query_payload(self, payload: SearchQueryPayload) -> SearchQueryPayload:
         """Normalize Search Query payload before Threat Agent stage."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_search_query_payload(self, payload: SearchQueryPayload) -> None:
         """Validate Search Query payload required by Threat Agent."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

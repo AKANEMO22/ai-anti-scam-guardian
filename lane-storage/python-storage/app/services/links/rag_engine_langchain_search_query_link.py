@@ -10,18 +10,21 @@ class RagEngineLangChainSearchQueryLink:
         request: RagEngineLangChainToSearchQueryRequest,
     ) -> SearchQueryPayload:
         """Flow: RAG Engine LangChain -> Search Query."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def build_search_query_payload_from_rag_engine_langchain(
         self,
         request: RagEngineLangChainToSearchQueryRequest,
     ) -> SearchQueryPayload:
         """Build Search Query payload from LangChain RAG request context."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def trace_rag_engine_langchain_to_search_query_flow(
         self,
         request: RagEngineLangChainToSearchQueryRequest,
     ) -> None:
         """Emit trace point for RAG Engine LangChain -> Search Query flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

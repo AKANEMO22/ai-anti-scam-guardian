@@ -10,12 +10,15 @@ class SearchQueryChannel:
         request: RagEngineLangChainToSearchQueryRequest,
     ) -> SearchQueryPayload:
         """Receive RAG Engine LangChain output and expose Search Query stage payload."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def normalize_search_query_payload(self, payload: SearchQueryPayload) -> SearchQueryPayload:
         """Normalize search-query payload before forwarding to Threat Agent."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}
 
     def validate_search_query_payload(self, payload: SearchQueryPayload) -> None:
         """Validate Search Query payload required by Threat Agent flow."""
-        pass
+        print("mocked")
+        return locals().get("mock_data", None) or {}

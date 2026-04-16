@@ -23,7 +23,7 @@ def get_settings() -> Settings:
     return Settings(
         agentic_core_base_url=os.getenv("AGENTIC_CORE_BASE_URL", "http://localhost:8101"),
         storage_base_url=os.getenv("STORAGE_BASE_URL", "http://localhost:8102"),
-        request_timeout_seconds=float(os.getenv("REQUEST_TIMEOUT_SECONDS", "8")),
+        request_timeout_seconds=float(os.getenv("REQUEST_TIMEOUT_SECONDS", "30")),
         strict_auth=_env_flag("STRICT_AUTH", False),
         dev_bearer_token=os.getenv("DEV_BEARER_TOKEN", "dev-token"),
     )

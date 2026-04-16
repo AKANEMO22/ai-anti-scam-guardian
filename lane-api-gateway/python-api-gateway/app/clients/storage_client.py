@@ -34,8 +34,23 @@ class StorageClient:
         url = f"{self._settings.storage_base_url}/v1/storage/feedback"
         timeout = httpx.Timeout(self._settings.request_timeout_seconds)
 
+        # Mapping: FeedbackEvent -> Storage Request Payload
+        payload = {
+            "eventId": feedback.eventId,
+            "userId": feedback.userId,
+            "label": feedback.label,
+            "sourceType": feedback.sourceType,
+            "riskScore": feedback.riskScore,
+            "timestamp": feedback.timestamp,
+            "metadata": {
+                **feedback.metadata,
+                "ingested_by": "api-gateway",
+                "env": self._settings.env,
+            }
+        }
+
         async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, json=feedback.model_dump())
+            response = await client.post(url, json=payload)
             response.raise_for_status()
 
         body = response.json()
