@@ -1,0 +1,99 @@
+{
+  "lane": "Lane End User",
+  "generatedAt": "20260412_204340",
+  "summary": {
+    "done": 6,
+    "notDone": 5,
+    "missing": 0,
+    "total": 11
+  },
+  "results": [
+    {
+      "type": "file",
+      "name": "EndUser app bootstrap",
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/GuardianApp.kt",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: TODO:"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "EndUser main activity",
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/MainActivity.kt",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "EndUser nav graph",
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/navigation/AppNavGraph.kt",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "file",
+      "name": "EndUser background worker",
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/BackgroundMonitorWorker.kt",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: NotImplementedError | TODO:"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "EndUser background orchestrator",
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/EndUserBackgroundFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: NotImplementedError | TODO:"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "EndUser warning orchestrator",
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: NotImplementedError | TODO:"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "EndUser feedback orchestrator",
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "issues": [
+        "Found unfinished markers: NotImplementedError | TODO:"
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Mobile CloudApi contract",
+      "path": "lane-api-gateway/core/network/src/main/java/com/sixseven/antiscam/core/network/CloudApi.kt",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "EndUser <-> API Gateway public API linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "EndUser feedback loop linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "cross-lane",
+      "name": "EndUser background to backend analyze linkage",
+      "path": "(multi-file)",
+      "status": "DONE",
+      "issues": []
+    }
+  ]
+}

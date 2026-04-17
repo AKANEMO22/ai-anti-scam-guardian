@@ -1,0 +1,1350 @@
+{
+  "checkedAt": "20260415_015033",
+  "scope": [
+    "lane-end-user"
+  ],
+  "pass": false,
+  "passCriteria": {
+    "syntaxErrors": 0,
+    "functionsStubbed": 0,
+    "dependencyFailures": 0
+  },
+  "summary": {
+    "projectFilesTotal": 138,
+    "codeFilesScanned": 86,
+    "nonCodeFilesSkipped": 52,
+    "filesScanned": 138,
+    "functionsTotal": 302,
+    "functionsImplemented": 121,
+    "functionsStubbed": 181,
+    "dependencyFailures": 0,
+    "syntaxErrors": 0,
+    "fileDone": 51,
+    "fileNotDone": 35,
+    "fileSkipped": 52
+  },
+  "syntaxIssues": [],
+  "dependencyIssues": [],
+  "files": [
+    {
+      "path": "lane-end-user/app/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/proguard-rules.pro",
+      "status": "SKIPPED_NON_CODE",
+      "language": "pro",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/AndroidManifest.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/real_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/real_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/scam_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/assets/audio/scam_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/assets/mobile_demo.html",
+      "status": "SKIPPED_NON_CODE",
+      "language": "html",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/GuardianApp.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 1,
+      "issues": [
+        "stub-function:onCreate (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/MainActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/background/MobileAppBackgroundServiceBridge.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:forwardPhoneSignalToBackgroundService (matched:NotImplementedError)",
+        "stub-function:forwardUrlSignalToBackgroundService (matched:NotImplementedError)",
+        "stub-function:forwardScriptSignalToBackgroundService (matched:NotImplementedError)",
+        "stub-function:buildMobileAppToBackgroundRequest (matched:NotImplementedError)",
+        "stub-function:buildSignalPayload (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/ActiveCallStore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/CallControlFacade.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/CallUiAction.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/call/FallbackRingingStore.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/permissions/CallPermissionManager.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/receiver/PhoneStateReceiver.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/role/DefaultDialerRoleHelper.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 14,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/service/GuardianInCallService.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/setup/DialerSetupGuideDialog.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/CallActionReceiver.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/CallNotificationController.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/DialerEntryActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/InCallOngoingActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/dialer/ui/IncomingCallActivity.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/feedback/WarningUserFeedbackBridge.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 4,
+      "issues": [
+        "stub-function:forwardWarningUserFeedbackToSyncRequest (matched:NotImplementedError)",
+        "stub-function:buildFeedbackSyncSubmissionPayload (matched:NotImplementedError)",
+        "stub-function:mapFeedbackLabel (matched:NotImplementedError)",
+        "stub-function:mapFeedbackSignalType (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/navigation/AppNavGraph.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/java/com/sixseven/antiscam/warning/OnDeviceWarningUiBridge.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:forwardOnDeviceFilterResultToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:forwardSmsResultToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:forwardCallResultToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:forwardUrlResultToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:buildOnDeviceFilterToUiWarningRequest (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_alert_card.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_blob_one.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_blob_two.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_main.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_soft.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_button_warn.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_call_action_answer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_call_action_decline.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_card_white.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_chip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_gauge_inner.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_gauge_outer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_header_strip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_incoming_banner.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_kpi_card.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_phone_shell.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_pill_shield.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_scene_gradient.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_status_strip.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_active.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_bar.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/bg_tab_inactive.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/ic_call_answer.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/drawable/ic_call_decline.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_in_call_ongoing.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_incoming_call.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/layout/activity_main.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/values/styles.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/app/src/main/res/xml/network_security_config.xml",
+      "status": "SKIPPED_NON_CODE",
+      "language": "xml",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/real_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/real_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/scam_call.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/assets/audio/scam_call_sample.wav",
+      "status": "SKIPPED_NON_CODE",
+      "language": "wav",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/BackgroundServiceOnDeviceFilterLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forwardBackgroundServiceToTfliteModel (matched:NotImplementedError)",
+        "stub-function:buildTfliteModelInput (matched:NotImplementedError)",
+        "stub-function:traceBackgroundServiceToOnDeviceFilterFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilter.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 4,
+      "functions_stubbed": 4,
+      "issues": [
+        "stub-function:linkBackgroundServiceToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkSmsSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkCallSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkUrlSignalToOnDeviceFilter (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/core/ml/src/main/java/com/sixseven/antiscam/core/ml/OnDeviceFilterInputChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receiveFromBackgroundService (matched:NotImplementedError)",
+        "stub-function:normalizeOnDeviceFilterPayload (matched:NotImplementedError)",
+        "stub-function:validateOnDeviceFilterPayload (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/core/ui/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/core/ui/src/main/java/com/sixseven/antiscam/core/ui/DesignTokens.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/callshield/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/callshield/src/main/java/com/sixseven/antiscam/feature/callshield/IncomingCallTestContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/dashboard/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/dashboard/src/main/java/com/sixseven/antiscam/feature/dashboard/DashboardScreenContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/guardian/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/guardian/src/main/java/com/sixseven/antiscam/feature/guardian/GuardianContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/history/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/history/src/main/java/com/sixseven/antiscam/feature/history/HistoryContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/scan/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/scan/src/main/java/com/sixseven/antiscam/feature/scan/QuickScanContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/settings/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/settings/src/main/java/com/sixseven/antiscam/feature/settings/SettingsContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningExplanationLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forwardOnDeviceFilterToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:buildWarningDetailUiState (matched:NotImplementedError)",
+        "stub-function:traceOnDeviceFilterToWarningExplanationFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receiveFromOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:normalizeWarningExplanationPayload (matched:NotImplementedError)",
+        "stub-function:validateWarningExplanationPayload (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/OnDeviceWarningFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:linkOnDeviceFilterToUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:linkSmsWarningExplanation (matched:NotImplementedError)",
+        "stub-function:linkCallWarningExplanation (matched:NotImplementedError)",
+        "stub-function:linkUrlWarningExplanation (matched:NotImplementedError)",
+        "stub-function:classifyWarningBranch (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningDetailContract.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningFeedbackLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forwardInteractionToUserFeedback (matched:NotImplementedError)",
+        "stub-function:buildUserFeedbackSubmissionPayload (matched:NotImplementedError)",
+        "stub-function:traceInteractionToUserFeedbackFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningInteractionChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receiveFromUiWarningExplanation (matched:NotImplementedError)",
+        "stub-function:normalizeUiWarningInteractionState (matched:NotImplementedError)",
+        "stub-function:validateUiWarningInteractionState (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningUserFeedbackFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/feature/warning/src/main/java/com/sixseven/antiscam/feature/warning/WarningUserFeedbackFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:linkUiWarningExplanationToInteract (matched:NotImplementedError)",
+        "stub-function:linkInteractToUserFeedback (matched:NotImplementedError)",
+        "stub-function:linkScamFeedback (matched:NotImplementedError)",
+        "stub-function:linkSafeFeedback (matched:NotImplementedError)",
+        "stub-function:linkNotSureFeedback (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/cache_hit_warning_ui_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/mobile_app_flutter_rest_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/bridge/mobile_app_realtime_stream_bridge.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/cache_hit_warning_flow_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/mobile_realtime_stream_cloud_run_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/contracts/mobile_rest_cloud_run_contracts.dart",
+      "status": "DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_instant_warning_link.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:forwardCacheHitToInstantWarning (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:buildInstantWarningPayloadFromCacheHit (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:traceCacheHitToInstantWarningFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_warning_channel.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 10,
+      "functions_stubbed": 10,
+      "issues": [
+        "stub-function:receiveFromRedisCacheLayer (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:normalizeCacheResultPayload (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:validateCacheHitPayload (matched:\\bTODO\\s*[:(])",
+        "stub-function:routePhoneCacheHit (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:routeUrlCacheHit (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:routeScriptCacheHit (matched:UnimplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cache_hit_warning_flow_orchestrator.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 8,
+      "functions_stubbed": 7,
+      "issues": [
+        "stub-function:linkCacheLayerToUiWarningExplanation (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkPhoneCacheHitToUiWarningExplanation (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkUrlCacheHitToUiWarningExplanation (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkScriptCacheHitToUiWarningExplanation (matched:UnimplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cloud_run_microservices_rest_link.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:forwardRestSmsUrlToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:buildCloudRunRequestBody (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:traceRestToCloudRunFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/cloud_run_realtime_stream_link.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 7,
+      "issues": [
+        "stub-function:forwardWebsocketStreamToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:forwardGrpcStreamToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:buildRealtimeStreamRequestBody (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:traceRealtimeStreamToCloudRunFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/instant_warning_ui_explanation_link.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 5,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:forwardInstantWarningToUiWarningExplanation (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:buildUiWarningExplanationState (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:traceInstantWarningToUiExplanationFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/mobile_realtime_stream_flow_orchestrator.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:linkMobileAppToRealtimeStreamToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkWebsocketStreamToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkGrpcStreamToCloudRun (matched:UnimplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/mobile_rest_sms_url_flow_orchestrator.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 6,
+      "functions_stubbed": 5,
+      "issues": [
+        "stub-function:linkMobileAppToRestToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkSmsRestToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:linkUrlRestToCloudRun (matched:UnimplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/realtime_call_stream_channel.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 8,
+      "functions_stubbed": 8,
+      "issues": [
+        "stub-function:receiveFromMobileApp (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:normalizeRealtimeChunk (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:validateRealtimeChunk (matched:\\bTODO\\s*[:(])",
+        "stub-function:routeWebsocketChunkToCloudRun (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:routeGrpcChunkToCloudRun (matched:UnimplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/flutter-mobile-app/lib/services/rest_sms_url_channel.dart",
+      "status": "NOT_DONE",
+      "language": "dart",
+      "functions_total": 7,
+      "functions_stubbed": 7,
+      "issues": [
+        "stub-function:receiveFromMobileApp (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:normalizeSmsPayload (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:UnimplementedError)",
+        "stub-function:normalizeUrlPayload (matched:UnimplementedError)",
+        "stub-function:UnimplementedError (matched:\\bTODO\\s*[:(])",
+        "stub-function:validateRestPayload (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/BackgroundMonitorWorker.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 10,
+      "issues": [
+        "stub-function:ingestMobileAppSignal (matched:NotImplementedError)",
+        "stub-function:collectSmsSignalsFromMobileApp (matched:\\bTODO\\s*[:(])",
+        "stub-function:collectCallSignalsFromMobileApp (matched:\\bTODO\\s*[:(])",
+        "stub-function:collectUrlSignalsFromMobileApp (matched:\\bTODO\\s*[:(])",
+        "stub-function:dispatchBackgroundSignalsToPipeline (matched:\\bTODO\\s*[:(])",
+        "stub-function:linkBackgroundServiceSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkSmsSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkCallSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkUrlSignalToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:doWork (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/BackgroundToOnDeviceFilterDispatcher.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 7,
+      "functions_stubbed": 7,
+      "issues": [
+        "stub-function:linkBackgroundServiceToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkSmsToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkCallToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkUrlToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:buildOnDeviceFilterRequest (matched:NotImplementedError)",
+        "stub-function:mapSignalType (matched:NotImplementedError)",
+        "stub-function:buildFilterPayload (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/EndUserBackgroundFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 8,
+      "functions_stubbed": 8,
+      "issues": [
+        "stub-function:linkMobileAppToBackgroundService (matched:NotImplementedError)",
+        "stub-function:linkBackgroundServicePhoneSignal (matched:\\bTODO\\s*[:(])",
+        "stub-function:linkBackgroundServiceUrlSignal (matched:\\bTODO\\s*[:(])",
+        "stub-function:linkBackgroundServiceScriptSignal (matched:\\bTODO\\s*[:(])",
+        "stub-function:linkBackgroundServiceToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkBackgroundServiceSmsToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkBackgroundServiceCallToOnDeviceFilter (matched:NotImplementedError)",
+        "stub-function:linkBackgroundServiceUrlToOnDeviceFilter (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileAppBackgroundServiceLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forwardMobileAppToBackgroundService (matched:NotImplementedError)",
+        "stub-function:buildBackgroundServiceWorkInput (matched:NotImplementedError)",
+        "stub-function:traceMobileAppToBackgroundServiceFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileBackgroundSignalChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 6,
+      "issues": [
+        "stub-function:receiveFromMobileApp (matched:NotImplementedError)",
+        "stub-function:normalizeSignalPayload (matched:NotImplementedError)",
+        "stub-function:validateSignalPayload (matched:\\bTODO\\s*[:(])",
+        "stub-function:routePhoneSignal (matched:\\bTODO\\s*[:(])",
+        "stub-function:routeUrlSignal (matched:\\bTODO\\s*[:(])",
+        "stub-function:routeScriptSignal (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/background/src/main/java/com/sixseven/antiscam/service/background/MobileBackgroundSignalContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackIngestionCacheLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forwardFeedbackIngestionToCacheLayer (matched:NotImplementedError)",
+        "stub-function:buildFeedbackRedisKeyForPhoneUrlScript (matched:NotImplementedError)",
+        "stub-function:traceFeedbackIngestionToCacheFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackIngestionLink.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 6,
+      "functions_stubbed": 6,
+      "issues": [
+        "stub-function:forwardUserFeedbackToIngestion (matched:NotImplementedError)",
+        "stub-function:buildFeedbackIngestionBody (matched:NotImplementedError)",
+        "stub-function:traceUserFeedbackIngestionFlow (matched:\\bTODO\\s*[:(])",
+        "stub-function:forwardFeedbackLabelToIngestion (matched:NotImplementedError)",
+        "stub-function:buildFeedbackLabelIngestionBody (matched:NotImplementedError)",
+        "stub-function:traceFeedbackLabelToIngestionFlow (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackLabelChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receiveFromUserFeedback (matched:NotImplementedError)",
+        "stub-function:normalizeFeedbackLabelPayload (matched:NotImplementedError)",
+        "stub-function:validateFeedbackLabelPayload (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncFlowContracts.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncFlowOrchestrator.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 10,
+      "functions_stubbed": 10,
+      "issues": [
+        "stub-function:linkUserFeedbackToSync (matched:NotImplementedError)",
+        "stub-function:linkScamFeedbackToSync (matched:NotImplementedError)",
+        "stub-function:linkSafeFeedbackToSync (matched:NotImplementedError)",
+        "stub-function:linkNotSureFeedbackToSync (matched:NotImplementedError)",
+        "stub-function:linkUserFeedbackToFeedbackLabel (matched:NotImplementedError)",
+        "stub-function:linkFeedbackLabelToFeedbackIngestion (matched:NotImplementedError)",
+        "stub-function:linkFeedbackIngestionToCacheLayer (matched:NotImplementedError)",
+        "stub-function:linkScamFeedbackIngestionToCache (matched:NotImplementedError)",
+        "stub-function:linkSafeFeedbackIngestionToCache (matched:NotImplementedError)",
+        "stub-function:linkNotSureFeedbackIngestionToCache (matched:NotImplementedError)"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/FeedbackSyncWorker.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 9,
+      "functions_stubbed": 9,
+      "issues": [
+        "stub-function:ingestUserFeedback (matched:NotImplementedError)",
+        "stub-function:enqueueScamFeedback (matched:\\bTODO\\s*[:(])",
+        "stub-function:enqueueSafeFeedback (matched:\\bTODO\\s*[:(])",
+        "stub-function:enqueueNotSureFeedback (matched:\\bTODO\\s*[:(])",
+        "stub-function:dispatchFeedbackToIngestion (matched:\\bTODO\\s*[:(])",
+        "stub-function:mapUserFeedbackToFeedbackLabel (matched:NotImplementedError)",
+        "stub-function:dispatchFeedbackLabelToIngestion (matched:\\bTODO\\s*[:(])",
+        "stub-function:dispatchFeedbackIngestionToCacheLayer (matched:NotImplementedError)",
+        "stub-function:doWork (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/feedbacksync/src/main/java/com/sixseven/antiscam/service/feedbacksync/UserFeedbackSyncChannel.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receiveFromWarningInteraction (matched:NotImplementedError)",
+        "stub-function:normalizeFeedbackSyncPayload (matched:NotImplementedError)",
+        "stub-function:validateFeedbackSyncPayload (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/service/realtimecall/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/service/realtimecall/src/main/java/com/sixseven/antiscam/service/realtimecall/RealtimeCallSessionManager.kt",
+      "status": "NOT_DONE",
+      "language": "kt",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:startSession (matched:\\bTODO\\s*[:(])",
+        "stub-function:stopSession (matched:\\bTODO\\s*[:(])"
+      ]
+    },
+    {
+      "path": "lane-end-user/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204025.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204035.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204106.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204110.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204155.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_204340.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/reports/status_20260412_205658.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-end-user/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    }
+  ]
+}

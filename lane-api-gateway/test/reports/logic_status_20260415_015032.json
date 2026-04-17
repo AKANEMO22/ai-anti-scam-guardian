@@ -1,0 +1,577 @@
+{
+  "checkedAt": "20260415_015032",
+  "scope": [
+    "lane-api-gateway"
+  ],
+  "pass": false,
+  "passCriteria": {
+    "syntaxErrors": 0,
+    "functionsStubbed": 0,
+    "dependencyFailures": 0
+  },
+  "summary": {
+    "projectFilesTotal": 54,
+    "codeFilesScanned": 38,
+    "nonCodeFilesSkipped": 16,
+    "filesScanned": 54,
+    "functionsTotal": 114,
+    "functionsImplemented": 24,
+    "functionsStubbed": 90,
+    "dependencyFailures": 0,
+    "syntaxErrors": 0,
+    "fileDone": 13,
+    "fileNotDone": 25,
+    "fileSkipped": 16
+  },
+  "syntaxIssues": [],
+  "dependencyIssues": [],
+  "files": [
+    {
+      "path": "lane-api-gateway/core/network/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/core/network/src/main/java/com/sixseven/antiscam/core/network/CloudApi.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/__init__.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/config.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/dependencies.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/main.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/models/contracts.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/analyze.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/feedback.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_auth_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:internal_firebase_auth_to_authenticated_data (pass-only)",
+        "stub-function:internal_authenticated_data_to_cloud_run_api_microservices (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:internal_cloud_run_api_microservices_to_cache_layer (pass-only)",
+        "stub-function:internal_cloud_run_api_microservices_to_cache_layer_lookup (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_miss_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:internal_cache_layer_to_cache_miss (pass-only)",
+        "stub-function:internal_cache_miss_to_orchestrator_agent_langgraph_router (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_cache_miss_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:internal_cloud_run_api_microservices_to_cache_miss (pass-only)",
+        "stub-function:internal_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_update_database_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:internal_cloud_run_api_microservices_to_update_database (pass-only)",
+        "stub-function:internal_update_database_to_vector_database_vertex_ai (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_feedback_flow.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 4,
+      "issues": [
+        "stub-function:internal_user_feedback_to_feedback_label (pass-only)",
+        "stub-function:internal_feedback_label_to_feedback_ingestion (pass-only)",
+        "stub-function:internal_feedback_ingestion_to_cache_layer (pass-only)",
+        "stub-function:internal_feedback_ingestion_to_cache_layer_lookup (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/auth_service.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 2,
+      "issues": [
+        "stub-function:validate_firebase_auth_to_authenticated_data (pass-only)",
+        "stub-function:validate_authenticated_data_for_cloud_run (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/cache_service.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 12,
+      "functions_stubbed": 8,
+      "issues": [
+        "stub-function:ingest_cloud_run_api_microservice_result (pass-only)",
+        "stub-function:build_redis_key_for_phone_url_script (pass-only)",
+        "stub-function:write_cloud_run_result_to_cache_layer (pass-only)",
+        "stub-function:read_cloud_run_result_from_cache_layer (pass-only)",
+        "stub-function:ingest_feedback_ingestion_result (pass-only)",
+        "stub-function:build_feedback_redis_key_for_phone_url_script (pass-only)",
+        "stub-function:write_feedback_ingestion_result_to_cache_layer (pass-only)",
+        "stub-function:read_feedback_ingestion_result_from_cache_layer (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/authenticated_data_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receive_from_firebase_auth (pass-only)",
+        "stub-function:normalize_authenticated_data_payload (pass-only)",
+        "stub-function:validate_authenticated_data_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cache_miss_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 6,
+      "issues": [
+        "stub-function:receive_from_cache_layer (pass-only)",
+        "stub-function:normalize_cache_miss_lookup_payload (pass-only)",
+        "stub-function:validate_cache_miss_lookup_payload (pass-only)",
+        "stub-function:route_phone_cache_miss (pass-only)",
+        "stub-function:route_url_cache_miss (pass-only)",
+        "stub-function:route_script_cache_miss (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_cache_miss_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 4,
+      "issues": [
+        "stub-function:receive_from_cloud_run_api_microservices (pass-only)",
+        "stub-function:build_cache_miss_lookup_payload (pass-only)",
+        "stub-function:normalize_cloud_run_cache_miss_payload (pass-only)",
+        "stub-function:validate_cloud_run_cache_miss_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_result_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receive_from_cloud_run_api_microservices (pass-only)",
+        "stub-function:normalize_cloud_run_result_payload (pass-only)",
+        "stub-function:validate_cloud_run_result_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_ingestion_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receive_feedback_label_for_ingestion (pass-only)",
+        "stub-function:normalize_feedback_ingestion_result (pass-only)",
+        "stub-function:validate_feedback_ingestion_result (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_label_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receive_user_feedback (pass-only)",
+        "stub-function:normalize_feedback_label_payload (pass-only)",
+        "stub-function:validate_feedback_label_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/update_database_channel.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:receive_from_cloud_run_api_microservices (pass-only)",
+        "stub-function:normalize_update_database_payload (pass-only)",
+        "stub-function:validate_update_database_payload (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/internal_link_orchestrator.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 15,
+      "functions_stubbed": 14,
+      "issues": [
+        "stub-function:link_firebase_auth_to_authenticated_data (pass-only)",
+        "stub-function:link_authenticated_data_to_cloud_run_api_microservices (pass-only)",
+        "stub-function:link_cloud_run_api_microservices_to_cache_layer (pass-only)",
+        "stub-function:link_cloud_run_api_microservices_to_cache_layer_lookup (pass-only)",
+        "stub-function:link_cache_layer_to_cache_miss (pass-only)",
+        "stub-function:link_cloud_run_api_microservices_to_cache_miss (pass-only)",
+        "stub-function:link_cache_miss_to_orchestrator_agent_langgraph_router (pass-only)",
+        "stub-function:link_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgraph_router (pass-only)",
+        "stub-function:link_cloud_run_api_microservices_to_update_database (pass-only)",
+        "stub-function:link_update_database_to_vector_database_vertex_ai (pass-only)",
+        "stub-function:link_user_feedback_to_feedback_label (pass-only)",
+        "stub-function:link_feedback_label_to_feedback_ingestion (pass-only)",
+        "stub-function:link_feedback_ingestion_to_cache_layer (pass-only)",
+        "stub-function:link_feedback_ingestion_to_cache_layer_lookup (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/authenticated_data_cloud_run_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_authenticated_data_to_cloud_run_api_microservices (pass-only)",
+        "stub-function:build_cloud_run_microservice_request (pass-only)",
+        "stub-function:trace_authenticated_data_to_cloud_run_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cache_miss_orchestrator_langgraph_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_cache_miss_to_orchestrator_agent_langgraph_router (pass-only)",
+        "stub-function:build_orchestrator_agent_langgraph_router_signal_request (pass-only)",
+        "stub-function:trace_cache_miss_to_orchestrator_agent_langgraph_router_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_cloud_run_api_microservices_to_cache_layer (pass-only)",
+        "stub-function:build_cache_write_request_from_cloud_run (pass-only)",
+        "stub-function:trace_cloud_run_to_cache_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_miss_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_cloud_run_api_microservices_to_cache_miss (pass-only)",
+        "stub-function:build_cache_miss_payload_from_cloud_run (pass-only)",
+        "stub-function:trace_cloud_run_api_microservices_to_cache_miss_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_update_database_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_cloud_run_api_microservices_to_update_database (pass-only)",
+        "stub-function:build_update_database_payload_from_cloud_run (pass-only)",
+        "stub-function:trace_cloud_run_api_microservices_to_update_database_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_ingestion_cache_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_feedback_ingestion_to_cache_layer (pass-only)",
+        "stub-function:build_feedback_cache_write_request (pass-only)",
+        "stub-function:trace_feedback_ingestion_to_cache_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_label_ingestion_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_feedback_label_to_feedback_ingestion (pass-only)",
+        "stub-function:build_feedback_ingestion_payload (pass-only)",
+        "stub-function:trace_feedback_label_to_ingestion_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/firebase_auth_authenticated_data_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_firebase_auth_to_authenticated_data (pass-only)",
+        "stub-function:build_authenticated_data_from_firebase_auth (pass-only)",
+        "stub-function:trace_firebase_auth_to_authenticated_data_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/update_database_vector_database_vertex_ai_link.py",
+      "status": "NOT_DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 3,
+      "issues": [
+        "stub-function:forward_update_database_to_vector_database_vertex_ai (pass-only)",
+        "stub-function:build_vector_database_vertex_ai_write_request (pass-only)",
+        "stub-function:trace_update_database_to_vector_database_vertex_ai_flow (pass-only)"
+      ]
+    },
+    {
+      "path": "lane-api-gateway/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204035.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204105.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204109.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204340.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205535.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205650.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205658.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205756.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214140.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214455.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214503.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    }
+  ]
+}
