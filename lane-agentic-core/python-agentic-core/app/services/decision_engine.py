@@ -94,8 +94,11 @@ class DecisionEngine:
         payload: JsonScoreWarningPayload,
     ) -> None:
         """Official Arrow: Final propagation of decision to infrastructure monitoring."""
-        # In a real environment, this might call a logging service or trigger a 
-        # Cloud Pub/Sub event for upstream consumers.
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.info(f"ALARM: High risk score {payload.riskScore} detected. Warning: {payload.warning}")
+        import json
+        log_entry = {
+            "event": "risk_alarm",
+            "riskScore": payload.riskScore,
+            "warning": payload.warning,
+            "explanation": payload.explanation[:100] + "..." if len(payload.explanation) > 100 else payload.explanation
+        }
+        print(json.dumps(log_entry))

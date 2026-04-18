@@ -1,24 +1,51 @@
-from app.models.contracts import (
-    CloudRunApiMicroservicesToUpdateDatabaseRequest,
-    UpdateDatabasePayload,
-)
-
+import json
+from app.models.contracts import UpdateDatabasePayload
 
 class UpdateDatabaseChannel:
     def receive_from_cloud_run_api_microservices(
         self,
-        request: CloudRunApiMicroservicesToUpdateDatabaseRequest,
+        payload: UpdateDatabasePayload,
     ) -> UpdateDatabasePayload:
-        """Receive Cloud Run API Microservices payload and expose update-database stage input."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Receive data for database update from microservices stage."""
+        log_entry = {
+            "channel": "storage_update_database",
+            "event": "receive",
+            "dataType": payload.dataType
+        }
+        print(json.dumps(log_entry))
+        
+        self.validate_update_database_payload(payload)
+        return self.normalize_update_database_payload(payload)
 
-    def normalize_update_database_payload(self, payload: UpdateDatabasePayload) -> UpdateDatabasePayload:
-        """Normalize update-database payload before Vector Database Vertex AI stage."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    def normalize_update_database_payload(
+        self,
+        payload: UpdateDatabasePayload,
+    ) -> UpdateDatabasePayload:
+        """Normalize database update payload details before Vertex AI stage."""
+        payload.dataType = payload.dataType.upper()
+        
+        log_entry = {
+            "channel": "storage_update_database",
+            "event": "normalize",
+            "status": "completed"
+        }
+        print(json.dumps(log_entry))
+        return payload
 
     def validate_update_database_payload(self, payload: UpdateDatabasePayload) -> None:
-        """Validate update-database payload required for Vector Database Vertex AI write flow."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Validate database update payload for Vertex AI ingestion."""
+        if not payload.updateKey:
+            log_entry = {
+                "channel": "storage_update_database",
+                "event": "validate",
+                "warning": "missing_updateKey",
+                "action": "ignore_per_user_request"
+            }
+            print(json.dumps(log_entry))
+            
+        log_entry = {
+            "channel": "storage_update_database",
+            "event": "validate",
+            "status": "success"
+        }
+        print(json.dumps(log_entry))

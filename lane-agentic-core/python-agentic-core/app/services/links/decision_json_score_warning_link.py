@@ -1,3 +1,4 @@
+import json
 from app.models.contracts import (
     DecisionAndReasoningEngineToJsonScoreWarningRequest,
     JsonScoreWarningPayload,
@@ -9,22 +10,36 @@ class DecisionJsonScoreWarningLink:
         self,
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> JsonScoreWarningPayload:
-        """Flow: Decision & Reasoning Engine -> JSON score + warning."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Flow: Decision Engine -> JSON score + warning."""
+        log_entry = {
+            "link": "decision_json_score_warning",
+            "event": "forward",
+            "riskScore": request.score
+        }
+        print(json.dumps(log_entry))
+        
+        return self.build_json_score_warning_payload(request)
 
     def build_json_score_warning_payload(
         self,
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> JsonScoreWarningPayload:
-        """Build JSON score + warning payload from decision output fields."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Build JSON score + warning output payload."""
+        return JsonScoreWarningPayload(
+            riskScore=request.score,
+            warning=request.warning,
+            explanation=request.explanation,
+            metadata=request.metadata
+        )
 
     def trace_decision_and_reasoning_engine_to_json_score_warning_flow(
         self,
         request: DecisionAndReasoningEngineToJsonScoreWarningRequest,
     ) -> None:
-        """Emit trace point for Decision & Reasoning Engine -> JSON score + warning flow."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Emit trace point for Decision Engine -> JSON score warning flow."""
+        log_entry = {
+            "link": "decision_json_score_warning",
+            "event": "trace",
+            "status": "success"
+        }
+        print(json.dumps(log_entry))

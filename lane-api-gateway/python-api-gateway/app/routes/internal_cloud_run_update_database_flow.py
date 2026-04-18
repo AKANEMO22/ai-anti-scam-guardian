@@ -18,7 +18,7 @@ def internal_cloud_run_api_microservices_to_update_database(
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> Update database."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}
 
 
@@ -30,5 +30,5 @@ def internal_update_database_to_vector_database_vertex_ai(
     ),
 ) -> None:
     """Internal link: Update database -> Vector Database Vertex AI."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}

@@ -7,15 +7,13 @@ class ScamPatternService:
 
     def load_pattern_ids_for_vector_link(self) -> list[str]:
         """Provide scam-pattern IDs to be linked into Vector DB metadata."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        return self._repository.list_active_pattern_ids()
 
     def load_pattern_texts_for_rag_context(self) -> list[str]:
         """Provide scam-pattern texts for RAG prompt/context preparation."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        return [p["sample_text"] for p in self._repository.list_active_patterns()]
 
     def resolve_pattern_texts(self, pattern_ids: list[str]) -> list[str]:
         """Resolve pattern texts from pattern IDs returned by vector search."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        patterns = self._repository.get_patterns_by_ids(pattern_ids)
+        return [p["sample_text"] for p in patterns]

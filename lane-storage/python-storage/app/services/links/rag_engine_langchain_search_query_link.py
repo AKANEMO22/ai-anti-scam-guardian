@@ -1,30 +1,36 @@
-from app.models.contracts import (
-    RagEngineLangChainToSearchQueryRequest,
-    SearchQueryPayload,
-)
-
+import json
+from app.models.contracts import SearchQueryPayload, SearchRequest
 
 class RagEngineLangChainSearchQueryLink:
     def forward_rag_engine_langchain_to_search_query(
         self,
-        request: RagEngineLangChainToSearchQueryRequest,
+        payload: SearchQueryPayload,
     ) -> SearchQueryPayload:
-        """Flow: RAG Engine LangChain -> Search Query."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Flow: RAG Engine -> search-query."""
+        log_entry = {
+            "link": "rag_search_query",
+            "event": "forward",
+            "query": payload.query[:30]
+        }
+        print(json.dumps(log_entry))
+        return payload
 
     def build_search_query_payload_from_rag_engine_langchain(
         self,
-        request: RagEngineLangChainToSearchQueryRequest,
+        request: SearchRequest,
     ) -> SearchQueryPayload:
-        """Build Search Query payload from LangChain RAG request context."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Build Search Query payload from RAG engine stage output."""
+        return SearchQueryPayload(
+            query=request.query,
+            sourceType=request.sourceType,
+            topK=request.topK
+        )
 
-    def trace_rag_engine_langchain_to_search_query_flow(
-        self,
-        request: RagEngineLangChainToSearchQueryRequest,
-    ) -> None:
-        """Emit trace point for RAG Engine LangChain -> Search Query flow."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    def trace_rag_engine_langchain_to_search_query_flow(self, payload: SearchQueryPayload) -> None:
+        """Emit trace point for RAG Engine -> search-query internal flow."""
+        log_entry = {
+            "link": "rag_search_query",
+            "event": "trace",
+            "status": "success"
+        }
+        print(json.dumps(log_entry))

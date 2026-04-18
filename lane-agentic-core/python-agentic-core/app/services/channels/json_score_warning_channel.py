@@ -7,7 +7,7 @@ class JsonScoreWarningChannel:
         payload: JsonScoreWarningPayload,
     ) -> JsonScoreWarningPayload:
         """Receive JSON score + warning payload emitted by Decision & Reasoning Engine."""
-        print("mocked")
+        print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
         return locals().get("mock_data", None) or {}
 
     def normalize_json_score_warning_payload(
@@ -15,10 +15,10 @@ class JsonScoreWarningChannel:
         payload: JsonScoreWarningPayload,
     ) -> JsonScoreWarningPayload:
         """Normalize JSON score + warning payload before Cloud Run forwarding stage."""
-        print("mocked")
+        print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
         return locals().get("mock_data", None) or {}
 
     def validate_json_score_warning_payload(self, payload: JsonScoreWarningPayload) -> None:
         """Validate JSON score + warning payload structure for internal routing."""
-        print("mocked")
+        print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
         return locals().get("mock_data", None) or {}

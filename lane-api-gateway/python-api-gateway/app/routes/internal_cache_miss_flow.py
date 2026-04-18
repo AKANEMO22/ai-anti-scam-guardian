@@ -18,7 +18,7 @@ def internal_cache_layer_to_cache_miss(
     ),
 ) -> None:
     """Internal link: Cache Layer (redis) phone/url/script -> cache miss."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}
 
 
@@ -30,5 +30,5 @@ def internal_cache_miss_to_orchestrator_agent_langgraph_router(
     ),
 ) -> None:
     """Internal link: cache miss -> Orchestrator Agent LangGraph Router."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}

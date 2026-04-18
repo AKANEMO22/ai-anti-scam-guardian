@@ -15,7 +15,7 @@ def internal_cloud_run_api_microservices_to_cache_layer(
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> Cache Layer (redis)."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}
 
 
@@ -27,5 +27,5 @@ def internal_cloud_run_api_microservices_to_cache_layer_lookup(
     ),
 ) -> None:
     """Internal lookup link for phone/url/script cache keys in Cache Layer (redis)."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}

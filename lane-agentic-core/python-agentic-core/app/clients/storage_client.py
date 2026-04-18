@@ -40,7 +40,20 @@ class StorageClient:
         """Forward Search Query stage to Storage lane and return matches for Threat Agent."""
         return await self.fetch_pattern_matches_for_threat_agent(query, source_type, top_k)
 
+    async def index_signal_to_storage(self, signal_data: dict) -> bool:
+        """Push signal analysis results to Storage lane for potential feedback loop indexing."""
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    f"{self.base_url}/v1/storage/index",
+                    json=signal_data,
+                    timeout=5.0
+                )
+                return response.status_code == 200
+        except Exception as e:
+            print(f"Error indexing to storage: {e}")
+            return False
+
     def sync_agentic_metadata_to_storage(self, call_session_id: Optional[str], metadata: dict[str, str]) -> None:
-        """Push agentic metadata snapshots to Storage lane (Fire and forget)."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Push agentic metadata snapshots to Storage lane (Handled via index_signal_to_storage usually)."""
+        pass

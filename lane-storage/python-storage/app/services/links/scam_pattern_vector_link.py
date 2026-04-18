@@ -1,3 +1,5 @@
+import json
+from app.models.contracts import PatternSyncRequest
 from app.services.scam_pattern_service import ScamPatternService
 from app.services.vector_db_vertex_ai_service import VectorDbVertexAiService
 
@@ -11,12 +13,31 @@ class ScamPatternVectorLink:
         self._scam_pattern_service = scam_pattern_service
         self._vector_db_service = vector_db_service
 
-    def sync_scam_pattern_metadata_to_vector_db(self) -> None:
-        """Flow: Scam Pattern catalog -> Vector DB Vertex AI metadata mapping."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    def forward_scam_pattern_service_to_vector_database_vertex_ai(
+        self,
+        request: PatternSyncRequest,
+    ) -> PatternSyncRequest:
+        """Flow: Scam Pattern Service -> Vector Database Vertex AI."""
+        log_entry = {
+            "link": "scam_pattern_vector",
+            "event": "forward",
+            "pattern_ids": request.pattern_ids
+        }
+        print(json.dumps(log_entry))
+        return request
 
-    def resolve_scam_pattern_from_vector_hits(self, embedding_ids: list[str]) -> list[str]:
-        """Flow: Vector DB Vertex AI hit IDs -> Scam Pattern records."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    def build_vector_database_vertex_ai_sync_request(
+        self,
+        request: PatternSyncRequest,
+    ) -> dict[str, object]:
+        """Build Vector Database Vertex AI sync request from Scam Pattern Service task."""
+        return request.model_dump()
+
+    def trace_scam_pattern_service_to_vector_database_vertex_ai_flow(self, request: PatternSyncRequest) -> None:
+        """Emit trace point for Scam Pattern Service -> Vector Database Vertex AI internal flow."""
+        log_entry = {
+            "link": "scam_pattern_vector",
+            "event": "trace",
+            "status": "success"
+        }
+        print(json.dumps(log_entry))

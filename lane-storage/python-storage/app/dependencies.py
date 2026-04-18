@@ -3,6 +3,7 @@ from functools import lru_cache
 from app.repositories.feedback_repository import FeedbackRepository
 from app.repositories.scam_pattern_repository import ScamPatternRepository
 from app.repositories.vector_repository import VectorDbVertexAiRepository
+from app.repositories.signal_repository import SignalRepository
 from app.services.embedding_service import EmbeddingService
 from app.services.internal_link_orchestrator import StorageInternalLinkOrchestrator
 from app.services.rag_engine import LangChainRagEngine
@@ -30,6 +31,11 @@ def get_vector_db() -> VectorDbVertexAiRepository:
 @lru_cache(maxsize=1)
 def get_feedback_repository() -> FeedbackRepository:
     return FeedbackRepository()
+
+
+@lru_cache(maxsize=1)
+def get_signal_repository() -> SignalRepository:
+    return SignalRepository()
 
 
 @lru_cache(maxsize=1)

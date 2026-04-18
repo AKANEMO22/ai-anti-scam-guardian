@@ -71,9 +71,13 @@ class OrchestratorService:
         # Voice Deepfake Task
         async def run_voice():
             if payload.sourceType == SourceType.CALL:
-                 # stubbed, returns sync, but wrapped
-                 scores = self.deepfake_agent.analyze_raw_audio_to_signals(payload.callSessionId, None)
-                 bundle.deepfake_signals.append(AgentSignalScore(signal_name="voice_score", score=scores[0]))
+                 # Real multi-modal + acoustic analysis
+                 audio_payload = RawAudioPayload(
+                     callSessionId=payload.callSessionId,
+                     rawAudioRef=payload.metadata.get("rawAudioRef") # Ensure client sends this
+                 )
+                 scores = await self.deepfake_agent.analyze_raw_audio_to_signals(audio_payload)
+                 bundle.deepfake_signals.extend(scores)
         tasks.append(run_voice())
 
         # Execute agent tasks concurrently
@@ -94,8 +98,23 @@ class OrchestratorService:
             matched_patterns=matches
         )
         
-        # Fire and forget storage sync (mocked for now)
-        self.storage_client.sync_agentic_metadata_to_storage(payload.callSessionId, payload.metadata)
+        # Fire and forget storage indexing for feedback loop
+        import uuid
+        event_id = str(uuid.uuid4())
+        
+        index_data = {
+            "eventId": event_id,
+            "sourceType": payload.sourceType.value,
+            "text": payload.text,
+            "callSessionId": payload.callSessionId,
+            "metadata": payload.metadata,
+            "riskScore": response.riskScore,
+            "explanation": response.explanation,
+            "voiceScore": response.voiceScore,
+            "textScore": response.textScore,
+            "entityScore": response.entityScore
+        }
+        asyncio.create_task(self.storage_client.index_signal_to_storage(index_data))
 
         return response
 
@@ -122,17 +141,24 @@ class OrchestratorService:
             metadata=payload.metadata
         )
 
-    def route_raw_audio_to_deepfake_agent(self, payload: RawAudioPayload) -> list[AgentSignalScore]:
-        """Link: Raw Audio -> Deepfake Agent (Arrow: Raw Audio -> Deepfake Agent)."""
-        # Deepfake is skipped per user request, returning empty or zero score
-        return [AgentSignalScore(signal_name="voice_score", score=0.0, reason="Deepfake analysis skipped")]
+    async def route_raw_audio_to_deepfake_agent(self, payload: RawAudioPayload) -> list[AgentSignalScore]:
+        """Link: Raw Audio -> Deepfake Agent."""
+        return await self.deepfake_agent.analyze_raw_audio_to_signals(payload)
 
     def route_voice_stream_to_google_stt(self, payload: VoiceStreamPayload) -> TranscribedTextPayload:
         """Link: Voice Stream -> Google STT API."""
-        # In a real implementation, this would involve calling the STT engine
-        return TranscribedTextPayload(
-            callSessionId=payload.callSessionId,
-            transcript="Mock transcript from voice stream",
+        # Use the real STT Agent for transcription
+        from app.services.agents.stt_agent import SttAgent
+        stt_agent = SttAgent()
+        
+        transcript = stt_agent.transcribe_voice_stream(
+            call_session_id=payload.callSessionId,
+            stream_ref=payload.streamRef
+        )
+        
+        return stt_agent.emit_transcribed_text_from_google_stt_api(
+            call_session_id=payload.callSessionId,
+            transcript=transcript,
             metadata=payload.metadata
         )
 

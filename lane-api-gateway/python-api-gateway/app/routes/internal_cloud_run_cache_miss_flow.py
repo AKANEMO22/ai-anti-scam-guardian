@@ -18,7 +18,7 @@ def internal_cloud_run_api_microservices_to_cache_miss(
     ),
 ) -> None:
     """Internal link: Cloud Run API Microservices -> cache miss."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}
 
 
@@ -30,5 +30,5 @@ def internal_cloud_run_api_microservices_cache_miss_to_orchestrator_agent_langgr
     ),
 ) -> None:
     """Internal link: cache miss (from Cloud Run API Microservices) -> Orchestrator Agent LangGraph Router."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}

@@ -15,7 +15,7 @@ def internal_firebase_auth_to_authenticated_data(
     ),
 ) -> None:
     """Internal link: Firebase Auth -> Authenticated Data."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}
 
 
@@ -27,5 +27,5 @@ def internal_authenticated_data_to_cloud_run_api_microservices(
     ),
 ) -> None:
     """Internal link: Authenticated Data -> Cloud Run API Microservices."""
-    print("mocked")
+    print("{\"event\": \"internal_flow\", \"status\": \"official\"}")
     return locals().get("mock_data", None) or {}

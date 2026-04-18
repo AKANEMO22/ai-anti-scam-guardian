@@ -1,30 +1,32 @@
-from app.models.contracts import (
-    TranscribedTextPayload,
-    TranscribedTextToThreatAgentRequest,
-)
-
+import json
+from app.models.contracts import TranscribedTextPayload
 
 class TranscribedTextThreatAgentLink:
     def forward_transcribed_text_to_threat_agent(
         self,
-        request: TranscribedTextToThreatAgentRequest,
-    ) -> None:
+        payload: TranscribedTextPayload,
+    ) -> TranscribedTextPayload:
         """Flow: Transcribed Text -> Threat Agent."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        log_entry = {
+            "link": "transcribed_text_threat",
+            "event": "forward",
+            "callSessionId": payload.callSessionId or "unknown"
+        }
+        print(json.dumps(log_entry))
+        return payload
 
     def build_threat_agent_request_from_transcribed_text(
         self,
         payload: TranscribedTextPayload,
-    ) -> TranscribedTextToThreatAgentRequest:
-        """Build Threat Agent request contract from Transcribed Text payload."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    ) -> dict[str, object]:
+        """Build Threat Agent request from transcribed text payload."""
+        return payload.model_dump()
 
-    def trace_transcribed_text_to_threat_agent_flow(
-        self,
-        request: TranscribedTextToThreatAgentRequest,
-    ) -> None:
-        """Emit trace point for Transcribed Text -> Threat Agent flow."""
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+    def trace_transcribed_text_to_threat_agent_flow(self, payload: TranscribedTextPayload) -> None:
+        """Emit trace point for Transcribed Text -> Threat Agent internal flow."""
+        log_entry = {
+            "link": "transcribed_text_threat",
+            "event": "trace",
+            "status": "success"
+        }
+        print(json.dumps(log_entry))
