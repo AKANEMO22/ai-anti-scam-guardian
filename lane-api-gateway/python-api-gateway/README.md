@@ -43,11 +43,22 @@
 - `app/routes/internal_cloud_run_update_database_flow.py`: endpoint skeleton cho flow Cloud Run API Microservices -> Update database -> Vector Database Vertex AI
 - `app/routes/internal_feedback_flow.py`: endpoint skeleton cho flow feedback -> label -> ingestion -> Cache Layer
 
-## Chay local
+## Chay local voi Docker Compose (Recommend)
+Vi project dependencies tren Redis Server, cach de nhat de dong bo moi thu la su dung Docker Compose.
+The he lenh tu do, file Compose tu mang theo Redis va ket noi truc tiep vao app:
+
+```bash
+docker compose up --build
+```
+> **Lu y:** Nho de file `firebase_credential.json` vao folder nay.
+
+## Chay local thu cong (Khong dung Docker)
 ```bash
 pip install -r requirements.txt
 set AGENTIC_CORE_BASE_URL=http://localhost:8101
 set STORAGE_BASE_URL=http://localhost:8102
+# Chay Docker Redis Server truoc:
+# docker run -d -p 6379:6379 --name anti-scam-redis redis:alpine
 uvicorn app.main:app --host 0.0.0.0 --port 8100
 ```
 

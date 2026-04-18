@@ -20,7 +20,8 @@ def get_auth_service() -> AuthService:
 
 @lru_cache(maxsize=1)
 def get_cache_service() -> InMemoryRiskCache:
-    return InMemoryRiskCache(ttl_seconds=180)
+    settings = get_settings()
+    return InMemoryRiskCache(ttl_seconds=180, redis_url=settings.redis_url)
 
 
 @lru_cache(maxsize=1)

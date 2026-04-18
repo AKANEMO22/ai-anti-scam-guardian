@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: .
+    ports:
+      - "8100:8100"
+    environment:
+      # Automatically points to the Docker Network Redis
+      - REDIS_URL=redis://redis:6379/0 
+      # Matches the Workdir mapping in Dockerfile for Firebase Access
+      - FIREBASE_CREDENTIAL_PATH=/app/firebase_credential.json 
+      # Important to test locally without crashing out if no Bearer token is provided
+      - STRICT_AUTH=false
+      # Base URLs linking to other local lanes across the Docker boundary (or adjust to host.docker.internal if they run locally via run script)
+      - AGENTIC_CORE_BASE_URL=http://host.docker.internal:8101
+      - STORAGE_BASE_URL=http://host.docker.internal:8102
+    depends_on:
+      - redis
+    # Allow communication to host's localhost (if the other microservices run outside docker)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
