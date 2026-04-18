@@ -1,0 +1,118 @@
+{
+  "lane_name": "Lane API Gateway",
+  "file_checks": [
+    {
+      "name": "Gateway contracts",
+      "path": "lane-api-gateway/python-api-gateway/app/models/contracts.py",
+      "required_contains": [
+        "class SignalRequest",
+        "class RiskResponse",
+        "class FeedbackEvent"
+      ]
+    },
+    {
+      "name": "Gateway analyze route",
+      "path": "lane-api-gateway/python-api-gateway/app/routes/analyze.py",
+      "required_contains": [
+        "@router.post(\"/v1/signals/analyze\"",
+        "auth_service.validate_bearer_token",
+        "cache_service"
+      ]
+    },
+    {
+      "name": "Gateway feedback route",
+      "path": "lane-api-gateway/python-api-gateway/app/routes/feedback.py",
+      "required_contains": [
+        "@router.post(\"/v1/feedback\""
+      ]
+    },
+    {
+      "name": "Gateway auth service",
+      "path": "lane-api-gateway/python-api-gateway/app/services/auth_service.py",
+      "required_contains": [
+        "def validate_bearer_token"
+      ]
+    },
+    {
+      "name": "Gateway cache service",
+      "path": "lane-api-gateway/python-api-gateway/app/services/cache_service.py",
+      "required_contains": [
+        "def build_key",
+        "def get",
+        "def set"
+      ]
+    },
+    {
+      "name": "Gateway agentic client",
+      "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+      "required_contains": [
+        "/v1/agentic/score"
+      ]
+    },
+    {
+      "name": "Gateway storage client",
+      "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+      "required_contains": [
+        "/v1/storage/index",
+        "/v1/storage/feedback"
+      ]
+    }
+  ],
+  "cross_lane_checks": [
+    {
+      "name": "Gateway -> Agentic score linkage",
+      "assertions": [
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+          "required_contains": [
+            "/v1/agentic/score"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+          "required_contains": [
+            "@router.post(\"/v1/agentic/score\")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gateway -> Storage index/feedback linkage",
+      "assertions": [
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "@router.post(\"/v1/storage/index\")",
+            "@router.post(\"/v1/storage/feedback\")"
+          ]
+        },
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+          "required_contains": [
+            "/v1/storage/index",
+            "/v1/storage/feedback"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gateway update-database two-lane linkage",
+      "assertions": [
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_update_database_flow.py",
+          "required_contains": [
+            "/v1/gateway/internal/cloud-run-api-microservices-to-update-database",
+            "/v1/gateway/internal/update-database-to-vector-database-vertex-ai"
+          ]
+        },
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "/v1/storage/internal/cloud-run-api-microservices-to-update-database",
+            "/v1/storage/internal/update-database-to-vector-database-vertex-ai"
+          ]
+        }
+      ]
+    }
+  ]
+}

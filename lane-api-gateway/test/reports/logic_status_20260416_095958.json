@@ -1,0 +1,470 @@
+{
+  "checkedAt": "20260416_095958",
+  "scope": [
+    "lane-api-gateway"
+  ],
+  "pass": true,
+  "passCriteria": {
+    "syntaxErrors": 0,
+    "functionsStubbed": 0,
+    "dependencyFailures": 0
+  },
+  "summary": {
+    "projectFilesTotal": 55,
+    "codeFilesScanned": 38,
+    "nonCodeFilesSkipped": 17,
+    "filesScanned": 55,
+    "functionsTotal": 117,
+    "functionsImplemented": 117,
+    "functionsStubbed": 0,
+    "dependencyFailures": 0,
+    "syntaxErrors": 0,
+    "fileDone": 38,
+    "fileNotDone": 0,
+    "fileSkipped": 17
+  },
+  "syntaxIssues": [],
+  "dependencyIssues": [],
+  "files": [
+    {
+      "path": "lane-api-gateway/core/network/build.gradle.kts",
+      "status": "DONE",
+      "language": "kts",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/core/network/src/main/java/com/sixseven/antiscam/core/network/CloudApi.kt",
+      "status": "DONE",
+      "language": "kt",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/__init__.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/agentic_core_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/config.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/dependencies.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/main.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/models/contracts.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/analyze.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/feedback.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_auth_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cache_miss_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_cache_miss_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_update_database_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 2,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/routes/internal_feedback_flow.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/auth_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 5,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/cache_service.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 14,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/authenticated_data_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cache_miss_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 6,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_cache_miss_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 4,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/cloud_run_result_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_ingestion_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/feedback_label_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/channels/update_database_channel.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/internal_link_orchestrator.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 15,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/authenticated_data_cloud_run_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cache_miss_orchestrator_langgraph_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_cache_miss_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/cloud_run_update_database_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_ingestion_cache_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/feedback_label_ingestion_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/firebase_auth_authenticated_data_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/python-api-gateway/app/services/links/update_database_vector_database_vertex_ai_link.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 3,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/README.md",
+      "status": "SKIPPED_NON_CODE",
+      "language": "md",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/lane_status_config.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/latest_report.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/logic_status_20260415_015032.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_203944.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204035.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204105.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204109.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_204340.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205535.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205650.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205658.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_205756.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214140.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214455.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/reports/status_20260412_214503.json",
+      "status": "SKIPPED_NON_CODE",
+      "language": "json",
+      "functions_total": 0,
+      "functions_stubbed": 0,
+      "issues": []
+    },
+    {
+      "path": "lane-api-gateway/test/run_lane_status.py",
+      "status": "DONE",
+      "language": "py",
+      "functions_total": 1,
+      "functions_stubbed": 0,
+      "issues": []
+    }
+  ]
+}

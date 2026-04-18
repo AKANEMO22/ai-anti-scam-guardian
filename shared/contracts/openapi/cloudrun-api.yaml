@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Anti-Scam Guardian API
+  version: 0.1.0
+  description: Official API for signal analysis and user feedback ingestion.
+
+paths:
+  /v1/signals/analyze:
+    post:
+      summary: Analyze signal from mobile client
+      operationId: analyzeSignal
+      tags:
+        - analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalRequest'
+      responses:
+        "200":
+          description: Successful analysis result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskResponse'
+        "401":
+          description: Unauthorized
+
+  /v1/feedback:
+    post:
+      summary: Submit Scam/Safe/Not sure feedback
+      operationId: submitFeedback
+      tags:
+        - feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../event-schema/feedback-event.json'
+      responses:
+        "200":
+          description: Feedback accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted:
+                    type: boolean
+
+components:
+  schemas:
+    SourceType:
+      type: string
+      enum: [SMS, URL, CALL]
+
+    SignalRequest:
+      type: object
+      required: [sourceType]
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/SourceType'
+        text:
+          type: string
+        callSessionId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+
+    RiskResponse:
+      type: object
+      required: [riskScore, explanation]
+      properties:
+        riskScore:
+          type: integer
+          minimum: 0
+          maximum: 100
+        explanation:
+          type: string
+        voiceScore:
+          type: integer
+        textScore:
+          type: integer
+        entityScore:
+          type: integer
+        piiScore:
+          type: integer
+        engagementScore:
+          type: integer
+        piiTypes:
+          type: array
+          items:
+            type: string
+        baiterResponse:
+          type: string
+          nullable: true
+        cacheHit:
+          type: boolean
+        matchedPatterns:
+          type: array
+          items:
+            type: object
+            properties:
+              pattern_id:
+                type: string
+              pattern_text:
+                type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

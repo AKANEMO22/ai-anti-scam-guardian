@@ -1,0 +1,47 @@
+{
+  "lane": "Lane Storage",
+  "generatedAt": "20260412_214452",
+  "summary": {
+    "done": 5,
+    "notDone": 0,
+    "missing": 0,
+    "total": 5
+  },
+  "results": [
+    {
+      "type": "logic",
+      "name": "Storage search route returns value",
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Storage index route returns value",
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Storage feedback route returns value",
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Storage orchestrator search-query payload",
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    },
+    {
+      "type": "logic",
+      "name": "Storage orchestrator update-database payload",
+      "path": "lane-storage/test/logic_checks.py",
+      "status": "DONE",
+      "issues": []
+    }
+  ]
+}

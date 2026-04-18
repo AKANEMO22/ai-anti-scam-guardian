@@ -1,0 +1,19 @@
+# Flutter/Dart build
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+
+# Python virtual environments
+**/.venv/
+**/__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+
+# Ignore generated large tflite models (generated locally, not tracked)
+lane-end-user/core/ml/src/main/assets/*.tflite
+*.tflite

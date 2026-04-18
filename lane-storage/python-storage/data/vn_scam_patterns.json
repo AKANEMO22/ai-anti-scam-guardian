@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bank_vcb_1",
+    "category": "Banking Phishing",
+    "description_vi": "Giả mạo Vietcombank thông báo tạm khóa tài khoản và yêu cầu xác thực qua link giả.",
+    "sample_text": "VCB Digibank: Tai khoan cua quy khach da bi tam khoa do dang nhap sai nhieu lan. Vui long truy cap https://vcb-auth.com de xac thuc ngay.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "bank_tcb_1",
+    "category": "Banking Phishing",
+    "description_vi": "Giả mạo Techcombank thông báo nâng cấp bảo mật, kèm link lừa đảo.",
+    "sample_text": "Techcombank: De nang cao bao mat F@st Mobile, vui long cap nhat ung dung tai https://tcb-upgrade.xyz, neu khong se bi khoa trong 24h.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "gov_police_1",
+    "category": "Government Impersonation",
+    "description_vi": "Giả danh công an yêu cầu cài đặt ứng dụng Dịch vụ công giả mạo.",
+    "sample_text": "Bo Cong An: Dong chi co the can cuoc cong dan chua tich hop VNeID muc 2. Truy cap muc2-vneid.gov.vn.com hoac tai app apk de tu cap nhat.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "gov_tax_1",
+    "category": "Government Impersonation",
+    "description_vi": "Giả danh chi cục thuế gửi thông báo hoàn thuế qua link lạ.",
+    "sample_text": "Tong cuc thue: Ban duoc hoan thue thu nhap ca nhan so tien 5.230.000d. Xac nhan nhat tien tai: http://hoan-thue-tcn.com.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "investment_pig_1",
+    "category": "Investment Fraud",
+    "description_vi": "Lôi kéo đầu tư crypto/forex với lãi suất cao qua Telegram.",
+    "sample_text": "Chuyen gia doc lenh ho tro kiem 2-5 trieu/ngay an toan, bao von 100%. Nhan tin ngay qua Zalo: 0987654321 de minh huong dan tao tai khoan san.",
+    "risk_level": "MEDIUM"
+  },
+  {
+    "id": "investment_pig_2",
+    "category": "Investment Fraud",
+    "description_vi": "Sàn thương mại điện tử tuyển CTV làm nhiệm vụ.",
+    "sample_text": "Tuyen CTV kho Shopee/Lazada, lam nhiem vu chot don nhan hoa hong 20%. Chi can dien thoai, khong can kinh nghiem. Thu nhap 500k-1000k/ngay.",
+    "risk_level": "MEDIUM"
+  },
+  {
+    "id": "romance_scam_1",
+    "category": "Romance Scam",
+    "description_vi": "Giả mạo người nước ngoài gửi quà, yêu cầu đóng phí hải quan.",
+    "sample_text": "Anh da gui cho em mot tui xach va tien mat 50,000 USD trong kien hang. Chi can ban thanh toan phi hai quan 5 trieu vao STK 123456789 (Le Thi A) thi ho se giao tan nha.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "lottery_1",
+    "category": "Lottery Fraud",
+    "description_vi": "Tin nhắn thông báo trúng thưởng xe máy/điện thoại, yêu cầu nạp card.",
+    "sample_text": "Chuc mung thue bao 09x da trung giai nhat 1 xe SH Mode va 50 trieu tien mat tu chuong trinh tri an khach hang. L/h 1900xxxx de nhan thuong, yeu cau nop 2 trieu phi lam ho so.",
+    "risk_level": "HIGH"
+  },
+  {
+    "id": "tech_support_1",
+    "category": "Tech Support Scam",
+    "description_vi": "Cảnh báo iPhone bị nhiễm virus, yêu cầu click link để dọn dẹp.",
+    "sample_text": "[Canh bao] Thiet bi cua ban da bi nhiem 5 virus nghiem trong. Pin se bi hong neu khong xu ly! Bam vao day de don dep va diet virus ngay: http://clean-virus-iphone.xyz.",
+    "risk_level": "MEDIUM"
+  },
+  {
+    "id": "ott_hijack_1",
+    "category": "OTT Hijack",
+    "description_vi": "Kịch bản mượn tiền gấp qua Zalo/Facebook (nghi ngờ hack nick).",
+    "sample_text": "Tai khoan VCB cua em dang bao tri, anh chuyen gium qua STK 091234567 (Nguyen Van B) NH BIDV 10 trieu giup em duoc khong? Sang mai em ra ngan hang rut tra anh luon.",
+    "risk_level": "MEDIUM"
+  }
+]

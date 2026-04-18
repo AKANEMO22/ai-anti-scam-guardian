@@ -1,0 +1,102 @@
+{
+  "lane_name": "Lane Storage",
+  "file_checks": [
+    {
+      "name": "Storage contracts",
+      "path": "lane-storage/python-storage/app/models/contracts.py",
+      "required_contains": [
+        "class SearchRequest",
+        "class IndexSignalRequest",
+        "class FeedbackEvent"
+      ]
+    },
+    {
+      "name": "Storage routes",
+      "path": "lane-storage/python-storage/app/routes/storage.py",
+      "required_contains": [
+        "@router.post(\"/v1/storage/search\")",
+        "@router.post(\"/v1/storage/index\")",
+        "@router.post(\"/v1/storage/feedback\")"
+      ]
+    },
+    {
+      "name": "Storage internal orchestrator",
+      "path": "lane-storage/python-storage/app/services/internal_link_orchestrator.py",
+      "required_contains": [
+        "def link_embeddings_rag_engine_to_vector_db",
+        "def link_semantic_matches_vector_db_to_rag_engine",
+        "def link_search_query_to_threat_agent"
+      ]
+    },
+    {
+      "name": "Storage app entry",
+      "path": "lane-storage/python-storage/app/main.py",
+      "required_contains": [
+        "FastAPI",
+        "app.include_router"
+      ]
+    },
+    {
+      "name": "Storage dependencies",
+      "path": "lane-storage/python-storage/app/dependencies.py",
+      "required_contains": [
+        "def get_internal_link_orchestrator"
+      ]
+    }
+  ],
+  "cross_lane_checks": [
+    {
+      "name": "Storage <-> Agentic search-query linkage",
+      "assertions": [
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "@router.post(\"/v1/storage/internal/search-query-to-threat-agent\")"
+          ]
+        },
+        {
+          "path": "lane-agentic-core/python-agentic-core/app/routes/score.py",
+          "required_contains": [
+            "@router.post(\"/v1/agentic/internal/search-query-to-threat-agent\")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Storage <- API Gateway index/feedback linkage",
+      "assertions": [
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/clients/storage_client.py",
+          "required_contains": [
+            "/v1/storage/index",
+            "/v1/storage/feedback"
+          ]
+        },
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "@router.post(\"/v1/storage/index\")",
+            "@router.post(\"/v1/storage/feedback\")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Storage update-database linkage with API Gateway",
+      "assertions": [
+        {
+          "path": "lane-api-gateway/python-api-gateway/app/routes/internal_cloud_run_update_database_flow.py",
+          "required_contains": [
+            "/v1/gateway/internal/update-database-to-vector-database-vertex-ai"
+          ]
+        },
+        {
+          "path": "lane-storage/python-storage/app/routes/storage.py",
+          "required_contains": [
+            "/v1/storage/internal/update-database-to-vector-database-vertex-ai"
+          ]
+        }
+      ]
+    }
+  ]
+}

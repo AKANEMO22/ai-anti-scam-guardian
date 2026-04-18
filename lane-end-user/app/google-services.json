@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "671347937201",
+    "project_id": "chimi-652bb",
+    "storage_bucket": "chimi-652bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671347937201:android:cb0d38daab507f0b46f790",
+        "android_client_info": {
+          "package_name": "com.sixseven.antiscam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Z3-XTidlSPhRZShg6r3pABHygc-NDxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

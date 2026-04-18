@@ -1,0 +1,67 @@
+{
+  "lane": "Lane API Gateway",
+  "generatedAt": "20260412_205535",
+  "summary": {
+    "done": 0,
+    "notDone": 5,
+    "missing": 0,
+    "total": 5
+  },
+  "results": [
+    {
+      "type": "logic",
+      "name": "Gateway analyze cache miss returns response",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] analyze_route_cache_miss_returns_response: No module named 'fastapi'",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 231, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 53, in check_analyze_route_cache_miss_returns_response"
+      ]
+    },
+    {
+      "type": "logic",
+      "name": "Gateway analyze cache hit short-circuit",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] analyze_route_cache_hit_short_circuit: No module named 'fastapi'",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 231, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 80, in check_analyze_route_cache_hit_short_circuit"
+      ]
+    },
+    {
+      "type": "logic",
+      "name": "Gateway feedback route returns ack",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] feedback_route_returns_ack: No module named 'fastapi'",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 231, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 120, in check_feedback_route_returns_ack"
+      ]
+    },
+    {
+      "type": "logic",
+      "name": "Gateway cloud-run cache round trip",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] cloud_run_cache_round_trip_not_none: cannot import name 'CloudRunApiMicroserviceTarget' from 'app.models.contracts' (C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\python-api-gateway\\app\\models\\contracts.py)",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 231, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 142, in check_cloud_run_cache_round_trip_not_none"
+      ]
+    },
+    {
+      "type": "logic",
+      "name": "Gateway feedback cache round trip",
+      "path": "lane-api-gateway/test/logic_checks.py",
+      "status": "NOT_DONE",
+      "issues": [
+        "Logic check exit code 1, expected 0",
+        "stdout: [FAIL] feedback_cache_round_trip_not_none: Feedback cache round-trip returned None",
+        "stderr: Traceback (most recent call last): |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 231, in _run_check |     check() |   File \"C:\\Users\\AKANEMO\\Downloads\\pipeline ai scam\\android-anti-scam-guardian\\lane-api-gateway\\test\\logic_checks.py\", line 212, in check_feedback_cache_round_trip_not_none"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "scam_detector_en",
+    "url": "REPLACE_WITH_YOUR_STORAGE_URL/scam_detector_en.tflite",
+    "path": "lane-end-user/core/ml/src/main/assets/scam_detector_en.tflite",
+    "sha256": "",
+    "size_mb": 417
+  }
+]
