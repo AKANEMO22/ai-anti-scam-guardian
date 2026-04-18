@@ -13,3 +13,5 @@
 
 # OS files
 .DS_Store
+
+.firebase_credential.json
