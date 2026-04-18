@@ -17,6 +17,7 @@ class Settings:
     strict_auth: bool
     dev_bearer_token: str
     firebase_credential_path: str
+    redis_url: str
 
 
 def get_settings() -> Settings:
@@ -26,6 +27,7 @@ def get_settings() -> Settings:
         request_timeout_seconds=float(os.getenv("REQUEST_TIMEOUT_SECONDS", "30")),
         strict_auth=_env_flag("STRICT_AUTH", False),
         dev_bearer_token=os.getenv("DEV_BEARER_TOKEN", "dev-token"),
-        firebase_credential_path=os.getenv("FIREBASE_CREDENTIAL_PATH", "/home/minhhoang/Documents/Project/ai-anti-scam-guardian/lane-api-gateway/python-api-gateway/firebase_credential.json")
+        firebase_credential_path=os.getenv("FIREBASE_CREDENTIAL_PATH", "/home/minhhoang/Documents/Project/ai-anti-scam-guardian/lane-api-gateway/python-api-gateway/firebase_credential.json"),
+        redis_url=os.getenv("REDIS_URL", "redis://localhost:6379/0"),
     )
 
