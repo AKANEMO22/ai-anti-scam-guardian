@@ -2,27 +2,53 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FeedbackEvent",
   "type": "object",
-  "required": ["eventId", "label", "sourceType", "timestamp"],
+  "required": [
+    "eventId",
+    "userId",
+    "label",
+    "sourceType",
+    "timestamp"
+  ],
   "properties": {
     "eventId": {
-      "type": "string"
+      "type": "string",
+      "description": "Unique identifier for the analysis event being rated"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Unique identifier of the user providing feedback"
     },
     "label": {
       "type": "string",
-      "enum": ["Scam", "Safe", "Not sure"]
+      "enum": [
+        "SCAM",
+        "SAFE",
+        "NOT_SURE"
+      ]
     },
     "sourceType": {
       "type": "string",
-      "enum": ["SMS", "URL", "CALL"]
+      "enum": [
+        "SMS",
+        "URL",
+        "CALL"
+      ]
     },
     "riskScore": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 100
+      "maximum": 100,
+      "description": "Optional predicted risk score provided by the system at time of feedback"
     },
     "timestamp": {
       "type": "string",
       "format": "date-time"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
     }
   }
 }

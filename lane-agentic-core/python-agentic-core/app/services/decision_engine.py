@@ -93,5 +93,9 @@ class DecisionEngine:
         self,
         payload: JsonScoreWarningPayload,
     ) -> None:
-        print("mocked")
-        return locals().get("mock_data", None) or {}
+        """Official Arrow: Final propagation of decision to infrastructure monitoring."""
+        # In a real environment, this might call a logging service or trigger a 
+        # Cloud Pub/Sub event for upstream consumers.
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"ALARM: High risk score {payload.riskScore} detected. Warning: {payload.warning}")
